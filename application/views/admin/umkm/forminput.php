@@ -149,7 +149,7 @@
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
                             <li class="nav-devider"></li>
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Data UMKM <span class="label label-rouded label-themecolor pull-right">2</span></span></a>
+                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Data UMKM <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
                                 <ul aria-expanded="false" class="collapse">
                                     <li><a href="index.html">List UMKM </a></li>
                                     <li><a href="index2.html">Input Data UMKM</a></li>
@@ -179,7 +179,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Sumberdana</h3>
+                        <h3 class="text-themecolor">Form Input Data UMKM</h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -191,22 +191,102 @@
                 <div class="container-fluid">
                     <div class="col-12">
                         <div class="card" style="padding: 10px">
-                            <!-- <div class="pull-right"><a href="javascript:void(0);" class="btn btn-success float-right" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add</a></div> -->
-                        <table class="table table-bordered table-responsive-lg" id="umkm" width="100%">
-                            <thead>
-                                <tr>
-                                    <th width="5%">No</th>
-                                    <th width="20%">Nama</th>
-                                    <th width="10%">Subsektor</th>
-                                    <th width="40%">Alamat</th>
-                                    <th width="15%">Teknologi</th>
-                                    <th width="10%">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbumkm">
-                                
-                            </tbody>
-                        </table>
+                            <form id="forminput">
+                                <div class="modal-body">
+                                <div class="form-group row col-12">
+                                        <div class="col-6">
+                                            <label>Nama</label>
+                                            <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan Nama">
+                                        </div>
+                                        <div class="col-6">
+                                            <label>Subsektor</label>
+                                            <select class="form-control" name="subsektor" id="subsektor">
+                                                <option class="form-control" selected="" hidden="" disabled="">Pilih Subsektor</option>
+                                                <?php foreach ($subsektor as $key) { ?>
+                                                    <option value="<?php echo $key->nama_subsektor ?>"><?php echo $key->nama_subsektor ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group row col-12">
+                                        <div class="col-4">
+                                            <label>Provinsi</label>
+                                            <select class="form-control slct_provinsi" name="provinsi" id="slct_provinsi" onchange="change_second2($(this).val(),this)">
+                                                <option disabled selected hidden>Pilih Provinsi</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <label>Kota/Kabupaten</label>
+                                            <select class="form-control slct_kota" name="kota" id="slct_kota">
+                                                <option disabled selected hidden class="nomor-not">Pilih Kota/Kabupaten</option>
+                                                <?php foreach ($kota as $key) { ?>
+                                            <option value="<?php echo $key->nama ?>" class="nomor-nor-<?php echo $key->id_provinsi ?>"> <?php  echo $key->nama ?> </option>
+                                        <?php }  ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <label>Kecamatan</label>
+                                            <input type="text" name="kecamatan" id="kecamatan" placeholder="Masukkan Kecamatan" class="form-control">
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Alamat</label>
+                                            <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukkan alamat"></textarea>
+                                        </div>
+                                </div>
+                                <div class="form-group row col-12">
+                                        <div class="col-4">
+                                            <label>Status Pemilik</label>
+                                            <input type="text" name="status" id="status" class="form-control" placeholder="Masukkan status">
+                                        </div>
+                                        <div class="col-4">
+                                            <label>Upah Karyawan (Rp)</label>
+                                            <input type="number" name="upah" id="upah" class="form-control" placeholder="Masukkan upah">
+                                        </div>
+                                        <div class="col-4">
+                                            <label>Sumber Dana</label>
+                                            <select class="form-control" name="sumberdana" id="sumberdana">
+                                                <option class="form-control" selected="" hidden="" disabled="">Pilih Sumberdana</option>
+                                                <?php foreach ($sumberdana as $key) { ?>
+                                                    <option value="<?php echo $key->nama_sumberdana ?>"><?php echo $key->nama_sumberdana ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group row col-12">
+                                        <div class="col-4">
+                                            <label>Teknologi</label>
+                                            <input type="text" name="teknologi" id="teknologi" class="form-control" placeholder="Masukkan teknologi">
+                                        </div>
+                                        <div class="col-4">
+                                            <label>Distribusi</label>
+                                            <input type="text" name="distribusi" id="distribusi" class="form-control" placeholder="Masukkan distribusi">
+                                        </div>
+                                        <div class="col-4">
+                                            <label>Ekspor</label>
+                                            <input type="text" name="ekspor" id="ekspor" class="form-control" placeholder="Masukkan eskpor">
+                                        </div>
+                                </div>
+                                <div class="form-group row col-12">
+                                        <div class="col-4">
+                                            <label>Permasalahan</label>
+                                            <input type="text" name="permasalahan" id="permasalahan" class="form-control" placeholder="Masukkan permasalahan">
+                                        </div>
+                                        <div class="col-4">
+                                            <label>Peluang dan Tantangan</label>
+                                            <input type="text" name="peluang" id="peluang" class="form-control" placeholder="Masukkan peluang/tantangan">
+                                        </div>
+                                        <div class="col-4">
+                                            <label>Kelembagaan</label>
+                                            <input type="text" name="kelembagaan" id="kelembagaan" class="form-control" placeholder="Masukkan kelembagaan">
+                                        </div>
+                                </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" id="btn_push" class="btn btn-primary ">Add</button>
+                                    <button type="reset" class="btn btn-secondary " data-dismiss="modal">Clear</button>
+                                </div>
+                            </form>                            
                         </div>
                     </div>
                 </div>
@@ -225,61 +305,6 @@
             <!-- End Page wrapper  -->
             <!-- ============================================================== -->
         </div>
-        <form id="formupdate">
-            <div class="modal fade" id="Modal_Update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Update sumberdana</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
-                        </div>
-                        <div class="modal-body">               
-                            <div class="container-fluid">   
-                                <div class="row">        
-                                    <!-- form inputan nama kegiatan -->
-                                    <div class="form-group col-lg-12 row">
-                                        <div class="col-12">
-                                            <label>Nama sumberdana</label>
-                                            <input type="text" id="upnama_sumberdana" name="upnama_sumberdana" class="form-control" placeholder="Masukkan sumberdana" style="width: 100%" required>
-                                        </div>
-                                    </div>
-                                    <!--  -->
-                                    <div class="modal-footer">
-                                        <!-- inputan button simpan dan Cancel -->
-                                        <input type="text" id="u_id" name="u_id" hidden="">
-                                        <button type="submit" id="btn_push" class="btn btn-primary ">Save</button>
-                                        <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <form id="formdelete">
-            <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Delete sumberdana</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
-                        </div>
-                        <div class="modal-body">                          
-
-                            <div class="form-group col-lg-12">
-                                <font>Anda ingin menghapus <b><font id="nama_sumberdana_del"></font></b> ?</font>
-                                <input type="hidden" name="id_del" id="id_del" class="form-control">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                                <button type="submit" id="btn_delete" class="btn btn-danger col-md-3">Hapus</button>    
-                                <button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal" style="margin-right: 20px">Batal</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
         <!-- ============================================================== -->
         <!-- End Wrapper -->
         <!-- ============================================================== -->
@@ -319,138 +344,85 @@
 
         <script type="text/javascript">
             $(document).ready(function(){
-                //panggil get data
-                showUmkm();
-                //get data sumberdana
-                function showUmkm() {
-                    $.ajax({
-                        type  : 'POST',
-                        url   : '<?php echo base_url()?>Umkm/getData',
-                        async : false,
-                        dataType : 'json',
-                        success : function(data){
-                            var html = '';
-                            var i;
+                //input data sumberdana
+                $('#forminput').submit(function(e){
+                e.preventDefault();
+                // memasukkan data inputan ke variabel
+                var nama            = $('#nama').val();
+                var nama_subsektor  = $('#subsektor').val();
+                var provinsi        = $('#slct_provinsi').val();
+                var kota            = $('#slct_kota').val();
+                var kecamatan       = $('#kecamatan').val();
+                var alamat          = $('#alamat').val();
+                var status          = $('#status').val();
+                var upah            = $('#upah').val();
+                var nama_sumberdana = $('#sumberdana').val();
+                var teknologi       = $('#teknologi').val();
+                var distribusi      = $('#distribusi').val();
+                var ekspor          = $('#ekspor').val();
+                var permasalahan    = $('#permasalahan').val();
+                var peluang         = $('#peluang').val();
+                var kelembagaan     = $('#kelembagaan').val();
+                // alert(provinsi);
+                // exit();
 
-                            for(i=0; i<data.length; i++){
-                                var ii = i+1;
-                                html += '<tr>'+
-                                '<td>'+ii+'</td>'+
-                                '<td>'+data[i].nama_umkm+'</td>'+
-                                '<td>'+data[i].nama_subsektor+'</td>'+
-                                '<td>'+data[i].alamat+' ,'+data[i].kecamatan+' ,'+data[i].kota+' ,'+data[i].provinsi+'</td>'+
-                                '<td>'+data[i].teknologi+'</td>'+
-                                '<td>'+ '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'" data-subsektor="'+data[i].nama_subsektor+'" data-status="'+data[i].status_pemilik+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nama_sumberdana+'" data-teknologi="'+data[i].teknologi+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].nama_ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-kelembagaan="'+data[i].kelembagaan+'" data-alamat="'+data[i].alamat+'" data-provinsi="'+data[i].provinsi+'" data-kota="'+data[i].kota+'" data-kecamatan="'+data[i].kecamatan+'"> <span class="fa fa-edit"></span> </a>'+ 
-                                '     '+
-                                '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'"> <span class="fa fa-trash"></span> </a>'+
-                                '</td>'+
-                                '</tr>';
-                            }
-                            $('#umkm').DataTable().destroy();
-                            $('#umkm').find('tbody').empty();
-                            $('#tbumkm').html(html);
-                            $('#umkm').DataTable({
-                                destroy         : true,
-                                'autoWidth'     : true,
-                                'paging'        : true,
-                                'lengthChange'  : true,
-                                'searching'     : true,
-                                'ordering'      : true,
-                                'info'          : true
-                            });
-                        }
-                    });
-                }
-                
-
-                //update sumberdana
-                $('#sumberdana').on('click','.item_edit',function(){
-                    // memasukkan data yang dipilih dari tbl list agenda updatean ke variabel 
-                    var upid            = $(this).data('id');
-                    var upnama          = $(this).data('nama'); 
-
-                    // alert(upnama);
-                    // memasukkan data ke form updatean
-                    $('[name="u_id"]').val(upid);
-                    $('[name="upnama_sumberdana"]').val(upnama);
-
-                    // alert(upnama);
-                    $('#Modal_Update').modal('show');
-                });
-
-                //UPDATE MASTER to database (submit button)
-                $('#formupdate').submit(function(e){
-                    e.preventDefault(); 
-                    // memasukkan data dari form update ke variabel untuk update db
-                    var up_id       = $('#u_id').val();
-                    var up_nama     = $('#upnama_sumberdana').val();
-
-                    $.ajax({
-                        type : "POST",
-                        url  : "<?php echo site_url(); ?>/Sumberdana/updateSumberdana",
-                        dataType : "JSON",
-                        data : { 
-                            id:up_id,
-                            nama_sumberdana:up_nama,
-                        },
-
-                        success: function(data){
-                            Swal.fire({
-                                type: 'success',
-                                title: 'Berhasil memperbarui data ',
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
-                            $('#Modal_Update').modal('hide'); 
-                            $("#sumberdana").DataTable().destroy();
-                            $("#sumberdana").find('tbody').empty();
-                            document.getElementById('formupdate').reset();
-                            showSumberdana();
-                        }
-                    });
-                    return false;
-                });
-
-                //delete sumberdana
-                $('#sumberdana').on('click','.item_delete',function(){
-                    var id = $(this).data('id');
-                    var nama = $(this).data('nama'); 
-                    
-                // alert(act);
-                $('#Modal_Delete').modal('show');
-                document.getElementById("nama_sumberdana_del").innerHTML=nama;
-                $('[name="id_del"]').val(id);
-            });
-
-            //delete record to database
-            $('#formdelete').submit(function(e){
-                e.preventDefault(); 
-                var id = $('#id_del').val();
-                
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo site_url(); ?>/Sumberdana/deleteSumberdana",
+                    url  : "<?php echo site_url(); ?>/FormUmkm/newUmkm",
                     dataType : "JSON",
                     data : {
-                        id:id,
+                        nama_umkm:nama,
+                        nama_subsektor:nama_subsektor,
+                        provinsi:provinsi,
+                        kota:kota,
+                        kecamatan:kecamatan,
+                        alamat:alamat,
+                        status_pemilik:status,
+                        upah_tenaga_kerja:upah,
+                        nama_sumberdana:nama_sumberdana,
+                        teknologi:teknologi,
+                        distribusi:distribusi,
+                        ekspor:ekspor,
+                        permasalahan:permasalahan,
+                        peluang_tantangan:peluang,
+                        kelembagaan:kelembagaan,
                     },
-                    success: function(){
-                        $('[name="id_del"]').val("");
+
+                    success: function(){ 
                         Swal.fire({
                             type: 'success',
-                            title: 'Berhasil menghapus data ',
-                            showConfirmButton: true,
+                            title: 'Berhasil menambahkan data ',
+                            showConfirmButton: false,
+                            timer: 1500
                         })
-                        $('#Modal_Delete').modal('hide'); 
-                        $("#sumberdana").DataTable().destroy();
-                        $("#sumberdana").find('tbody').empty();
-                        document.getElementById('formdelete').reset();
-                        showsumberdana();
+                        document.getElementById('forminput').reset();
                     }
                 });
+
                 return false;
             });
+
+                $.ajax({
+                    url: "<?php echo site_url(); ?>/FormUmkm/select_provinsi",
+                    success : function(data){
+                        $('#forminput').find('#slct_provinsi').html(data);
+                    }
+                });
+                $.ajax({
+                    url: "<?php echo site_url(); ?>/FormUmkm/select_kota",
+                    success : function(data){
+                        $('#forminput').find('#slct_kota').html(data);
+                    }
+                });
             });
+
+            function change_second2(value,target) {
+                let id_provinsi = value;
+                // alert(id_provinsi);
+                $(target).parents('.row').find('.slct_kota').find('option').not('.nomor-not').hide();
+                $(target).parents('.row').find('.slct_kota').val('0');
+                $(target).parents('.row').find('.slct_kota').find('.nomor-nor-'+id_provinsi).show();
+            }
         </script>
     </body>
 

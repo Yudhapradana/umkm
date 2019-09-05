@@ -19,11 +19,6 @@ class Umkm extends CI_Controller {
 		echo json_encode( $this->Umkm_model->getData());
 	}
 
-	public function formInput()
-	{
-		$this->load->view('admin/umkm/forminput');
-	}
-
 }
 
 /* End of file Umkm.php */
