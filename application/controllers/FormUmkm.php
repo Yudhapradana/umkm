@@ -17,18 +17,21 @@ class FormUmkm extends CI_Controller {
 		$data['kota'] = $this->Umkm_model->get_kota();
 		$data['subsektor'] = $this->Subsektor_model->getData();
 		$data['sumberdana'] = $this->Sumberdana_model->getData();
+			$this->load->view('admin/header');
 		$this->load->view('admin/umkm/forminput',$data);
 	}
 
 	public function select_kota()
 	{
 		$data['kota'] = $this->Umkm_model->get_kota();
+
 		$this->load->view('admin/umkm/select_kota',$data);
 	}
 
 	public function select_provinsi()
 	{
 		$data['provinsi'] = $this->Umkm_model->get_provinsi();
+
 		$this->load->view('admin/umkm/select_provinsi',$data);
 	}
 
