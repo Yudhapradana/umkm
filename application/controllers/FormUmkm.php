@@ -17,7 +17,7 @@ class FormUmkm extends CI_Controller {
 		$data['kota'] = $this->Umkm_model->get_kota();
 		$data['subsektor'] = $this->Subsektor_model->getData();
 		$data['sumberdana'] = $this->Sumberdana_model->getData();
-			$this->load->view('admin/header');
+		$this->load->view('admin/header');
 		$this->load->view('admin/umkm/forminput',$data);
 	}
 
@@ -50,11 +50,11 @@ class FormUmkm extends CI_Controller {
 		$kelembagaan = $this->input->post('kelembagaan');
 		$alamat = $this->input->post('alamat');
 		$provinsi = $this->input->post('provinsi');
-		$getnameprovinsi = $this->Umkm_model->get_provinsivalue($provinsi);
-		$getnameprovinsi2 = $getnameprovinsi[0]['nama'];
+		// $getnameprovinsi = $this->Umkm_model->get_provinsivalue($provinsi);
+		// $getnameprovinsi2 = $getnameprovinsi[0]['nama'];
 		$kota = $this->input->post('kota');
 		$kecamatan = $this->input->post('kecamatan');
-		$result = $this->Umkm_model->newUmkm($nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$getnameprovinsi2,$kota,$kecamatan);
+		$result = $this->Umkm_model->newUmkm($nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$provinsi,$kota,$kecamatan);
 
 		echo json_encode($result);
 	}

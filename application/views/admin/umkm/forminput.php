@@ -113,12 +113,18 @@
                                             <input type="text" name="kelembagaan" id="kelembagaan" class="form-control" placeholder="Masukkan kelembagaan">
                                         </div>
                                 </div>
+                                <!-- <div class="form-group row col-12 align-items-center">
+                                    <div class="col-4">
+                                            <label>Upload Foto Produk</label>
+                                            <input type="file" name="gambar" id="gambar">
+                                    </div>
+                                </div> -->
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" id="btn_push" class="btn btn-primary ">Add</button>
                                     <button type="reset" class="btn btn-secondary " data-dismiss="modal">Clear</button>
                                 </div>
-                            </form>                            
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -220,7 +226,7 @@
                         kelembagaan:kelembagaan,
                     },
 
-                    success: function(){ 
+                    success: function(){
                         Swal.fire({
                             type: 'success',
                             title: 'Berhasil menambahkan data ',

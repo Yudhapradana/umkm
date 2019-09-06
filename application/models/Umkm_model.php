@@ -5,7 +5,7 @@ class Umkm_model extends CI_Model {
 
 	public function getData()
 	{
-		$query=$this->db->get('tb_umkm');
+		$query=$this->db->query("SELECT * FROM tb_umkm inner join tb_provinsi on id_provinsi=provinsi");
 		return $query->result();
 	}
 
@@ -51,19 +51,33 @@ class Umkm_model extends CI_Model {
         return $this->db->insert('tb_umkm', $data);
 	}	
 
-	public function updateSumberdana($id,$nama_sumberdana)
+	public function updateUmkm($id,$nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$provinsi,$kota,$kecamatan)
 	{
 		
 		$data = array(
-            'nama_sumberdana'               =>$nama_sumberdana,
+            'nama_umkm'             =>$nama_umkm,
+            'nama_subsektor'        =>$nama_subsektor,
+            'status_pemilik'        =>$status_pemilik,
+            'upah_tenaga_kerja'     =>$upah_tenaga_kerja,
+            'nama_sumberdana'       =>$nama_sumberdana,
+            'teknologi'             =>$teknologi,
+            'distribusi'            =>$distribusi,
+            'permasalahan'          =>$permasalahan,
+            'ekspor'                =>$ekspor,
+            'peluang_tantangan'     =>$peluang_tantangan,
+            'kelembagaan'           =>$kelembagaan,
+            'alamat'                =>$alamat,
+            'provinsi'              =>$provinsi,
+            'kota'                  =>$kota,
+            'kecamatan'             =>$kecamatan,
         );
-		$this->db->where('id_sumberdana', $id);
+		$this->db->where('id_umkm', $id);
         return $this->db->update('tb_umkm', $data);
 	}
 
-	public function deleteSumberdana($id)
+	public function deleteUmkm($id)
 	{
-        $this->db->where('id_sumberdana', $id);
+        $this->db->where('id_umkm', $id);
         $result = $this->db->delete('tb_umkm');
         return $result;
 	}	
