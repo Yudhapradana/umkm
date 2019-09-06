@@ -20,6 +20,11 @@
     <!-- You can change the theme colors from here -->
     <link href="assets/css/colors/blue.css" id="theme" rel="stylesheet">
     <link rel="stylesheet" href="assets/datatables/datatables.min.css">
+    <style>
+            body {
+              padding-right: 0 !important;
+          }
+      </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -112,7 +117,7 @@
                             <!-- Profile -->
                             <!-- ============================================================== -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/normal.png" alt="user" class="profile-pic" /></a>
+                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/default.png" alt="user" class="profile-pic" /></a>
                                 <div class="dropdown-menu dropdown-menu-right scale-up">
                                     <ul class="dropdown-user">
                                         <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
@@ -135,7 +140,7 @@
                     <!-- User profile -->
                     <div class="user-profile">
                         <!-- User profile image -->
-                        <div class="profile-img"> <img src="assets/images/users/normal.png" alt="user" />
+                        <div class="profile-img"> <img src="assets/images/users/default.png" alt="user" />
                             <!-- this is blinking heartbit-->
 
                         </div>

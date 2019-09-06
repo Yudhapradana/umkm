@@ -68,11 +68,11 @@
                             <div class="form-group row col-12">
                                         <div class="col-6">
                                             <label>Nama</label>
-                                            <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan Nama">
+                                            <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan Nama" required>
                                         </div>
                                         <div class="col-6">
                                             <label>Subsektor</label>
-                                            <select class="form-control" name="subsektor" id="subsektor">
+                                            <select class="form-control" name="subsektor" id="subsektor" required>
                                                 <option class="form-control" value="" selected="" hidden="" disabled="">Pilih Subsektor</option>
                                                 <?php foreach ($subsektor as $key) { ?>
                                                     <option value="<?php echo $key->nama_subsektor ?>"><?php echo $key->nama_subsektor ?></option>
@@ -83,8 +83,8 @@
                                 <div class="form-group row col-12">
                                         <div class="col-4">
                                             <label>Provinsi</label>
-                                            <select class="form-control slct_provinsi" name="slct_provinsi" id="slct_provinsi" onchange="change_second2($(this).val(),this)">
-                                                <option disabled selected hidden>Pilih Provinsi</option>
+                                            <select class="form-control slct_provinsi" name="slct_provinsi" id="slct_provinsi" onchange="change_second2($(this).val(),this)" required>
+                                                <option disabled selected hidden value="">Pilih Provinsi</option>
                                                 <?php foreach ($provinsi as $key) { ?>
                                                         <option value="<?php  echo $key->id_provinsi ?>"> <?php  echo $key->nama ?> </option>
                                                 <?php }  ?>
@@ -92,8 +92,8 @@
                                         </div>
                                         <div class="col-4">
                                             <label>Kota/Kabupaten</label>
-                                            <select class="form-control slct_kota" name="kota" id="slct_kota">
-                                                <option disabled selected hidden class="nomor-not">Pilih Kota/Kabupaten</option>
+                                            <select class="form-control slct_kota" name="kota" id="slct_kota" required>
+                                                <option disabled selected hidden class="nomor-not" value="">Pilih Kota/Kabupaten</option>
                                                 <?php foreach ($kota as $key) { ?>
                                                     <option value="<?php echo $key->nama ?>" class="nomor-nor-<?php echo $key->id_provinsi ?>"> <?php  echo $key->nama ?> </option>
                                         <?php }  ?>
@@ -101,26 +101,26 @@
                                         </div>
                                         <div class="col-4">
                                             <label>Kecamatan</label>
-                                            <input type="text" name="kecamatan" id="kecamatan" placeholder="Masukkan Kecamatan" class="form-control">
+                                            <input type="text" name="kecamatan" id="kecamatan" placeholder="Masukkan Kecamatan" class="form-control" required>
                                         </div>
                                         <div class="col-12">
                                             <label>Alamat</label>
-                                            <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukkan alamat"></textarea>
+                                            <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukkan alamat" required></textarea>
                                         </div>
                                 </div>
                                 <div class="form-group row col-12">
                                         <div class="col-4">
                                             <label>Status Pemilik</label>
-                                            <input type="text" name="status" id="status" class="form-control" placeholder="Masukkan status">
+                                            <input type="text" name="status" id="status" class="form-control" placeholder="Masukkan status" required>
                                         </div>
                                         <div class="col-4">
                                             <label>Upah Karyawan (Rp)</label>
-                                            <input type="number" name="upah" id="upah" class="form-control" placeholder="Masukkan upah">
+                                            <input type="number" name="upah" id="upah" class="form-control" placeholder="Masukkan upah" required>
                                         </div>
                                         <div class="col-4">
                                             <label>Sumber Dana</label>
-                                            <select class="form-control" name="sumberdana" id="sumberdana">
-                                                <option class="form-control" selected="" hidden="" disabled="">Pilih Sumberdana</option>
+                                            <select class="form-control" name="sumberdana" id="sumberdana" required>
+                                                <option class="form-control" selected="" hidden="" disabled="" value="">Pilih Sumberdana</option>
                                                 <?php foreach ($sumberdana as $key) { ?>
                                                     <option value="<?php echo $key->nama_sumberdana ?>"><?php echo $key->nama_sumberdana ?></option>
                                                 <?php } ?>
@@ -130,35 +130,43 @@
                                 <div class="form-group row col-12">
                                         <div class="col-4">
                                             <label>Teknologi</label>
-                                            <input type="text" name="teknologi" id="teknologi" class="form-control" placeholder="Masukkan teknologi">
+                                            <input type="text" name="teknologi" id="teknologi" class="form-control" placeholder="Masukkan teknologi" required>
                                         </div>
                                         <div class="col-4">
                                             <label>Distribusi</label>
-                                            <input type="text" name="distribusi" id="distribusi" class="form-control" placeholder="Masukkan distribusi">
+                                            <input type="text" name="distribusi" id="distribusi" class="form-control" placeholder="Masukkan distribusi" required>
                                         </div>
                                         <div class="col-4">
                                             <label>Ekspor</label>
-                                            <input type="text" name="ekspor" id="ekspor" class="form-control" placeholder="Masukkan eskpor">
+                                            <input type="text" name="ekspor" id="ekspor" class="form-control" placeholder="Masukkan eskpor" required>
                                         </div>
                                 </div>
                                 <div class="form-group row col-12">
                                         <div class="col-4">
                                             <label>Permasalahan</label>
-                                            <input type="text" name="permasalahan" id="permasalahan" class="form-control" placeholder="Masukkan permasalahan">
+                                            <input type="text" name="permasalahan" id="permasalahan" class="form-control" placeholder="Masukkan permasalahan" required>
                                         </div>
                                         <div class="col-4">
                                             <label>Peluang dan Tantangan</label>
-                                            <input type="text" name="peluang" id="peluang" class="form-control" placeholder="Masukkan peluang/tantangan">
+                                            <input type="text" name="peluang" id="peluang" class="form-control" placeholder="Masukkan peluang/tantangan" required>
                                         </div>
                                         <div class="col-4">
                                             <label>Kelembagaan</label>
-                                            <input type="text" name="kelembagaan" id="kelembagaan" class="form-control" placeholder="Masukkan kelembagaan">
+                                            <input type="text" name="kelembagaan" id="kelembagaan" class="form-control" placeholder="Masukkan kelembagaan" required>
                                         </div>
+                                </div>
+                                <div class="form-group row col-12 align-items-center">
+                                    <div class="col-4">
+                                            <label>Upload Foto Produk</label>
+                                            <input type="file" name="file" id="file" required>
+                                            <img id="foto_update" style="display: none;">
+                                    </div>
                                 </div>
                         </div>
                         <div class="modal-footer">
                                 <!-- inputan button simpan dan Cancel -->
-                                <input type="text" id="u_id" name="u_id" hidden="">
+                                <input type="text" id="id" name="id" hidden="">
+                                <input type="hidden" name="fotolama" id="fotolama" class="form-control">
                                 <button type="submit" id="btn_push" class="btn btn-primary ">Save</button>
                                 <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
                         </div>
@@ -176,13 +184,16 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group row col-12">
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <label class="font-weight-bold">Nama</label>
                                             <h5 id="dnama"></h5>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <label class="font-weight-bold">Subsektor</label>
                                             <h5 id="dsubsektor"></h5>
+                                        </div>
+                                        <div class="col-4">
+                                            <img id="dfoto_update" style="display: none;">
                                         </div>
                                 </div>
                                 <hr>
@@ -267,6 +278,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
+                            
                                 <button type="submit" id="btn_delete" class="btn btn-danger col-md-3">Hapus</button>
                                 <button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal" style="margin-right: 20px">Batal</button>
                         </div>
@@ -335,9 +347,9 @@
                                 '<td>'+data[i].alamat+' ,'+data[i].kecamatan+' ,'+data[i].kota+' ,'+data[i].nama+'</td>'+
                                 '<td>'+data[i].teknologi+'</td>'+
                                 '<td>'+
-                                '<a href="javascript:void(0);" class="btn btn-info btn-sm item_detail" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'" data-subsektor="'+data[i].nama_subsektor+'" data-status="'+data[i].status_pemilik+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nama_sumberdana+'" data-teknologi="'+data[i].teknologi+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-kelembagaan="'+data[i].kelembagaan+'" data-alamat="'+data[i].alamat+'" data-provinsi="'+data[i].provinsi+'" data-kota="'+data[i].kota+'" data-kecamatan="'+data[i].kecamatan+'"> <span class="fa fa-info-circle"></span> </a>'+
+                                '<a href="javascript:void(0);" class="btn btn-info btn-sm item_detail" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'" data-subsektor="'+data[i].nama_subsektor+'" data-status="'+data[i].status_pemilik+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nama_sumberdana+'" data-teknologi="'+data[i].teknologi+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-kelembagaan="'+data[i].kelembagaan+'" data-alamat="'+data[i].alamat+'" data-provinsi="'+data[i].provinsi+'" data-kota="'+data[i].kota+'" data-kecamatan="'+data[i].kecamatan+'" data-gambar="'+data[i].gambar+'"> <span class="fa fa-info-circle"></span> </a>'+
                                 '     '+
-                                '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'" data-subsektor="'+data[i].nama_subsektor+'" data-status="'+data[i].status_pemilik+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nama_sumberdana+'" data-teknologi="'+data[i].teknologi+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-kelembagaan="'+data[i].kelembagaan+'" data-alamat="'+data[i].alamat+'" data-provinsi="'+data[i].provinsi+'" data-kota="'+data[i].kota+'" data-kecamatan="'+data[i].kecamatan+'"> <span class="fa fa-edit"></span> </a>'+
+                                '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'" data-subsektor="'+data[i].nama_subsektor+'" data-status="'+data[i].status_pemilik+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nama_sumberdana+'" data-teknologi="'+data[i].teknologi+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-kelembagaan="'+data[i].kelembagaan+'" data-alamat="'+data[i].alamat+'" data-provinsi="'+data[i].provinsi+'" data-kota="'+data[i].kota+'" data-kecamatan="'+data[i].kecamatan+'" data-gambar="'+data[i].gambar+'"> <span class="fa fa-edit"></span> </a>'+
 
                                 '     '+
                                 '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'"> <span class="fa fa-trash"></span> </a>'+
@@ -380,77 +392,48 @@
                     var kota          = $(this).data('kota');
                     var kecamatan          = $(this).data('kecamatan');
                     var alamat          = $(this).data('alamat');
+                    var gambar          = $(this).data('gambar');
+
+                    document.getElementById("foto_update").height="200";
+                    document.getElementById("foto_update").width="260";
+                    document.getElementById("foto_update").src="<?=base_url()?>./assets/"+gambar;
+                    document.getElementById("foto_update").style.display="block";
 
                     
                     // memasukkan data ke form updatean
-                    $('[name="du_id"]').val(id);
-                    $('[name="dnama"]').val(nama);
-                    $('[name="dsubsektor"]').val(subsektor);
-                    $('[name="dstatus"]').val(status);
-                    $('[name="dupah"]').val(upah);
-                    $('[name="dsumberdana"]').val(sumberdana);
-                    $('[name="dteknologi"]').val(teknologi);
-                    $('[name="ddistribusi"]').val(distribusi);
-                    $('[name="dpermasalahan"]').val(permasalahan);
-                    $('[name="dekspor"]').val(ekspor);
-                    $('[name="dpeluang"]').val(peluang);
-                    $('[name="delembagaan"]').val(kelembagaan);
-                    $('[name="dslct_provinsi"]').val(provinsi);
-                    $('[name="dkota"]').val(kota);
-                    $('[name="dkecamatan"]').val(kecamatan);
-                    $('[name="dalamat"]').val(alamat);
+                    $('[name="id"]').val(id);
+                    $('[name="nama"]').val(nama);
+                    $('[name="subsektor"]').val(subsektor);
+                    $('[name="status"]').val(status);
+                    $('[name="upah"]').val(upah);
+                    $('[name="sumberdana"]').val(sumberdana);
+                    $('[name="teknologi"]').val(teknologi);
+                    $('[name="distribusi"]').val(distribusi);
+                    $('[name="permasalahan"]').val(permasalahan);
+                    $('[name="ekspor"]').val(ekspor);
+                    $('[name="peluang"]').val(peluang);
+                    $('[name="kelembagaan"]').val(kelembagaan);
+                    $('[name="slct_provinsi"]').val(provinsi);
+                    $('[name="kota"]').val(kota);
+                    $('[name="kecamatan"]').val(kecamatan);
+                    $('[name="alamat"]').val(alamat);
+                    $('[name="fotolama"]').val(gambar);
 
                     // alert(upnama);
                     $('#Modal_Update').modal('show');
                 });
 
-                //UPDATE MASTER to database (submit button)
                 $('#formupdate').submit(function(e){
-                    e.preventDefault();
-                    // memasukkan data dari form update ke variabel untuk update db
-                    var id              = $('#u_id').val();
-                    var nama            = $('#nama').val();
-                    var subsektor       = $('#subsektor').val();
-                    var status          = $('#status').val();
-                    var upah            = $('#upah').val();
-                    var sumberdana      = $('#sumberdana').val();
-                    var teknologi       = $('#teknologi').val();
-                    var distribusi      = $('#distribusi').val();
-                    var permasalahan    = $('#permasalahan').val();
-                    var ekspor          = $('#ekspor').val();
-                    var peluang         = $('#peluang').val();
-                    var kelembagaan     = $('#kelembagaan').val();
-                    var slct_provinsi   = $('#slct_provinsi').val();
-                    var kota            = $('#slct_kota').val();
-                    var kecamatan       = $('#kecamatan').val();
-                    var alamat          = $('#alamat').val();
-                    // alert(kota);
-                    // exit();
-
-                    $.ajax({
-                        type : "POST",
-                        url  : "<?php echo site_url(); ?>Umkm/updateUmkm",
-                        dataType : "JSON",
-                        data : {
-                            id:id,
-                            nama_umkm:nama,
-                            nama_subsektor:subsektor,
-                            provinsi:slct_provinsi,
-                            kota:kota,
-                            kecamatan:kecamatan,
-                            alamat:alamat,
-                            status_pemilik:status,
-                            upah_tenaga_kerja:upah,
-                            nama_sumberdana:sumberdana,
-                            teknologi:teknologi,
-                            distribusi:distribusi,
-                            ekspor:ekspor,
-                            permasalahan:permasalahan,
-                            peluang_tantangan:peluang,
-                            kelembagaan:kelembagaan,
-                        },
-
-                        success: function(data){
+                e.preventDefault();
+                $.ajax({
+                        url:'<?php echo base_url();?>index.php/Umkm/updateUmkm', //URL submit
+                        type:"post", //method Submit
+                        data:new FormData(this), //penggunaan FormData
+                        processData:false,
+                        contentType:false,
+                        cache:false,
+                        async:false,
+                        success: function(data){ 
                             Swal.fire({
                                 type: 'success',
                                 title: 'Berhasil memperbarui data ',
@@ -461,11 +444,12 @@
                             $("#umkm").DataTable().destroy();
                             $("#umkm").find('tbody').empty();
                             document.getElementById('formupdate').reset();
-                            showUmkm();
+                            showUmkm();         
                         }
-                    });
-                    return false;
                 });
+                return false;
+            });
+
 
                 //delete sumberdana
                 $('#umkm').on('click','.item_delete',function(){
@@ -525,6 +509,12 @@
                     var kota          = $(this).data('kota');
                     var kecamatan     = $(this).data('kecamatan');
                     var alamat        = $(this).data('alamat');
+                    var gambar          = $(this).data('gambar');
+
+                    document.getElementById("dfoto_update").height="100";
+                    document.getElementById("dfoto_update").width="160";
+                    document.getElementById("dfoto_update").src="<?=base_url()?>./assets/"+gambar;
+                    document.getElementById("dfoto_update").style.display="block";
 
                     
                     // memasukkan data ke form updatean
@@ -539,7 +529,9 @@
                     document.getElementById("dekspor").innerHTML= ekspor;
                     document.getElementById("dpeluang").innerHTML= peluang;
                     document.getElementById("dkelembagaan").innerHTML= kelembagaan;
+                    // document.getElementById("dkelembagaan").innerHTML= kelembagaan;
                     document.getElementById("dalamat").innerHTML= alamat+', '+kecamatan+', '+kota+', '+provinsi;
+
                     
                     // alert(upnama);
                     $('#Modal_Detail').modal('show');
