@@ -109,7 +109,7 @@
 						<div class="search-wrap-1 ftco-animate mb-5">
 							<form action="#" class="search-property-1">
 		        		<div class="row">
-		        			<div class="col-lg align-items-end">
+		        <!-- 			<div class="col-lg align-items-end">
 		        				<div class="form-group">
 		        					<label for="#">Select Model</label>
 		        					<div class="form-field">
@@ -197,7 +197,12 @@
 		                    </div>
 				              </div>
 			              </div>
-		        			</div>
+		        			</div> -->
+                    <div class="col-lg align-items-end">
+                    <div class="form-group">
+                      <input type="text" name="search" style="width: 900px ; height: 50px" placeholder="  search nama produk / nama umkm / lokasi">
+                    </div>
+                    </div>
 		        			<div class="col-lg align-self-end">
 		        				<div class="form-group">
 		        					<div class="form-field">
@@ -213,7 +218,7 @@
 	    </div>
     </section>
 
-    <section class="ftco-section services-section ftco-no-pt ftco-no-pb">
+   <!--  <section class="ftco-section services-section ftco-no-pt ftco-no-pb">
       <div class="container">
       	<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
@@ -269,8 +274,8 @@
         </div>
       </div>
     </section>
-
-    <section class="ftco-section">
+ -->
+    <section class="ftco-section" style="margin-top: -30px">
     	<div class="container-fluid px-4">
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
@@ -279,25 +284,27 @@
           </div>
         </div>
     		<div class="row">
+          <?php foreach ($barang as $key ) { ?>
     			<div class="col-md-3">
     				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(assets/user/images/car-1.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
+    					<div class="img d-flex align-items-end" style="background-image: url(assets/<?php echo $key->gambar; ?> );">
+    					<!-- 	<div class="price-wrap d-flex">
+    							<span class="rate">$25</span> 
     							<p class="from-day">
     								<span>From</span>
     								<span>/Day</span>
     							</p>
-    						</div>
+    						</div>-->
     					</div>
     					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
+    						<h2 class="mb-0"><a href="#"><?php echo $key->nama_umkm; ?></a></h2>
     						<span>Audi</span>
     						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
     					</div>
     				</div>
     			</div>
-    			<div class="col-md-3">
+        <?php } ?>
+    			<!-- <div class="col-md-3">
     				<div class="car-wrap ftco-animate">
     					<div class="img d-flex align-items-end" style="background-image: url(assets/user/images/car-2.jpg);">
     						<div class="price-wrap d-flex">
@@ -405,8 +412,8 @@
     						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
     					</div>
     				</div>
-    			</div>
-    			<div class="col-md-3">
+    			</div> -->
+    			<!-- <div class="col-md-3">
     				<div class="car-wrap ftco-animate">
     					<div class="img d-flex align-items-end" style="background-image: url(assets/user/images/car-8.jpg);">
     						<div class="price-wrap d-flex">
@@ -423,7 +430,7 @@
     						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
     					</div>
     				</div>
-    			</div>
+    			</div> -->
     		</div>
     	</div>
     </section>

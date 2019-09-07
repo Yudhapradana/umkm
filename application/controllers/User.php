@@ -6,13 +6,13 @@ class User extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
+		$this->load->model('Umkm_model');
 	}
 
 	public function index()
 	{
-		
-		$this->load->view('user/index');
+		$data['barang']=$this->Umkm_model->getData();
+		$this->load->view('user/index',$data);
 	}
 
 }
