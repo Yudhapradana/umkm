@@ -7,24 +7,25 @@
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/user/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="assets/user/css/animate.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/animate.css">
     
-    <link rel="stylesheet" href="assets/user/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/user/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/user/css/magnific-popup.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/magnific-popup.css">
 
-    <link rel="stylesheet" href="assets/user/css/aos.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/aos.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/bootstrap.css">
 
-    <link rel="stylesheet" href="assets/user/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="assets/user/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="assets/user/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/jquery.timepicker.css">
 
     
-    <link rel="stylesheet" href="assets/user/css/flaticon.css">
-    <link rel="stylesheet" href="assets/user/css/icomoon.css">
-    <link rel="stylesheet" href="assets/user/css/style.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/flaticon.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/icomoon.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/style.css">
   </head>
   <body>
     
@@ -49,36 +50,16 @@
 	  </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap" style="background-image: url('assets/user/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('<?php  echo base_url()?>assets/user/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center">
           <div class="col-lg-6 col-md-6 ftco-animate d-flex align-items-end">
-          	<div class="text">
-	            <h1 class="mb-4">Ayo <span>Beli Produk UMKM</span></h1>
-	           <!--  <p style="font-size: 18px;">Demi Membantu Ekonomi Bangsa</p> -->
-	            <a href="https://vimeo.com/45830194" class="icon-wrap popup-vimeo d-flex align-items-center mt-4">
-	            	<div class="icon d-flex align-items-center justify-content-center">
-	            		<span class="ion-ios-play"></span>
-	            	</div>
-	            	<div class="heading-title ml-5">
-		            	<span>Easy steps for renting a car</span>
-	            	</div>
-	            </a>
-            </div>
+          	
           </div>
           <div class="col-lg-2 col" ></div>
           <div class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex" >
-          	<form action="#" class="request-form ftco-animate" style="margin-top: -130px">
-          		<h2>LOGIN</h2>
-	    				<div class="form-group">
-	    					<label for="" class="label">Username</label>
-	    					<input type="text" class="form-control" placeholder="Username">
-	    				</div>
-	    				<div class="form-group" style="width: 350px">
-	    					<label for="" class="label">Password</label>
-	    					<input type="Password" class="form-control" placeholder="Password">
-	    				</div>
+          	
 	    		 <!--   	<div class="d-flex">
 	    					<div class="form-group mr-2">
 	             <label for="" class="label">Pick-up date</label>
@@ -93,10 +74,7 @@
              <label for="" class="label">Pick-up time</label> 
                 <input type="text" class="form-control" id="time_pick" placeholder="Time">
               </div> -->
-	            <div class="form-group">
-	              <input type="submit" value="Submit" class="btn btn-primary py-3 px-4">
-	            </div>
-	    			</form>
+	      
           </div>
         </div>
       </div>
@@ -107,100 +85,12 @@
 	    	<div class="row">
 					<div class="col-md-12">
 						<div class="search-wrap-1 ftco-animate mb-5">
-							<form action="#" class="search-property-1">
-		        		<div class="row">
-		        <!-- 			<div class="col-lg align-items-end">
-		        				<div class="form-group">
-		        					<label for="#">Select Model</label>
-		        					<div class="form-field">
-		          					<div class="select-wrap">
-		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-		                      <select name="" id="" class="form-control">
-		                      	<option value="">Select Model</option>
-		                        <option value="">Model 1</option>
-		                        <option value="">Model 2</option>
-		                        <option value="">Model 3</option>
-		                        <option value="">Model 4</option>
-		                        <option value="">Model 5</option>
-		                        <option value="">Model 6</option>
-		                        <option value="">Model 7</option>
-		                        <option value="">Model 8</option>
-		                        <option value="">Model 9</option>
-		                        <option value="">Model 10</option>
-		                      </select>
-		                    </div>
-				              </div>
-			              </div>
-		        			</div>
-		        			<div class="col-lg align-items-end">
-		        				<div class="form-group">
-		        					<label for="#">Select Brand</label>
-		        					<div class="form-field">
-		          					<div class="select-wrap">
-		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-		                      <select name="" id="" class="form-control">
-		                      	<option value="">Select Brand</option>
-		                        <option value="">Brand 1</option>
-		                        <option value="">Brand 2</option>
-		                        <option value="">Brand 3</option>
-		                        <option value="">Brand 4</option>
-		                        <option value="">Brand 5</option>
-		                        <option value="">Brand 6</option>
-		                        <option value="">Brand 7</option>
-		                        <option value="">Brand 8</option>
-		                        <option value="">Brand 9</option>
-		                        <option value="">Brand 10</option>
-		                      </select>
-		                    </div>
-				              </div>
-			              </div>
-		        			</div>
-		        			<div class="col-lg align-items-end">
-		        				<div class="form-group">
-		        					<label for="#">Year Model</label>
-		        					<div class="form-field">
-		          					<div class="select-wrap">
-		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-		                      <select name="" id="" class="form-control">
-		                      	<option value="">Year Model</option>
-		                        <option value="">2019</option>
-		                        <option value="">2018</option>
-		                        <option value="">2017</option>
-		                        <option value="">2016</option>
-		                        <option value="">2015</option>
-		                        <option value="">2014</option>
-		                      </select>
-		                    </div>
-				              </div>
-			              </div>
-		        			</div>
-		        			<div class="col-lg align-items-end">
-		        				<div class="form-group">
-		        					<label for="#">Price Limit</label>
-		        					<div class="form-field">
-		          					<div class="select-wrap">
-		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-		                      <select name="" id="" class="form-control">
-		                      	<option value="">$1</option>
-		                        <option value="">$50</option>
-		                        <option value="">$100</option>
-		                        <option value="">$200</option>
-		                        <option value="">$300</option>
-		                        <option value="">$400</option>
-		                        <option value="">$500</option>
-		                        <option value="">$600</option>
-		                        <option value="">$700</option>
-		                        <option value="">$800</option>
-		                        <option value="">$900</option>
-		                        <option value="">$1000</option>
-		                      </select>
-		                    </div>
-				              </div>
-			              </div>
-		        			</div> -->
+						
+		        		<div class="row" >
                     <div class="col-lg align-items-end">
+                      <?php echo form_open("User/search"); ?>
                     <div class="form-group">
-                      <input type="text" name="search" style="width: 900px ; height: 50px" placeholder="  search nama produk / nama umkm / lokasi">
+                      <input type="text" name="search" style="width: 900px ; height: 50px" placeholder="  search nama produk / lokasi">
                     </div>
                     </div>
 		        			<div class="col-lg align-self-end">
@@ -208,10 +98,11 @@
 		        					<div class="form-field">
 				                <input type="submit" value="Search" class="form-control btn btn-primary">
 				              </div>
+                      <?php echo form_close(); ?>
 			              </div>
 		        			</div>
 		        		</div>
-		        	</form>
+		   
 		        </div>
 					</div>
 	    	</div>
@@ -275,144 +166,33 @@
       </div>
     </section>
  -->
-    <section class="ftco-section" style="margin-top: -30px">
+    <section class="ftco-section " style="margin-top: -150px">
     	<div class="container-fluid px-4">
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">What we offer</span>
-            <h2 class="mb-2">Choose Your Car</h2>
+            <h2 class="mb-2">Daftar UMKM</h2>
           </div>
         </div>
-    		<div class="row">
-          <?php foreach ($barang as $key ) { ?>
-    			<div class="col-md-3">
+ <div class="row">
+          <?php foreach ($data as $key ) { ?>
+    		<div class="col-md-3">
     				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(assets/<?php echo $key->gambar; ?> );">
-    					<!-- 	<div class="price-wrap d-flex">
-    							<span class="rate">$25</span> 
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>-->
+    					<div class="img d-flex align-items-end" style="background-image: url(<?php  echo base_url()?>assets/<?php echo $key->gambar; ?> );">
+    					 	<div class="price-wrap d-flex">
+    							
+    						</div>
     					</div>
     					<div class="text p-4 text-center">
     						<h2 class="mb-0"><a href="#"><?php echo $key->nama_umkm; ?></a></h2>
-    						<span>Audi</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
+    						<span><?php echo $key->kota; ?></span>
+    						<p class="d-flex mb-0 d-block"> <a href="#" class="btn btn-black btn-outline-black ml-1" style="width: 300px">Details</a></p>
     					</div>
     				</div>
     			</div>
-        <?php } ?>
-    			<!-- <div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(assets/user/images/car-2.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Ford</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(assets/user/images/car-3.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Cheverolet</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(assets/user/images/car-4.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Mercedes</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
+        <?php } ?> 
+ 
 
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(assets/user/images/car-5.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Audi</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(assets/user/images/car-6.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Ford</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(assets/user/images/car-7.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Cheverolet</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div> -->
+    	
     			<!-- <div class="col-md-3">
     				<div class="car-wrap ftco-animate">
     					<div class="img d-flex align-items-end" style="background-image: url(assets/user/images/car-8.jpg);">
@@ -432,10 +212,18 @@
     				</div>
     			</div> -->
     		</div>
+         <div class="row">
+        <div class="col">
+         
+            <?php echo $pagination;?>
+        </div>
+    </div> 
     	</div>
+  
+    
     </section>
-
-    <section class="ftco-section services-section img" style="background-image: url(assets/user/images/bg_2.jpg);">
+   
+    <section class="ftco-section services-section img" style="background-image: url(<?php  echo base_url()?>assets/user/images/bg_2.jpg);">
     	<div class="overlay"></div>
     	<div class="container">
     		<div class="row justify-content-center mb-5">
@@ -498,7 +286,7 @@
             <div class="carousel-testimony owl-carousel ftco-owl">
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img mb-4" style="background-image: url(assets/user/images/person_1.jpg)">
+                  <div class="user-img mb-4" style="background-image: url(<?php  echo base_url()?>assets/user/images/person_1.jpg)">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -509,7 +297,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img mb-4" style="background-image: url(assets/user/images/person_2.jpg)">
+                  <div class="user-img mb-4" style="background-image: url(<?php  echo base_url()?>assets/user/images/person_2.jpg)">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -520,7 +308,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img mb-4" style="background-image: url(assets/user/images/person_3.jpg)">
+                  <div class="user-img mb-4" style="background-image: url(<?php  echo base_url()?>assets/user/images/person_3.jpg)">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -531,7 +319,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img mb-4" style="background-image: url(assets/user/images/person_1.jpg)">
+                  <div class="user-img mb-4" style="background-image: url(<?php  echo base_url()?>assets/user/images/person_1.jpg)">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -542,7 +330,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img mb-4" style="background-image: url(assets/user/images/person_1.jpg)">
+                  <div class="user-img mb-4" style="background-image: url(<?php  echo base_url()?>assets/user/images/person_1.jpg)">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -560,7 +348,7 @@
 		<section class="ftco-section ftco-no-pt ftco-no-pb">
 			<div class="container">
 				<div class="row no-gutters">
-					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/user/images/about.jpg);">
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(<?php  echo base_url()?>assets/user/images/about.jpg);">
 					</div>
 					<div class="col-md-6 wrap-about py-md-5 ftco-animate">
 	          <div class="heading-section mb-5 pl-md-5">
@@ -587,7 +375,7 @@
         <div class="row d-flex">
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('assets/user/images/image_1.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('<?php  echo base_url()?>assets/user/images/image_1.jpg');">
               </a>
               <div class="text pt-4">
               	<div class="meta mb-3">
@@ -602,7 +390,7 @@
           </div>
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('assets/user/images/image_2.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('<?php  echo base_url()?>assets/user/images/image_2.jpg');">
               </a>
               <div class="text pt-4">
               	<div class="meta mb-3">
@@ -617,7 +405,7 @@
           </div>
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('assets/user/images/image_3.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('<?php  echo base_url()?>assets/user/images/image_3.jpg');">
               </a>
               <div class="text pt-4">
               	<div class="meta mb-3">
@@ -702,23 +490,25 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="assets/user/js/jquery.min.js"></script>
-  <script src="assets/user/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="assets/user/js/popper.min.js"></script>
-  <script src="assets/user/js/bootstrap.min.js"></script>
-  <script src="assets/user/js/jquery.easing.1.3.js"></script>
-  <script src="assets/user/js/jquery.waypoints.min.js"></script>
-  <script src="assets/user/js/jquery.stellar.min.js"></script>
-  <script src="assets/user/js/owl.carousel.min.js"></script>
-  <script src="assets/user/js/jquery.magnific-popup.min.js"></script>
-  <script src="assets/user/js/aos.js"></script>
-  <script src="assets/user/js/jquery.animateNumber.min.js"></script>
-  <script src="assets/user/js/bootstrap-datepicker.js"></script>
-  <script src="assets/user/js/jquery.timepicker.min.js"></script>
-  <script src="assets/user/js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="assets/user/js/google-map.js"></script>
-  <script src="assets/user/js/main.js"></script>
-    
+  <script src="<?php  echo base_url()?>assets/user/js/jquery.min.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/popper.min.js"></script>
+
+  <script src="<?php  echo base_url()?>assets/user/js/bootstrap.min.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/jquery.easing.1.3.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/jquery.waypoints.min.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/jquery.stellar.min.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/owl.carousel.min.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/jquery.magnific-popup.min.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/aos.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/jquery.animateNumber.min.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/bootstrap-datepicker.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/jquery.timepicker.min.js"></script>
+  <script src="<?php  echo base_url()?>assets/user/js/scrollax.min.js"></script>
+
+
+  <script src="<?php  echo base_url()?>assets/user/js/main.js"></script>
+   
+  
   </body>
 </html>

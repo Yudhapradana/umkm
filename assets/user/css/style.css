@@ -8203,7 +8203,7 @@ h1, h2, h3, h4, h5,
 
 .hero-wrap {
   width: 100%;
-  height: 850px;
+  height: 100px;
   position: inherit;
   background-size: cover;
   background-repeat: no-repeat;
@@ -8217,27 +8217,27 @@ h1, h2, h3, h4, h5,
     content: '';
     opacity: .4;
     background: #000000;
-    height: 850px; }
+    height: 100px; }
   @media (max-width: 991.98px) {
     .hero-wrap {
-      height: 1150px; }
+      height: 100px; }
       .hero-wrap .overlay {
-        height: 1150px; } }
+        height: 100px; } }
   .hero-wrap.hero-wrap-2 {
-    height: 700px !important;
+    height: 100px !important;
     position: relative; }
     .hero-wrap.hero-wrap-2 .overlay {
       width: 100%;
       opacity: .05;
-      height: 700px; }
+      height: 100px; }
     .hero-wrap.hero-wrap-2 .slider-text {
-      height: 700px !important; }
+      height: 100px !important; }
 
 .slider-text {
-  height: 850px; }
+  height: 100px; }
   @media (max-width: 991.98px) {
     .slider-text {
-      height: 1150px; } }
+      height: 100px; } }
   .slider-text h1 {
     font-size: 60px;
     color: #fff;
@@ -8247,7 +8247,7 @@ h1, h2, h3, h4, h5,
       display: block; }
   .slider-text .icon-wrap .icon {
     width: 70px;
-    height: 70px;
+    height: 100px;
     background: #fc983c;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;

@@ -9,6 +9,14 @@ class Umkm_model extends CI_Model {
 		return $query->result();
 	}
 
+    public function get_umkm_list($limit, $start)
+    {
+        $query=$this->db->query("SELECT * FROM tb_umkm inner join tb_provinsi on id_provinsi=provinsi limit ".$start.", ".$limit);
+        return $query->result();
+    }
+
+
+
     public function get_provinsi()
     {
         $query = $this->db->query("SELECT nama,id_provinsi FROM tb_provinsi");
