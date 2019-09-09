@@ -35,7 +35,7 @@
                                             <select class="form-control" name="subsektor" id="subsektor" required>
                                                 <option class="form-control" selected="" value="" hidden="" disabled="">Pilih Subsektor</option>
                                                 <?php foreach ($subsektor as $key) { ?>
-                                                    <option value="<?php echo $key->nama_subsektor ?>"><?php echo $key->nama_subsektor ?></option>
+                                                    <option value="<?php echo $key->id_subsektor ?>"><?php echo $key->nama_subsektor ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -53,7 +53,7 @@
                                             <select class="form-control slct_kota" name="kota" id="slct_kota" required>
                                                 <option disabled selected hidden class="nomor-not" value="">Pilih Kota/Kabupaten</option>
                                                 <?php foreach ($kota as $key) { ?>
-                                            <option value="<?php echo $key->nama ?>" class="nomor-nor-<?php echo $key->id_provinsi ?>"> <?php  echo $key->nama ?> </option>
+                                            <option value="<?php echo $key->id_kota ?>" class="nomor-nor-<?php echo $key->id_provinsi ?>"> <?php  echo $key->nama ?> </option>
                                         <?php }  ?>
                                             </select>
                                         </div>
@@ -80,7 +80,7 @@
                                             <select class="form-control" name="sumberdana" id="sumberdana" required>
                                                 <option class="form-control" selected="" hidden="" disabled="" value="">Pilih Sumberdana</option>
                                                 <?php foreach ($sumberdana as $key) { ?>
-                                                    <option value="<?php echo $key->nama_sumberdana ?>"><?php echo $key->nama_sumberdana ?></option>
+                                                    <option value="<?php echo $key->id_sumberdana ?>"><?php echo $key->nama_sumberdana ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
