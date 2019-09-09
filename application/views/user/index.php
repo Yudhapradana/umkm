@@ -39,11 +39,8 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-	          <li class="nav-item"><a href="car.html" class="nav-link">Our Car</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        
+	          <li class="nav-item"><a href="<?php echo site_url('user/login') ?>" class="nav-link">Login</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -185,7 +182,7 @@
     					<div class="text p-4 text-center">
     						<h2 class="mb-0"><a href="#"><?php echo $key->nama_umkm; ?></a></h2>
     						<span><?php echo $key->kota; ?></span>
-    						<p class="d-flex mb-0 d-block"> <a href="#" class="btn btn-black btn-outline-black ml-1" style="width: 300px">Details</a></p>
+    						<p class="d-flex mb-0 d-block"> <a href="<?php echo site_url()?>/user/detail/<?php echo $key->id_umkm ?>" class="btn btn-black btn-outline-black ml-1" style="width: 300px">Details</a></p>
     					</div>
     				</div>
     			</div>
