@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2019 at 04:26 AM
+-- Generation Time: Sep 09, 2019 at 03:39 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -21,6 +21,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `umkm`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_admin`
+--
+
+CREATE TABLE `tb_admin` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -651,10 +663,10 @@ INSERT INTO `tb_sumberdana` (`id_sumberdana`, `nama_sumberdana`) VALUES
 CREATE TABLE `tb_umkm` (
   `id_umkm` int(11) NOT NULL,
   `nama_umkm` varchar(255) NOT NULL,
-  `nama_subsektor` varchar(255) NOT NULL,
+  `nama_subsektor` int(11) NOT NULL,
   `status_pemilik` varchar(255) NOT NULL,
   `upah_tenaga_kerja` int(11) NOT NULL,
-  `nama_sumberdana` varchar(255) NOT NULL,
+  `nama_sumberdana` int(11) NOT NULL,
   `teknologi` varchar(255) NOT NULL,
   `distribusi` varchar(255) NOT NULL,
   `permasalahan` text NOT NULL,
@@ -673,27 +685,25 @@ CREATE TABLE `tb_umkm` (
 --
 
 INSERT INTO `tb_umkm` (`id_umkm`, `nama_umkm`, `nama_subsektor`, `status_pemilik`, `upah_tenaga_kerja`, `nama_sumberdana`, `teknologi`, `distribusi`, `permasalahan`, `ekspor`, `peluang_tantangan`, `kelembagaan`, `alamat`, `provinsi`, `kota`, `kecamatan`, `gambar`) VALUES
-(2, 'PT. Indonesia Merdeka', 'Farmasi', 'Pemerintah', 4000000, 'Bank', 'IOT', 'malang', 'permasalahan dana', 'Brunei', 'membuat inovasi', 'tidak ada', 'Jl. Pegangsaan no 156', '35', 'KOTA MALANG', 'Jakut', ''),
-(3, 'PT Semen Gresik', 'Industri', 'Pribadi', 4000000, 'Bank', 'IOT', 'Seluruh Indonesia', 'Tidak ada', 'Malaysia', 'membuat inovasi', 'PT SGI', 'Jl. Sulfat', '35', 'KOTA MALANG', 'Blimbing', ''),
-(4, 'PT. Polinema', 'Industri', 'Negara', 1000000, 'Bank', 'IT', 'Malang', 'none', 'Tidak ada', 'Tidak ada', 'Polinema', 'jl. soekarno hatta no 9', '35', 'KOTA MALANG', 'lowokwaru', 'uploads/2019-09-06-14-42-52.jpg'),
-(6, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', ''),
-(7, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', ''),
-(8, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', ''),
-(9, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', ''),
-(10, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', ''),
-(11, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', 'C:\\fakepath\\hitam.jpg'),
-(12, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', 'C:\\fakepath\\B612_20170420_194021.jpg'),
-(13, 'malak', 'Farmasi', 'Pribadi', 2147483647, 'Bank', 'pinter', 'yes', 'Tidak ada', 'malang', 'Tidak ada', 'tes', 'ngadiluwih', '34', 'KABUPATEN SLEMAN', 'kediri', 'uploads/2019-09-06-14-42-01.jpg');
+(2, 'PT. Indonesia Merdeka', 2, 'Pemerintah', 4000000, 2, 'IOT', 'malang', 'permasalahan dana', 'Brunei', 'membuat inovasi', 'tidak ada', 'Jl. Pegangsaan no 156', '35', '3573', 'Jakut', 'uploads/2019-09-09-15-27-14.jpg'),
+(3, 'PT Semen', 1, 'Pribadi', 1000000, 2, 'TI', 'indonesia', 'Tidak ada', 'tidak ada', 'Tidak ada', 'tidak ada', 'Jl. Veteran', '35', '3525', 'Gresik', 'uploads/2019-09-09-15-39-37.jpg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `tb_admin`
+--
+ALTER TABLE `tb_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_kota`
 --
 ALTER TABLE `tb_kota`
-  ADD PRIMARY KEY (`id_kota`);
+  ADD PRIMARY KEY (`id_kota`),
+  ADD KEY `id_provinsi` (`id_provinsi`);
 
 --
 -- Indexes for table `tb_provinsi`
@@ -717,11 +727,21 @@ ALTER TABLE `tb_sumberdana`
 -- Indexes for table `tb_umkm`
 --
 ALTER TABLE `tb_umkm`
-  ADD PRIMARY KEY (`id_umkm`);
+  ADD PRIMARY KEY (`id_umkm`),
+  ADD KEY `nama_subsektor` (`nama_subsektor`),
+  ADD KEY `nama_sumberdana` (`nama_sumberdana`),
+  ADD KEY `kota` (`kota`),
+  ADD KEY `provinsi` (`provinsi`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tb_admin`
+--
+ALTER TABLE `tb_admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_subsektor`
@@ -739,7 +759,26 @@ ALTER TABLE `tb_sumberdana`
 -- AUTO_INCREMENT for table `tb_umkm`
 --
 ALTER TABLE `tb_umkm`
-  MODIFY `id_umkm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_umkm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tb_kota`
+--
+ALTER TABLE `tb_kota`
+  ADD CONSTRAINT `tb_kota_ibfk_1` FOREIGN KEY (`id_provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tb_umkm`
+--
+ALTER TABLE `tb_umkm`
+  ADD CONSTRAINT `tb_umkm_ibfk_1` FOREIGN KEY (`kota`) REFERENCES `tb_kota` (`id_kota`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_umkm_ibfk_2` FOREIGN KEY (`provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_umkm_ibfk_3` FOREIGN KEY (`nama_subsektor`) REFERENCES `tb_subsektor` (`id_subsektor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_umkm_ibfk_4` FOREIGN KEY (`nama_sumberdana`) REFERENCES `tb_sumberdana` (`id_sumberdana`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
