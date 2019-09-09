@@ -39,7 +39,7 @@ class FormUmkm extends CI_Controller {
 	{
 		$new_name = date("Y-m-d-H-i-s");
 		$config['upload_path']="./assets/uploads"; //path folder file upload
-		$config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+		$config['allowed_types']='gif|jpg|png|jpeg'; //type file yang boleh di upload
 		$config['file_name'] = $new_name;  //set name
 
 

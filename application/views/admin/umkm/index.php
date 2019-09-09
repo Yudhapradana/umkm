@@ -75,7 +75,7 @@
                                             <select class="form-control" name="subsektor" id="subsektor" required>
                                                 <option class="form-control" value="" selected="" hidden="" disabled="">Pilih Subsektor</option>
                                                 <?php foreach ($subsektor as $key) { ?>
-                                                    <option value="<?php echo $key->nama_subsektor ?>"><?php echo $key->nama_subsektor ?></option>
+                                                    <option value="<?php echo $key->id_subsektor ?>"><?php echo $key->nama_subsektor ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -95,7 +95,7 @@
                                             <select class="form-control slct_kota" name="kota" id="slct_kota" required>
                                                 <option disabled selected hidden class="nomor-not" value="">Pilih Kota/Kabupaten</option>
                                                 <?php foreach ($kota as $key) { ?>
-                                                    <option value="<?php echo $key->nama ?>" class="nomor-nor-<?php echo $key->id_provinsi ?>"> <?php  echo $key->nama ?> </option>
+                                                    <option value="<?php echo $key->id_kota ?>" class="nomor-nor-<?php echo $key->id_provinsi ?>"> <?php  echo $key->nama ?> </option>
                                         <?php }  ?>
                                             </select>
                                         </div>
@@ -122,7 +122,7 @@
                                             <select class="form-control" name="sumberdana" id="sumberdana" required>
                                                 <option class="form-control" selected="" hidden="" disabled="" value="">Pilih Sumberdana</option>
                                                 <?php foreach ($sumberdana as $key) { ?>
-                                                    <option value="<?php echo $key->nama_sumberdana ?>"><?php echo $key->nama_sumberdana ?></option>
+                                                    <option value="<?php echo $key->id_sumberdana ?>"><?php echo $key->nama_sumberdana ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -337,19 +337,19 @@
                         success : function(data){
                             var html = '';
                             var i;
-
                             for(i=0; i<data.length; i++){
                                 var ii = i+1;
+                                // alert(data[i].pro);
                                 html += '<tr>'+
                                 '<td>'+ii+'</td>'+
                                 '<td>'+data[i].nama_umkm+'</td>'+
                                 '<td>'+data[i].nama_subsektor+'</td>'+
-                                '<td>'+data[i].alamat+' ,'+data[i].kecamatan+' ,'+data[i].kota+' ,'+data[i].nama+'</td>'+
+                                '<td>'+data[i].alamat+' ,'+data[i].kecamatan+' ,'+data[i].kot+' ,'+data[i].pro+'</td>'+
                                 '<td>'+data[i].teknologi+'</td>'+
                                 '<td>'+
-                                '<a href="javascript:void(0);" class="btn btn-info btn-sm item_detail" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'" data-subsektor="'+data[i].nama_subsektor+'" data-status="'+data[i].status_pemilik+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nama_sumberdana+'" data-teknologi="'+data[i].teknologi+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-kelembagaan="'+data[i].kelembagaan+'" data-alamat="'+data[i].alamat+'" data-provinsi="'+data[i].provinsi+'" data-kota="'+data[i].kota+'" data-kecamatan="'+data[i].kecamatan+'" data-gambar="'+data[i].gambar+'"> <span class="fa fa-info-circle"></span> </a>'+
+                                '<a href="javascript:void(0);" class="btn btn-info btn-sm item_detail" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'" data-subsektor="'+data[i].nama_subsektor+'" data-status="'+data[i].status_pemilik+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nama_sumberdana+'" data-teknologi="'+data[i].teknologi+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-kelembagaan="'+data[i].kelembagaan+'" data-alamat="'+data[i].alamat+'" data-provinsi="'+data[i].pro+'" data-kota="'+data[i].kot+'" data-kecamatan="'+data[i].kecamatan+'" data-gambar="'+data[i].gambar+'"> <span class="fa fa-info-circle"></span> </a>'+
                                 '     '+
-                                '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'" data-subsektor="'+data[i].nama_subsektor+'" data-status="'+data[i].status_pemilik+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nama_sumberdana+'" data-teknologi="'+data[i].teknologi+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-kelembagaan="'+data[i].kelembagaan+'" data-alamat="'+data[i].alamat+'" data-provinsi="'+data[i].provinsi+'" data-kota="'+data[i].kota+'" data-kecamatan="'+data[i].kecamatan+'" data-gambar="'+data[i].gambar+'"> <span class="fa fa-edit"></span> </a>'+
+                                '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'" data-subsektor="'+data[i].id_subsektor+'" data-status="'+data[i].status_pemilik+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].id_sumberdana+'" data-teknologi="'+data[i].teknologi+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-kelembagaan="'+data[i].kelembagaan+'" data-alamat="'+data[i].alamat+'" data-provinsi="'+data[i].provinsi+'" data-kota="'+data[i].id_kota+'" data-kecamatan="'+data[i].kecamatan+'" data-gambar="'+data[i].gambar+'"> <span class="fa fa-edit"></span> </a>'+
 
                                 '     '+
                                 '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id_umkm+'" data-nama="'+data[i].nama_umkm+'"> <span class="fa fa-trash"></span> </a>'+
@@ -393,6 +393,7 @@
                     var kecamatan          = $(this).data('kecamatan');
                     var alamat          = $(this).data('alamat');
                     var gambar          = $(this).data('gambar');
+                    // alert(provinsi);
 
                     document.getElementById("foto_update").height="200";
                     document.getElementById("foto_update").width="260";

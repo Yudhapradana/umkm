@@ -58,7 +58,7 @@ class Umkm extends CI_Controller {
 		// print_r($id);
 		// die();
 		$config['upload_path']="./assets/uploads"; //path folder file upload
-		$config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+		$config['allowed_types']='gif|jpg|png|jpeg'; //type file yang boleh di upload
 		$config['file_name'] = $new_name;  //set name
 
 		$this->load->library('upload', $config); //call library upload
