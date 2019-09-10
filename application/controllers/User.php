@@ -116,7 +116,60 @@ class User extends CI_Controller {
         $data['detail'] = $this->User_model->detail($id);
               $this->load->view('user/car-single',$data);
     }
+public function login(){
+           $this->load->view('login');
+}
+    public function cekLogin(){
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('username','username', 'trim|required');
+        $this->form_validation->set_rules('password','password', 'trim|required|callback_cekDb');
+        //$this->form_validation->set_rules('password','password', 'trim|required');
 
+        if($this->form_validation->run()== false){
+
+            $this->load->view('login');
+        }
+        else{
+            
+            $session_data=$this->session->userdata('logged_in');
+            
+           
+                redirect('Umkm','refresh');
+      
+            
+        }
+    }
+
+    public function cekDb($password)
+    {
+        $this->load->helper('url','form');
+        $this->load->library('form_validation');
+      
+        $username = $this->input->post('username');
+        $password2=($this->input->post('password'));
+        $result = $this->User_model->login($username, $password2);
+
+        if($result){
+            $sess_array = array();
+       
+            foreach ($result as $row){
+                $sess_array = array(
+            
+                'username'=>$row->username,
+                'password'=>$row->password,
+                );
+                $this->session->set_userdata('logged_in',$sess_array);
+
+            }
+        
+            return true;
+        }else
+        {
+            $this->session->set_flashdata('gglLogin','<div class="alert alert-danger" role="alert">LOGIN GAGAL <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        
+            return false;
+        }
+    }
 
    
 

@@ -37,8 +37,8 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Login</a></li>
+	          <li class="nav-item"><a href="<?php echo site_url()?>user/index" class="nav-link">Home</a></li>
+	  <li class="nav-item"><a href="<?php echo site_url('user/login') ?>" class="nav-link">Login</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -77,11 +77,11 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-dashboard"></span></div>
+	             <!--  	<div class="icon"><span class="flaticon-books"></span></div> -->
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Nama Subsektor
-		                	<span><?php echo $key->sektor; ?></span>
+		                	<span><?php echo $key->nama_subsektor; ?></span>
 		                </h3>
 	                </div>
                 </div>
@@ -92,9 +92,9 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-car-machine"></span></div>
+    <!--    <div class="icon"><span class="flaticon-books"></span></div> -->
 	              	<div class="text">
-		                <h3 class="heading mb-0 pl-3">
+		                <h3 class="heading mb-0 pl-4">
 		                	Status Pemilik
 		                	<span><?php echo $key->status_pemilik; ?></span>
 		                </h3>
@@ -107,7 +107,7 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-car-seat"></span></div>
+	          <!--   <div class="icon"><span class="flaticon-books"></span></div> -->
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Upah
@@ -122,7 +122,7 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-backpack"></span></div>
+	      <!--   <div class="icon"><span class="flaticon-books"></span></div> -->
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Nama Sumberdana
@@ -137,7 +137,7 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-diesel"></span></div>
+	             <!--    <div class="icon"><span class="flaticon-books"></span></div> -->
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Teknologi
@@ -155,7 +155,7 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-diesel"></span></div>
+	         <!--    <div class="icon"><span class="flaticon-books"></span></div> -->
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Distribusi
@@ -170,7 +170,7 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-diesel"></span></div>
+    <!--    <div class="icon"><span class="flaticon-books"></span></div> -->
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Permasalahan
@@ -185,10 +185,10 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-diesel"></span></div>
+    <!--    <div class="icon"><span class="flaticon-books"></span></div> -->
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
-		                	ekspor
+		                	Ekspor
 		                	<span><?php echo $key->ekspor; ?></span>
 		                </h3>
 	                </div>
@@ -196,233 +196,110 @@
               </div>
             </div>      
           </div>
+                 <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+                <div class="d-flex mb-3 align-items-center">
+    <!--    <div class="icon"><span class="flaticon-books"></span></div> -->
+                  <div class="text">
+                    <h3 class="heading mb-0 pl-3">
+                      Peluangan Tantangan
+                      <span><?php echo $key->peluang_tantangan; ?></span>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+                 <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+                <div class="d-flex mb-3 align-items-center">
+     <!--   <div class="icon"><span class="flaticon-books"></span></div> -->
+                  <div class="text">
+                    <h3 class="heading mb-0 pl-3">
+                      Kelembagaan
+                      <span><?php echo $key->kelembagaan; ?></span>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>      
+          </div>
       	</div>
+        <div class="row">
+                 <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+                <div class="d-flex mb-3 align-items-center">
+    <!--    <div class="icon"><span class="flaticon-books"></span></div> -->
+                  <div class="text">
+                    <h3 class="heading mb-0 pl-3">
+                      Alamat
+                      <span><?php echo $key->alamat; ?>-<?php echo $key->kecamatan; ?>-<?php echo $key->nkota; ?>-<?php echo $key->nprov; ?></span>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+          
+        </div>
       <?php } ?>
       			</div>
       </div>
     </section>
 
-    <section class="ftco-section ftco-no-pt">
-    	<div class="container-fluid px-4">
-    		<div class="row justify-content-center">
-          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">Choose Car</span>
-            <h2 class="mb-2">Related Cars</h2>
-          </div>
-        </div>
-    		<div class="row">
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php  echo base_url()?>assets/user/images/car-1.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Audi</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php  echo base_url()?>assets/user/images/car-2.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Ford</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php  echo base_url()?>assets/user/images/car-3.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Cheverolet</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php  echo base_url()?>assets/user/images/car-4.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Mercedes</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php  echo base_url()?>assets/user/images/car-5.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Audi</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php  echo base_url()?>assets/user/images/car-6.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Ford</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php  echo base_url()?>assets/user/images/car-7.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Cheverolet</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-3">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php  echo base_url()?>assets/user/images/car-8.jpg);">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">$25</span>
-    							<p class="from-day">
-    								<span>From</span>
-    								<span>/Day</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-    						<span>Mercedes</span>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+   
+    <section class="ftco-section services-section img" style="background-image: url(<?php  echo base_url()?>assets/user/images/bg_50.jpg);">
+      <div class="overlay"></div>
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">About Autoroad</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Information</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Services</a></li>
-                <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
-                <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li>
-                <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Policy</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Customer Support</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">FAQ</a></li>
-                <li><a href="#" class="py-2 d-block">Payment Option</a></li>
-                <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
-                <li><a href="#" class="py-2 d-block">How it works</a></li>
-                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
-	            </div>
-            </div>
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+        
+            <h2 class="mb-3">Ayo Beli Produk UMKM</h2>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12 text-center">
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services services-2">
+              <div class="media-body py-md-4 text-center">
+                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+                <h3>Terbukanya lapangan pekerjaan</h3>
 
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services services-2">
+              <div class="media-body py-md-4 text-center">
+                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-select"></span></div>
+                <h3>Meningkatkan angka produk domestik bruto</h3>
+            
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services services-2">
+              <div class="media-body py-md-4 text-center">
+                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+                <h3>Meningkatkan ekonomi negara</h3>
+     
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services services-2">
+              <div class="media-body py-md-4 text-center">
+                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-review"></span></div>
+                <h3>Solusi usaha untuk masyarakat</h3>
+          
+              </div>
+            </div>      
           </div>
         </div>
       </div>
-    </footer>
-    
-  
+    </section>
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
