@@ -89,6 +89,14 @@ class Umkm extends CI_Controller {
 		$result = $this->Umkm_model->deleteUmkm($id);
 		echo json_encode($result);
 	}
+
+	public function logout()
+	{
+			$userdata = array('username','password');
+			$this->session->unset_userdata($userdata);
+			echo "<script>alert('Logout Success') </script>";
+			redirect('User','refresh');
+	}
 }
 
 /* End of file Umkm.php */

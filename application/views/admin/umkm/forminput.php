@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="col-4">
                                             <label>Upah Karyawan (Rp)</label>
-                                            <input type="number" name="upah" id="upah" class="form-control" placeholder="Masukkan upah" required>
+                                            <input type="text" name="upah" id="upah" class="form-control" placeholder="Masukkan upah" required>
                                         </div>
                                         <div class="col-4">
                                             <label>Sumber Dana</label>
@@ -295,6 +295,30 @@
                 $(target).parents('.row').find('.slct_kota').val('0');
                 $(target).parents('.row').find('.slct_kota').find('.nomor-nor-'+id_provinsi).show();
             }
+            var rupiah = document.getElementById('upah');
+        rupiah.addEventListener('keyup', function(e){
+            // tambahkan 'Rp.' pada saat form di ketik
+            // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+            rupiah.value = formatRupiah(this.value, 'Rp. ');
+        });
+ 
+        /* Fungsi formatRupiah */
+        function formatRupiah(angka, prefix){
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split           = number_string.split(','),
+            sisa            = split[0].length % 3,
+            rupiah          = split[0].substr(0, sisa),
+            ribuan          = split[0].substr(sisa).match(/\d{3}/gi);
+ 
+            // tambahkan titik jika yang di input sudah menjadi angka ribuan
+            if(ribuan){
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+ 
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
         </script>
     </body>
 

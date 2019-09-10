@@ -120,7 +120,7 @@
                                 <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/default.png" alt="user" class="profile-pic" /></a>
                                 <div class="dropdown-menu dropdown-menu-right scale-up">
                                     <ul class="dropdown-user">
-                                        <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                        <li><a href="<?php echo base_url().'Umkm/logout'?>"><i class="fa fa-power-off"></i> Logout</a></li>
                                     </ul>
                                 </div>
                             </li>
