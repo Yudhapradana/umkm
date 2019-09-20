@@ -7,6 +7,12 @@ class Sumberdana extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Sumberdana_model');
+				if ($this->session->userdata('logged_in')==TRUE) 
+		{
+			// redirect('Dc_Controller/index');
+		}else{	
+			redirect('User/login');
+		}
 	}
 
 	public function index()

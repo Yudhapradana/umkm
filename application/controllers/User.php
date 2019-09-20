@@ -14,12 +14,10 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-
-       
         $config['base_url'] = site_url('User/index'); //site url
-      $config['anchor_class'] = 'class="row myclass" ';
+        $config['anchor_class'] = 'class="row myclass" ';
         $config['total_rows'] = $this->db->count_all('tb_umkm'); //total row
-        $config['per_page'] = 4;  //show record per halaman
+        $config['per_page'] = 12;  //show record per halaman
         $config["uri_segment"] = 3 ;  // uri parameter
         $choice = $config["total_rows"] / $config["per_page"];
         $config["num_links"] = floor($choice);

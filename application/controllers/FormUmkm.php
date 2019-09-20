@@ -9,6 +9,12 @@ class FormUmkm extends CI_Controller {
 		$this->load->model('Umkm_model');
 		$this->load->model('Subsektor_model');
 		$this->load->model('Sumberdana_model');
+		if ($this->session->userdata('logged_in')==TRUE) 
+		{
+			// redirect('Dc_Controller/index');
+		}else{	
+			redirect('User/login');
+		}
 	}
 
 	public function index()
@@ -38,15 +44,15 @@ class FormUmkm extends CI_Controller {
 	public function newUmkm()
 	{
 		$new_name = date("Y-m-d-H-i-s");
-		$config['upload_path']="./assets/uploads"; //path folder file upload
-		$config['allowed_types']='gif|jpg|png|jpeg'; //type file yang boleh di upload
-		$config['file_name'] = $new_name;  //set name
+		// $config['upload_path']="./assets/uploads"; //path folder file upload
+		// $config['allowed_types']='gif|jpg|png|jpeg'; //type file yang boleh di upload
+		// $config['file_name'] = $new_name;  //set name
 
 
-		$this->load->library('upload', $config); //call library upload
+		// $this->load->library('upload', $config); //call library upload
 
-		if ($this->upload->do_upload("file")){ //upload file
-			$data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+		// if ($this->upload->do_upload("file")){ //upload file
+		// 	$data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
 
 			// $nama = $this->input->post('nama'); //get nama
 			// $tag = $this->input->post('tag'); //get tag 
@@ -66,12 +72,12 @@ class FormUmkm extends CI_Controller {
 			$kota = $this->input->post('kota');
 			$kecamatan = $this->input->post('kecamatan');
 			// mendapatkan ekstensi file
-            $path = $_FILES['file']['name'];
-            $ext = pathinfo($path, PATHINFO_EXTENSION);
-			$gambar =  "uploads/".$new_name.".".$ext;  //set file name ke variable image 
+   //          $path = $_FILES['file']['name'];
+   //          $ext = pathinfo($path, PATHINFO_EXTENSION);
+			// $gambar =  "uploads/".$new_name.".".$ext;  //set file name ke variable image 
 
-			$this->Umkm_model->newUmkm($nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$provinsi,$kota,$kecamatan,$gambar); //kirim value ke model user_model	
-		}
+			$this->Umkm_model->newUmkm($nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$provinsi,$kota,$kecamatan); //kirim value ke model user_model	
+		// }
 	}
 
 }

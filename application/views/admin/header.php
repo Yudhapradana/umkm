@@ -9,22 +9,36 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/bulat.png">
     <title>UMKM</title>
     <!-- Bootstrap Core CSS -->
-    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- morris CSS -->
-    <link href="assets/plugins/morrisjs/morris.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/plugins/morrisjs/morris.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="assets/css/colors/blue.css" id="theme" rel="stylesheet">
-    <link rel="stylesheet" href="assets/datatables/datatables.min.css">
+    <link href="<?php echo base_url() ?>assets/css/colors/blue.css" id="theme" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/dropzone.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/basic.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/datatables.min.css">
     <style>
             body {
               padding-right: 0 !important;
           }
       </style>
+      <style type="text/css">
+
+body{
+    background-color: #E8E9EC;
+}
+
+.dropzone {
+    margin-top: 100px;
+    border: 2px dashed #0087F7;
+}
+
+</style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -58,16 +72,16 @@
                             <!-- Logo icon --><b>
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                                 <!-- Dark Logo icon -->
-                                <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                                <!-- Light Logo icon -->
-                                <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                                <img src="<?php echo base_url() ?>assets/images/bulat.png" alt="homepage" width="20" height="20" class="dark-logo" />
+                                 
+                                <img src="<?php echo base_url() ?>assets/images/bulat.png" alt="homepage" class="light-logo" />
                             </b>
                             <!--End Logo icon -->
                             <!-- Logo text --><span>
                                <!-- dark Logo text -->
-                               <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                               <img src="<?php echo base_url() ?>assets/images/tulisan.png" width="180" height="60" alt="homepage" class="dark-logo" />
                                <!-- Light Logo text -->    
-                               <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                               <img src="<?php echo base_url() ?>assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
                     </div>
                            <!-- ============================================================== -->
                            <!-- End Logo -->
@@ -117,7 +131,7 @@
                             <!-- Profile -->
                             <!-- ============================================================== -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/default.png" alt="user" class="profile-pic" /></a>
+                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url() ?>assets/images/users/default.png" alt="user" class="profile-pic" /></a>
                                 <div class="dropdown-menu dropdown-menu-right scale-up">
                                     <ul class="dropdown-user">
                                         <li><a href="<?php echo base_url().'Umkm/logout'?>"><i class="fa fa-power-off"></i> Logout</a></li>
@@ -140,7 +154,7 @@
                     <!-- User profile -->
                     <div class="user-profile">
                         <!-- User profile image -->
-                        <div class="profile-img"> <img src="assets/images/users/default.png" alt="user" />
+                        <div class="profile-img"> <img src="<?php echo base_url() ?>assets/images/users/default.png" alt="user" />
                             <!-- this is blinking heartbit-->
 
                         </div>

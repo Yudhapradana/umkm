@@ -9,6 +9,12 @@ class Umkm extends CI_Controller {
 		$this->load->model('Subsektor_model');
 		$this->load->model('Sumberdana_model');
 		$this->load->model('Umkm_model');
+		if ($this->session->userdata('logged_in')==TRUE) 
+		{
+			// redirect('Dc_Controller/index');
+		}else{	
+			redirect('User/login');
+		}
 	}
 
 	public function index()
@@ -52,35 +58,11 @@ class Umkm extends CI_Controller {
 		$provinsi = $this->input->post('slct_provinsi');
 		$kota = $this->input->post('kota');
 		$kecamatan = $this->input->post('kecamatan');
-		$new_name = date("Y-m-d-H-i-s");
-		$fotolama = $this->input->post('fotolama');
 
-		// print_r($id);
-		// die();
-		$config['upload_path']="./assets/uploads"; //path folder file upload
-		$config['allowed_types']='gif|jpg|png|jpeg'; //type file yang boleh di upload
-		$config['file_name'] = $new_name;  //set name
 
-		$this->load->library('upload', $config); //call library upload
-		if ($this->upload->do_upload("file")){ //upload file
-			$data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
-
-			// mendapatkan ekstensi file
-            $path = $_FILES['file']['name'];
-            $ext = pathinfo($path, PATHINFO_EXTENSION);
-			$gambar =  "uploads/".$new_name.".".$ext;  //set file name ke variable image 
-
-			$data = $this->Umkm_model->updateUmkm($id,$nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$provinsi,$kota,$kecamatan,$gambar); //kirim value ke model user_model	
-			if ($data) {
-				unlink('./assets/uploads/'.$fotolama);
-				echo json_encode('sukses');
-			}else{
-				echo json_encode('gagalupload');
-			}
-		}else{
-			$this->Umkm_model->updateUmkm($id,$nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$provinsi,$kota,$kecamatan,$fotolama); //
-			echo json_encode('sukses');
-		}
+			$data = $this->Umkm_model->updateUmkm($id,$nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$provinsi,$kota,$kecamatan); //kirim value ke model user_model
+			echo json_encode($data);
+		
 	}
 
 	public function deleteUmkm()
@@ -96,6 +78,42 @@ class Umkm extends CI_Controller {
 			$this->session->unset_userdata($userdata);
 			echo "<script>alert('Logout Success') </script>";
 			redirect('User','refresh');
+	}
+
+	public function proses_upload($id)
+	{
+		$config['upload_path']   = FCPATH.'/assets/uploads/';
+        $config['allowed_types'] = 'gif|jpg|png|ico';
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('userfile')){
+        	$token=$this->input->post('token_foto');
+        	$nama=$this->upload->data('file_name');
+        	$this->db->delete('tb_galeri',array('id_umkm'=>$id));
+        	$this->db->insert('tb_galeri',array('galeri'=>$nama,'token'=>$token,'create_at'=>date('Y-m-d'),'id_umkm'=>$id));
+        }
+	}
+
+	public function remove_foto()
+	{
+		//Ambil token foto
+		$token=$this->input->post('token');
+		$foto=$this->db->get_where('tb_galeri',array('token'=>$token));
+		if($foto->num_rows()>0){
+			$hasil=$foto->row();
+			$nama_foto=$hasil->nama_foto;
+			if(file_exists($file=FCPATH.'/assets/uploads/'.$nama_foto)){
+				unlink($file);
+			}
+			$this->db->delete('tb_galeri',array('token'=>$token));
+		}
+		echo "{}";
+	}
+
+	public function formGaleri($id)
+	{
+		$this->load->view('admin/header');
+		$this->load->view('admin/umkm/formgaleri');
 	}
 }
 

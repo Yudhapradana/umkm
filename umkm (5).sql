@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2019 at 03:39 PM
+-- Generation Time: Sep 20, 2019 at 03:24 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -33,6 +33,34 @@ CREATE TABLE `tb_admin` (
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_admin`
+--
+
+INSERT INTO `tb_admin` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_galeri`
+--
+
+CREATE TABLE `tb_galeri` (
+  `id_galeri` int(11) NOT NULL,
+  `galeri` varchar(255) NOT NULL,
+  `token` varchar(100) NOT NULL,
+  `id_umkm` int(11) NOT NULL,
+  `create_at` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_galeri`
+--
+
+INSERT INTO `tb_galeri` (`id_galeri`, `galeri`, `token`, `id_umkm`, `create_at`) VALUES
+(4, 'background-statistik-58.jpg', '0.8664171212836691', 3, '2019-09-16');
 
 -- --------------------------------------------------------
 
@@ -652,7 +680,8 @@ CREATE TABLE `tb_sumberdana` (
 --
 
 INSERT INTO `tb_sumberdana` (`id_sumberdana`, `nama_sumberdana`) VALUES
-(2, 'Bank');
+(2, 'Bank'),
+(3, 'Pribadi');
 
 -- --------------------------------------------------------
 
@@ -676,17 +705,20 @@ CREATE TABLE `tb_umkm` (
   `alamat` text NOT NULL,
   `provinsi` varchar(255) NOT NULL,
   `kota` varchar(255) NOT NULL,
-  `kecamatan` varchar(255) NOT NULL,
-  `gambar` varchar(255) NOT NULL
+  `kecamatan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_umkm`
 --
 
-INSERT INTO `tb_umkm` (`id_umkm`, `nama_umkm`, `nama_subsektor`, `status_pemilik`, `upah_tenaga_kerja`, `nama_sumberdana`, `teknologi`, `distribusi`, `permasalahan`, `ekspor`, `peluang_tantangan`, `kelembagaan`, `alamat`, `provinsi`, `kota`, `kecamatan`, `gambar`) VALUES
-(2, 'PT. Indonesia Merdeka', 2, 'Pemerintah', 4000000, 2, 'IOT', 'malang', 'permasalahan dana', 'Brunei', 'membuat inovasi', 'tidak ada', 'Jl. Pegangsaan no 156', '35', '3573', 'Jakut', 'uploads/2019-09-09-15-27-14.jpg'),
-(3, 'PT Semen', 1, 'Pribadi', 1000000, 2, 'TI', 'indonesia', 'Tidak ada', 'tidak ada', 'Tidak ada', 'tidak ada', 'Jl. Veteran', '35', '3525', 'Gresik', 'uploads/2019-09-09-15-39-37.jpg');
+INSERT INTO `tb_umkm` (`id_umkm`, `nama_umkm`, `nama_subsektor`, `status_pemilik`, `upah_tenaga_kerja`, `nama_sumberdana`, `teknologi`, `distribusi`, `permasalahan`, `ekspor`, `peluang_tantangan`, `kelembagaan`, `alamat`, `provinsi`, `kota`, `kecamatan`) VALUES
+(2, 'PT. Indonesia Merdeka', 2, 'Pemerintah', 4000000, 2, 'IOT', 'malang', 'permasalahan dana', 'Brunei', 'membuat inovasi', 'tidak ada', 'Jl. Pegangsaan no 156', '35', '3573', 'Jakut'),
+(3, 'PT Semen', 1, 'Pribadi', 1000000, 2, 'TI', 'indonesia', 'Tidak ada', 'tidak ada', 'Tidak ada', 'tidak ada', 'Jl. Veteran', '35', '3525', 'Gresik'),
+(4, 'yudha', 1, 'Pribadi', 0, 2, 'IT', 'malang', 'tes', 'yud', 'peluang', 'tes', 'tes', '33', '3301', 'tes'),
+(5, 'PT Cahaya Putra Asa Keramik', 1, 'pribadi', 0, 2, 'pinter', 'tes', 't', 't', 't', 't', 'Btb 5 desa kec, Kutapohaci,', '35', '3504', 'Boyolangu'),
+(6, 'tes', 1, 't', 0, 2, 't', 't', 't', 't', 't', 't', 'jl. batu', '33', '3301', 'wono'),
+(7, 'PT. Coklat klaskik', 1, 'p', 0, 2, 'p', 'p', 'p', 'p', 'p', 'p', 'jl. gayungan', '35', '3501', 'Gayungan');
 
 --
 -- Indexes for dumped tables
@@ -697,6 +729,12 @@ INSERT INTO `tb_umkm` (`id_umkm`, `nama_umkm`, `nama_subsektor`, `status_pemilik
 --
 ALTER TABLE `tb_admin`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_galeri`
+--
+ALTER TABLE `tb_galeri`
+  ADD PRIMARY KEY (`id_galeri`);
 
 --
 -- Indexes for table `tb_kota`
@@ -741,7 +779,13 @@ ALTER TABLE `tb_umkm`
 -- AUTO_INCREMENT for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tb_galeri`
+--
+ALTER TABLE `tb_galeri`
+  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_subsektor`
@@ -753,13 +797,13 @@ ALTER TABLE `tb_subsektor`
 -- AUTO_INCREMENT for table `tb_sumberdana`
 --
 ALTER TABLE `tb_sumberdana`
-  MODIFY `id_sumberdana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sumberdana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_umkm`
 --
 ALTER TABLE `tb_umkm`
-  MODIFY `id_umkm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_umkm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

@@ -233,7 +233,7 @@
                         nama_sumberdana:nama_sumberdana,
                     },
 
-                    success: function(){ 
+                    success: function(data){
                         Swal.fire({
                             type: 'success',
                             title: 'Berhasil menambahkan data ',

@@ -35,7 +35,7 @@ class Umkm_model extends CI_Model {
         return $query->result_array();   
     }
 
-	public function newUmkm($nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$provinsi,$kota,$kecamatan,$gambar)
+	public function newUmkm($nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$provinsi,$kota,$kecamatan)
 	{
 			$data = array(
             'nama_umkm'             =>$nama_umkm,
@@ -53,14 +53,14 @@ class Umkm_model extends CI_Model {
             'provinsi'              =>$provinsi,
             'kota'                  =>$kota,
             'kecamatan'             =>$kecamatan,
-            'gambar'                =>$gambar,
+            // 'gambar'                =>$gambar,
 
         );
 
         return $this->db->insert('tb_umkm', $data);
 	}	
 
-	public function updateUmkm($id,$nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$provinsi,$kota,$kecamatan,$gambar)
+	public function updateUmkm($id,$nama_umkm,$nama_subsektor,$status_pemilik,$upah_tenaga_kerja,$nama_sumberdana,$teknologi,$distribusi,$permasalahan,$ekspor,$peluang_tantangan,$kelembagaan,$alamat,$provinsi,$kota,$kecamatan)
 	{
 		
 		$data = array(
@@ -79,7 +79,7 @@ class Umkm_model extends CI_Model {
             'provinsi'              =>$provinsi,
             'kota'                  =>$kota,
             'kecamatan'             =>$kecamatan,
-            'gambar'                =>$gambar,
+            // 'gambar'                =>$gambar,
         );
 		$this->db->where('id_umkm', $id);
         return $this->db->update('tb_umkm', $data);

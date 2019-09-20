@@ -113,12 +113,14 @@
                                             <input type="text" name="kelembagaan" id="kelembagaan" class="form-control" placeholder="Masukkan kelembagaan" required>
                                         </div>
                                 </div>
-                                <div class="form-group row col-12 align-items-center">
-                                    <div class="col-4">
-                                            <label>Upload Foto Produk</label>
-                                            <input type="file" name="file" id="file" required>
+<!--                                 <div class="form-group row col-12 align-items-center">
+                                    <div class="col-4 dropzone">
+                                            <div class="dz-message">
+                                             <h3> Klik atau Drop gambar disini</h3>
+                                         </div>
+                                            <input type="file" name="file" id="file" multiple>
                                     </div>
-                                </div>
+                                </div> -->
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" id="btn_push" class="btn btn-primary ">Add</button>
@@ -179,6 +181,7 @@
         <script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
         <script type="text/javascript" src="assets/datatables/datatables.min.js"></script>
         <script src="assets/js/sweetalert2@8.js"></script>
+        
 
         <script type="text/javascript">
             $(document).ready(function(){
@@ -186,7 +189,7 @@
                 //Save new Foto
                 $('#forminput').submit(function(e){
                     e.preventDefault();
-                    if ($('#file').get(0).files.length != 0) {
+                    // if ($('#nama_umkm').get(0).files.length != 0) {
                         $.ajax({
                         url:'<?php echo base_url();?>index.php/FormUmkm/newUmkm', //URL submit
                         type:"post", //method Submit
@@ -204,15 +207,16 @@
                             })
                             document.getElementById('forminput').reset();    
                         }
+                        
                     });
-                    }else{
-                        Swal.fire({
-                                type: 'error',
-                                title: 'Gagal menambahkan data ',
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
-                    }
+                    // }else{
+                        // Swal.fire({
+                        //         type: 'error',
+                        //         title: 'Gagal menambahkan data ',
+                        //         showConfirmButton: false,
+                        //         timer: 1500
+                        //     })
+                    // }
 
                     return false;
                 });
@@ -319,6 +323,8 @@
             rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
             return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
         }
+
+        
         </script>
     </body>
 
