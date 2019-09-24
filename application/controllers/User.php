@@ -58,8 +58,11 @@ class User extends CI_Controller {
 
 
     public function search(){
-               $cari = $this->input->post('search');
-    {$config['base_url'] = site_url('User/search'); //site url
+       
+    $cari = $this->input->post('search');
+    $lokasi = $this->input->post('lokasi');
+           
+    $config['base_url'] = site_url('User/search'); //site url
       $config['anchor_class'] = 'class="row myclass" ';
         $config['total_rows'] = $this->totalsearch($cari); //total row
         $config['per_page'] = 4;  //show record per halaman
@@ -91,7 +94,8 @@ class User extends CI_Controller {
         $this->pagination->initialize($config);
         $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
- $data['data'] = $this->User_model->search($cari,$config["per_page"], $data['page'] );
+ $data['data'] = $this->User_model->search($cari,$lokasi,$config["per_page"], $data['page'] );
+
         //panggil function get_mahasiswa_list yang ada pada mmodel mahasiswa_model. 
          
  
@@ -103,7 +107,7 @@ class User extends CI_Controller {
         
         $this->load->view('user/index',$data);
 
-    }}
+    }
 
     public function totalsearch($kalimat){
          $query=$this->db->query("SELECT * FROM tb_umkm where nama_umkm like '%".$kalimat."%'  or alamat like '%".$kalimat."%' or provinsi like '%".$kalimat."%' or kota like '%".$kalimat."%' or kecamatan like '%".$kalimat."%'");
@@ -112,6 +116,7 @@ class User extends CI_Controller {
 
     public function detail($id){
         $data['detail'] = $this->User_model->detail($id);
+        $data['gambar']=  $this->User_model->galeri($id);
               $this->load->view('user/car-single',$data);
     }
      public function getLokasi(){

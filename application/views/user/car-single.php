@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/flaticon.css">
     <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/icomoon.css">
     <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/style.css">
+        <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/slider.css">
   </head>
   <body>
     
@@ -56,11 +57,19 @@
         </div>
       </div>
     </section>
-<?php foreach ($detail as $key) {
+
+    <section class="ftco-section ftco-car-details">
+   <div class=malasngoding-slider>
+    <div class=isi-slider>
+      <?php  foreach ($gambar as $key){ ?>
+     <img src="<?php  echo base_url()?>assets/uploads/<?php echo $key->galeri ?>" alt="Gambar 1">
+    <?php } ?>
+    </div>
+  </div>
+  <?php foreach ($detail as $key) {
 
  ?>
-    <section class="ftco-section ftco-car-details">
-      <div class="container">
+    <!--   <div class="container">
       	<div class="row justify-content-center">
       		<div class="col-md-12">
       			<div class="car-details">
@@ -71,7 +80,7 @@
       				</div>
       			</div>
       		</div>
-      	</div>
+      	</div> -->
       	<div class="row">
       		<div class="col-md d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services">
@@ -304,7 +313,6 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
   <script src="<?php  echo base_url()?>assets/user/js/jquery.min.js"></script>
   <script src="<?php  echo base_url()?>assets/user/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="<?php  echo base_url()?>assets/user/js/popper.min.js"></script>
@@ -322,6 +330,8 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php  echo base_url()?>assets/user/js/google-map.js"></script>
   <script src="<?php  echo base_url()?>assets/user/js/main.js"></script>
+
+   
     
   </body>
 </html>

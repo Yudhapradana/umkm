@@ -90,7 +90,7 @@
                     <div class="col-lg-9">
                    
                         <div class="form-group ">
-                       <select class="lokasi" name="lokasi form-control" required="" style="width: 200px">
+                       <select class="lokasi" name="lokasi" style="width: 200px">
                         
                        </select>
     
@@ -183,14 +183,14 @@
           <?php foreach ($data as $key ) { ?>
     		<div class="col-md-3">
     				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php  echo base_url()?>assets/<?php echo $key->gambar; ?> );">
+    					<div class="img d-flex align-items-end" style="background-image: url(<?php  echo base_url()?>assets/uploads/<?php echo $key->galeri; ?> );">
     					 	<div class="price-wrap d-flex">
     							
     						</div>
     					</div>
     					<div class="text p-4 text-center">
     						<h2 class="mb-0"><a href="#"><?php echo $key->nama_umkm; ?></a></h2>
-    						<span><?php echo $key->kota; ?></span>
+    						<span><?php echo $key->kot; ?></span>
     						<p class="d-flex mb-0 d-block"> <a href="<?php echo site_url()?>user/detail/<?php echo $key->id_umkm ?>" class="btn btn-black btn-outline-black ml-1" style="width: 300px">Details</a></p>
     					</div>
     				</div>
@@ -310,7 +310,7 @@
   <script src="<?php echo base_url()?>assets/user/js/select2.min.js"></script>
    <script type="text/javascript">
     $('.lokasi').select2({
-        placeholder: '--- Select Item ---',
+        placeholder: '--- Pilih Lokasi ---',
         ajax: {
           url: '<?php echo site_url()?>/User/getLokasi',
           dataType: 'json',
@@ -323,6 +323,8 @@
           cache: true
         }
       });
+
+
     </script>
    
   
