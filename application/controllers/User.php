@@ -114,6 +114,25 @@ class User extends CI_Controller {
         $data['detail'] = $this->User_model->detail($id);
               $this->load->view('user/car-single',$data);
     }
+     public function getLokasi(){
+
+
+        $this->load->database();
+
+        
+        if(!empty($this->input->get("q"))){
+            $this->db->like('nama', $this->input->get("q"));
+            $query = $this->db->select('id_kota as id,nama as text')->get("tb_kota");
+            $json = $query->result();
+        }else{
+              $query = $this->db->select('id_kota as id,nama as text')->get("tb_kota");
+            $json = $query->result();
+        }
+
+        
+        echo json_encode($json);
+
+    }
 public function login(){
            $this->load->view('login');
 }

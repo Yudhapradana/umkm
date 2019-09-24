@@ -83,14 +83,23 @@
 					<div class="col-md-12">
 						<div class="search-wrap-1 ftco-animate mb-5">
 						
-		        		<div class="row" >
-                    <div class="col-lg align-items-end">
+		        
+
                       <?php echo form_open("User/search"); ?>
-                    <div class="form-group">
-                      <input type="text" name="search" style="width: 900px ; height: 50px" placeholder="  search nama produk / lokasi">
-                    </div>
-                    </div>
-		        			<div class="col-lg align-self-end">
+                  <div class="row" >
+                    <div class="col-lg-9">
+                   
+                        <div class="form-group ">
+                       <select class="lokasi" name="lokasi form-control" required="" style="width: 200px">
+                        
+                       </select>
+    
+                  
+                      <input type="text" name="search" style=" width:620px;height: 50px" placeholder="  search nama produk / lokasi">
+                      </div>
+                        </div>
+                    
+		        			<div class="col-lg-3">
 		        				<div class="form-group">
 		        					<div class="form-field">
 				                <input type="submit" value="Search" class="form-control btn btn-primary">
@@ -297,6 +306,24 @@
 
 
   <script src="<?php  echo base_url()?>assets/user/js/main.js"></script>
+   <link href="<?php echo base_url()?>assets/user/css/select2.min.css" rel="stylesheet" />
+  <script src="<?php echo base_url()?>assets/user/js/select2.min.js"></script>
+   <script type="text/javascript">
+    $('.lokasi').select2({
+        placeholder: '--- Select Item ---',
+        ajax: {
+          url: '<?php echo site_url()?>/User/getLokasi',
+          dataType: 'json',
+          delay: 250,
+          processResults: function (data) {
+            return {
+              results: data
+            };
+          },
+          cache: true
+        }
+      });
+    </script>
    
   
   </body>
