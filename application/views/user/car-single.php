@@ -25,7 +25,18 @@
     <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/flaticon.css">
     <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/icomoon.css">
     <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/style.css">
-        <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/slider.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/slider.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/css/slick.css">
+    <link rel="stylesheet" href="<?php  echo base_url()?>assets/css/slick-theme.css">
+      <style>
+
+    .lazy{
+      background-color: #FFFAFA;
+      width: 1000px;
+      height: 300px;
+      margin:auto;
+    }
+  </style>
   </head>
   <body>
     
@@ -59,15 +70,18 @@
     </section>
 
     <section class="ftco-section ftco-car-details">
-   <div class=malasngoding-slider>
+   <!-- <div class=malasngoding-slider>
     <div class=isi-slider>
+      
+    </div>
+  </div> -->
+  <div class="container-fluid lazy">
       <?php  foreach ($gambar as $key){ ?>
      <img src="<?php  echo base_url()?>assets/uploads/<?php echo $key->galeri ?>" alt="Gambar 1">
     <?php } ?>
     </div>
-  </div>
+    <br>
   <?php foreach ($detail as $key) {
-
  ?>
     <!--   <div class="container">
       	<div class="row justify-content-center">
@@ -330,8 +344,14 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php  echo base_url()?>assets/user/js/google-map.js"></script>
   <script src="<?php  echo base_url()?>assets/user/js/main.js"></script>
-
-   
-    
+  <script src="<?php  echo base_url()?>assets/js/slick.js"></script>
+  <script src="<?php  echo base_url()?>assets/js/slick.min.js"></script>
+  <script type="text/javascript">
+    $('.lazy').slick({
+    lazyLoad: 'ondemand',
+    slidesToShow: 4,
+    slidesToScroll: 1
+  });
+  </script>
   </body>
 </html>

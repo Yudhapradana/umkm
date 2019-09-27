@@ -83,13 +83,13 @@ class Umkm extends CI_Controller {
 	public function proses_upload($id)
 	{
 		$config['upload_path']   = FCPATH.'/assets/uploads/';
-        $config['allowed_types'] = 'gif|jpg|png|ico';
+        $config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
         $this->load->library('upload',$config);
 
         if($this->upload->do_upload('userfile')){
         	$token=$this->input->post('token_foto');
         	$nama=$this->upload->data('file_name');
-        	$this->db->delete('tb_galeri',array('id_umkm'=>$id));
+        	// $this->db->delete('tb_galeri',array('id_umkm'=>$id));
         	$this->db->insert('tb_galeri',array('galeri'=>$nama,'token'=>$token,'create_at'=>date('Y-m-d'),'id_umkm'=>$id));
         }
 	}
@@ -112,8 +112,14 @@ class Umkm extends CI_Controller {
 
 	public function formGaleri($id)
 	{
+		$data['galeri'] = $this->Umkm_model->getPicture($id);
 		$this->load->view('admin/header');
-		$this->load->view('admin/umkm/formgaleri');
+		$this->load->view('admin/umkm/formgaleri',$data);
+	}
+	public function deletePicture($id,$id2)
+	{
+		$this->Umkm_model->deleteGaleri($id);
+		redirect('Umkm/formgaleri/'.$id2);
 	}
 }
 

@@ -92,6 +92,19 @@ class Umkm_model extends CI_Model {
         return $result;
 	}	
 
+    public function getPicture($id)
+    {
+        $query = $this->db->query("SELECT id_galeri,galeri,id_umkm FROM tb_galeri");
+        return $query->result();
+    }
+
+    public function deleteGaleri($id)
+    {
+        $this->db->where('id_galeri', $id);
+        $result = $this->db->delete('tb_galeri');
+        return $result;
+    }
+
 }
 
 /* End of file Umkm_model.php */

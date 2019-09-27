@@ -22,25 +22,51 @@
                 <!-- ============================================================== -->
                 <div class="container-fluid">
                     <div class="col-12">
-                        <div class="card" style="padding: 10px">
+                        <div class="card">
                             <form id="forminput">
                                 <div class="modal-body">
-                                <div class="form-group row col-12 align-items-center">
+                                <div class="form-group">
                                     <div class="col-12 dropzone">
                                             <div class="dz-message">
                                              <h3> Klik atau Drop gambar disini</h3>
                                          </div>
                                     </div>
                                 </div>
-                                
                                 </div>
                                 <div class="modal-footer">
                                     <a href="<?php echo base_url('Umkm/') ?>"><button type="button" id="btn_push" class="btn btn-info">OK</button></a>
                                 </div>
                             </form>
                         </div>
+                            <div class="row container-fluid">
+                        <?php foreach ($galeri as $key): ?>
+                            <div class="card" style="padding: 5px;">
+                                <img src="<?php echo base_url()?>assets/uploads/<?php echo $key->galeri ?>" class="img-thumbnail" width="200" height="200">
+                                <!-- <a href="<?php echo base_url('Umkm/deletePicture/'.$key->id_galeri); ?>"><button type="button" class="btn btn-outline-danger card-block btn-block">Hapus</button></a> -->
+                                <a onclick="deleteConfirm('<?php echo base_url('Umkm/deletePicture/'.$key->id_galeri.'/'.$key->id_umkm) ?>')" class="btn btn-outline-danger text-danger">Hapus</a>
+                            </div>&nbsp&nbsp
+                        <?php endforeach ?>
+                            </div>
                     </div>
                 </div>
+
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">Anda akan menghapus gambar ini?.</div>
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
                 <!-- ============================================================== -->
                 <!-- End Container fluid  -->
                 <!-- ============================================================== -->
@@ -133,6 +159,11 @@
                         }
                     });
                 });
+
+                function deleteConfirm(url){
+                    $('#btn-delete').attr('href', url);
+                    $('#deleteModal').modal();
+                }
         </script>
     </body>
 
