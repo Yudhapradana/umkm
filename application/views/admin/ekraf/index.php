@@ -77,7 +77,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">
-                            div class="form-group row col-12">
+                            <div class="form-group row col-12">
                                         <div class="col-4">
                                             <label>Nama</label>
                                             <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan Nama" required>
@@ -186,6 +186,30 @@
                 </div>
             </div>
         </form>
+        <form id="formdelete">
+                <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Delete Data ekraf</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="form-group col-lg-12">
+                                    <font>Anda ingin menghapus <b><font id="nama_ekraf_del"></font></b> ?</font>
+                                    <input type="hidden" name="id_del" id="id_del" class="form-control">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="text" id="id" name="id" hidden="">
+                                <button type="submit" id="btn_delete" class="btn btn-danger col-md-3">Hapus</button>
+                                <button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal" style="margin-right: 20px">Batal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         <form id="formdetail">
             <div class="modal fade" id="Modal_Detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
                 <div class="modal-dialog" role="document" style="max-width: 70%">
@@ -260,13 +284,7 @@
                                     <h5 id="dkelembagaan"></h5>
                                 </div>
                             </div>
-                                <!-- <div class="form-group row col-12 align-items-center">
-                                    <div class="col-4">
-                                            <label>Upload Foto Produk</label>
-                                            <h5 id="dpermasalahan"></h5>
-                                    </div>
-                                </div> -->
-                            </div>
+                                
                             <div class="modal-footer">
 
                             </div>
@@ -274,30 +292,7 @@
                     </div>
                 </div>
             </form>
-            <form id="formdelete">
-                <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Delete Data ekraf</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">
-
-                                <div class="form-group col-lg-12">
-                                    <font>Anda ingin menghapus <b><font id="nama_ekraf_del"></font></b> ?</font>
-                                    <input type="hidden" name="id_del" id="id_del" class="form-control">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-
-                                <button type="submit" id="btn_delete" class="btn btn-danger col-md-3">Hapus</button>
-                                <button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal" style="margin-right: 20px">Batal</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
+            
         
                 <!-- ============================================================== -->
                 <!-- End Wrapper -->
@@ -357,7 +352,7 @@
                                 // alert(data[i].pro);
                                 html += '<tr>'+
                                 '<td>'+ii+'</td>'+
-                                '<td>'+data[i].ne+'</td>'+
+                                '<td style="position: sticky;left:0px;background-color:white;">'+data[i].ne+'</td>'+
                                 '<td>'+data[i].alamat+'</td>'+
                                 '<td>'+data[i].nd+'</td>'+
                                 '<td>'+data[i].ns+'</td>'+
@@ -376,7 +371,7 @@
                                 '<td>'+
                                 // '<a href="javascript:void(0);" class="btn btn-primary btn-sm item_detail" data-id="'+data[i].id_ekraf+'" data-nama_ekraf="'+data[i].ne+'" data-alamat="'+data[i].alamat+'" data-nama_desa="'+data[i].nd+'" data-sentra="'+data[i].ns+'" data-status="'+data[i].nt+'" data-jk="'+data[i].jumlah_karyawan+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nu+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-perijinan="'+data[i].perijinan+'" data-merk="'+data[i].merk+'" data-no_merk="'+data[i].no_merk+'" data-tgl="'+data[i].tgl_merk+'"> <span class="fa fa-info-circle"></span> </a>'+
                                 // '     '+
-                                '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_ekraf+'" data-nama_ekraf="'+data[i].ne+'" data-alamat="'+data[i].alamat+'" data-nama_desa="'+data[i].nd+'" data-sentra="'+data[i].ns+'" data-status="'+data[i].nt+'" data-jk="'+data[i].jumlah_karyawan+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nu+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-perijinan="'+data[i].perijinan+'" data-merk="'+data[i].merk+'" data-no_merk="'+data[i].no_merk+'" data-tgl="'+data[i].tgl_merk+'"> <span class="fa fa-edit"></span> </a>'+
+                                '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_ekraf+'" data-nama_ekraf="'+data[i].ne+'" data-alamat="'+data[i].alamat+'" data-nama_desa="'+data[i].nd+'" data-sentra="'+data[i].id_sentra+'" data-status="'+data[i].id_status_pemilik+'" data-jk="'+data[i].jumlah_karyawan+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].id_sumber_dana+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-perijinan="'+data[i].perijinan+'" data-merk="'+data[i].merk+'" data-no_merk="'+data[i].no_merk+'" data-tgl="'+data[i].tgl_merk+'"> <span class="fa fa-edit"></span> </a>'+
 
                                 '     '+
                                 '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id_ekraf+'" data-nama="'+data[i].ne+'"> <span class="fa fa-trash"></span> </a>'+
@@ -441,7 +436,7 @@
                     $('[name="no_merk"]').val(no_merk);
                     $('[name="tgl"]').val(tgl_merk);
 
-                    // alert(upnama);
+                    // alert(nd);
                     $('#Modal_Update').modal('show');
                 });
 
@@ -476,7 +471,7 @@
                 //delete sumberdana
                 $('#ekraf').on('click','.item_delete',function(){
                     var id = $(this).data('id');
-                    var nama = $(this).data('nama_ekraf');
+                    var nama = $(this).data('nama');
 
                 // alert(act);
                 $('#Modal_Delete').modal('show');

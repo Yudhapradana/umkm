@@ -11,7 +11,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">List Akun Pemilik Ekraf</h3>
+                        <h3 class="text-themecolor">Teknologi Ekraf</h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -24,19 +24,16 @@
                     <div class="col-12">
                         <div class="card" style="padding: 10px">
                             <div class="pull-right"><a href="javascript:void(0);" class="btn btn-success float-right" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add</a></div>
-                        <table class="table table-bordered table-responsive-lg" id="pemilikekraf" width="100%">
+                        <table class="table table-bordered table-responsive-lg" id="teknologi" width="100%">
                             <thead>
                                 <tr>
-                                    <th width="10%">No</th>
-                                    <th width="20%">Ekraf</th>
-                                    <th width="20%">Nama</th>
-                                    <th width="10%">Username</th>
-                                    <th width="20%">Email</th>
-                                    <th width="10%">No Hp</th>
-                                    <th width="10%">Action</th>
+                                    <th width="20%">No</th>
+                                    <th width="30%">Nama Ekraf</th>
+                                    <th width="30%">Teknologi</th>
+                                    <th width="20%">Action</th>
                                 </tr>
                             </thead>
-                            <tbody id="tbpemilikekraf">
+                            <tbody id="tbteknologi">
                                 
                             </tbody>
                         </table>
@@ -63,7 +60,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">New Akun Pemilik Ekraf</h4>
+                            <h4 class="modal-title">Teknologi Ekraf</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
                         </div>
                         <div class="modal-body">               
@@ -72,33 +69,20 @@
                                     <!-- form inputan nama kegiatan -->
                                     <div class="form-group col-lg-12 row">
                                         <div class="col-12">
-                                            <label>Pilih Ekraf</label>
-                                            <input type="text" id="ekraf" class="form-control" placeholder="Masukkan Ekraf" list="data" required autocomplete="off" />
+                                            <label>Nama Ekraf</label>
+                                            <input type="text" id="ekraf" name="ekraf" class="form-control" placeholder="Masukkan Ekraf" list="data" required autocomplete="off" />
                                             <datalist id="data">
-                                                <?php foreach ($this->db->get('ekraf')->result() as $key => $value) : ?>
-                                                <option value="<?= $value->nama ?>" data-json='<?php echo json_encode($value) ?>'><?= $value->nama ?></option>
+                                                <?php foreach ($ekraf as $key => $value) : ?>
+                                                <option value="<?= $value->ne ?>" data-json='<?php echo json_encode($value) ?>'><?= $value->ne ?></option>
                                             <?php endforeach; ?>
-                                            </datalist> 
-                                        </div>
-                                        <div class="col-12">
-                                            <label>Nama</label>
-                                            <input type="text" id="nama" class="form-control" placeholder="Masukkan Nama" style="width: 100%" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <label>Email</label>
-                                            <input type="email" id="email" class="form-control" placeholder="Masukkan Email" style="width: 100%" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <label>No Hp</label>
-                                            <input type="text" id="hp" class="form-control" placeholder="Masukkan No Hp" style="width: 100%" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <label>Username</label>
-                                            <input type="text" id="username" class="form-control" placeholder="Masukkan Username" style="width: 100%" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <label>Password</label>
-                                            <input type="password" id="password" class="form-control" placeholder="Masukkan Password" style="width: 100%" required>
+                                            </datalist>
+                                            <label>Pilih Teknologi Ecommerce</label>
+                                            <select name="iteknologi" id="iteknologi" class="form-control" required="">
+                                                <option value="" selected="" hidden="">Pilih Teknologi</option>
+                                                <?php foreach ($teknologi as $key): ?>
+                                                    <option value="<?php echo $key->id_teknologi ?>"><?php echo $key->nama ?></option>
+                                                <?php endforeach ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <!--  -->
@@ -119,7 +103,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Update Akun</h4>
+                            <h4 class="modal-title">Update Data Teknologi Ekraf</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
                         </div>
                         <div class="modal-body">               
@@ -128,33 +112,20 @@
                                     <!-- form inputan nama kegiatan -->
                                     <div class="form-group col-lg-12 row">
                                         <div class="col-12">
-                                            <label>Pilih Ekraf</label>
-                                            <input type="text" id="ekrafup" name="ekrafup" class="form-control" placeholder="Masukkan Ekraf" list="data" required autocomplete="off" />
+                                           <label>Nama Ekraf</label>
+                                            <input type="text" id="uekraf" name="uekraf" class="form-control" placeholder="Masukkan Ekraf" list="data" required autocomplete="off" />
                                             <datalist id="data">
-                                                <?php foreach ($this->db->get('ekraf')->result() as $key => $value) : ?>
-                                                <option value="<?= $value->nama ?>" data-json='<?php echo json_encode($value) ?>'><?= $value->nama ?></option>
+                                                <?php foreach ($ekraf as $key => $value) : ?>
+                                                <option value="<?= $value->ne ?>" data-json='<?php echo json_encode($value) ?>'><?= $value->ne ?></option>
                                             <?php endforeach; ?>
-                                            </datalist> 
-                                        </div>
-                                        <div class="col-12">
-                                            <label>Nama</label>
-                                            <input type="text" id="namaup" name="namaup" class="form-control" placeholder="Masukkan Nama" style="width: 100%" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <label>Email</label>
-                                            <input type="email" id="emailup" name="emailup" class="form-control" placeholder="Masukkan Email" style="width: 100%" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <label>No Hp</label>
-                                            <input type="text" id="hpup" name="hpup" class="form-control" placeholder="Masukkan No Hp" style="width: 100%" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <label>Username</label>
-                                            <input type="text" id="usernameup" name="usernameup" class="form-control" placeholder="Masukkan Username" style="width: 100%" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <label>Password</label>
-                                            <input type="password" id="passwordup" name="passwordup" class="form-control" placeholder="Masukkan Password" style="width: 100%" required>
+                                            </datalist>
+                                            <label>Pilih Teknologi Ecommerce</label>
+                                            <select name="uteknologi" id="uteknologi" class="form-control" required="">
+                                                <option value="" selected="" hidden="">Pilih Teknologi</option>
+                                                <?php foreach ($teknologi as $key): ?>
+                                                    <option value="<?php echo $key->id_teknologi ?>"><?php echo $key->nama ?></option>
+                                                <?php endforeach ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <!--  -->
@@ -176,13 +147,13 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Delete pemilikekraf</h4>
+                            <h4 class="modal-title">Delete Teknologi Ekraf</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
                         </div>
                         <div class="modal-body">                          
 
                             <div class="form-group col-lg-12">
-                                <font>Anda ingin menghapus <b><font id="nama_akun_del"></font></b> ?</font>
+                                <font>Anda ingin menghapus <b><font id="nama_teknologi_del"></font></b> pada Ekraf <b><font id="nama_ekraf_del"></font></b> ?</font>
                                 <input type="hidden" name="id_del" id="id_del" class="form-control">
                             </div>
                         </div>
@@ -200,46 +171,46 @@
         <!-- ============================================================== -->
         <!-- All Jquery -->
         <!-- ============================================================== -->
-        <script src="assets/plugins/jquery/jquery.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
-        <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-        <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/popper.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
         <!-- slimscrollbar scrollbar JavaScript -->
-        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/jquery.slimscroll.js"></script>
         <!--Wave Effects -->
-        <script src="assets/js/waves.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/waves.js"></script>
         <!--Menu sidebar -->
-        <script src="assets/js/sidebarmenu.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/sidebarmenu.js"></script>
         <!--stickey kit -->
-        <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
         <!--Custom JavaScript -->
-        <script src="assets/js/custom.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/custom.min.js"></script>
         <!-- ============================================================== -->
         <!-- This page plugins -->
         <!-- ============================================================== -->
         <!--sparkline JavaScript -->
-        <script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
         <!--morris JavaScript -->
-        <script src="assets/plugins/raphael/raphael-min.js"></script>
-        <script src="assets/plugins/morrisjs/morris.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/raphael/raphael-min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/morrisjs/morris.min.js"></script>
         <!-- Chart JS -->
-        <!-- <script src="assets/js/dashboard1.js"></script> -->
+        <!-- <script src="<?php echo base_url() ?>assets/js/dashboard1.js"></script> -->
         <!-- ============================================================== -->
         <!-- Style switcher -->
         <!-- ============================================================== -->
-        <script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-        <script type="text/javascript" src="assets/datatables/datatables.min.js"></script>
-        <script src="assets/js/sweetalert2@8.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>assets/datatables/datatables.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/sweetalert2@8.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function(){
                 //panggil get data
-                showPemilikEkraf();
-                //get data pemilikekraf
-                function showPemilikEkraf() {
+                showTeknologi();
+                //get data subsektor
+                function showTeknologi() {
                     $.ajax({
                         type  : 'POST',
-                        url   : '<?php echo base_url()?>index.php/PemilikEkraf/getData',
+                        url   : '<?php echo base_url()?>index.php/Ekraf/getDataTeknologiEkraf',
                         async : false,
                         dataType : 'json',
                         success : function(data){
@@ -248,24 +219,22 @@
 
 
                             for(i=0; i<data.length; i++){
+                                // alert(JSON.stringify(data[i]));
                                 var ii = i+1;
                                 html += '<tr>'+
                                 '<td>'+ii+'</td>'+
                                 '<td>'+data[i].ne+'</td>'+
-                                '<td>'+data[i].name+'</td>'+
-                                '<td>'+data[i].username+'</td>'+
-                                '<td>'+data[i].email+'</td>'+
-                                '<td>'+data[i].no_hp+'</td>'+
-                                '<td>'+ '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_user+'" data-nama="'+data[i].name+'" data-ne="'+data[i].ne+'" data-email="'+data[i].email+'" data-no_hp="'+data[i].no_hp+'" data-username="'+data[i].username+'" data-password="'+data[i].password+'"> <span class="fa fa-edit"></span> </a>'+ 
+                                '<td>'+data[i].nte+'</td>'+
+                                '<td>'+ '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_ekraf_teknologi+'" data-namae="'+data[i].ne+'" data-namat="'+data[i].id_teknologi+'"> <span class="fa fa-edit"></span> </a>'+ 
                                 '     '+
-                                '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id_user+'" data-nama="'+data[i].name+'"> <span class="fa fa-trash"></span> </a>'+
+                                '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id_ekraf_teknologi+'" data-namae="'+data[i].ne+'" data-namat="'+data[i].nte+'"> <span class="fa fa-trash"></span> </a>'+
                                 '</td>'+
                                 '</tr>';
                             }
-                            $('#pemilikekraf').DataTable().destroy();
-                            $('#pemilikekraf').find('tbody').empty();
-                            $('#tbpemilikekraf').html(html);
-                            $('#pemilikekraf').DataTable({
+                            $('#teknologi').DataTable().destroy();
+                            $('#teknologi').find('tbody').empty();
+                            $('#tbteknologi').html(html);
+                            $('#teknologi').DataTable({
                                 destroy         : true,
                                 'autoWidth'     : true,
                                 'paging'        : true,
@@ -277,28 +246,21 @@
                         }
                     });
                 }
-                //input data
+                //input data subsektor
                 $('#formbaru').submit(function(e){
                 e.preventDefault();
                 // memasukkan data inputan ke variabel
-                var nama       = $('#nama').val();
-                var ekraf       = $('#ekraf').val();
-                var email      = $('#email').val();
-                var hp         = $('#hp').val();
-                var username   = $('#username').val();
-                var password   = $('#password').val();
+                var ne       = $('#ekraf').val();
+                var nte       = $('#iteknologi').val();
+                // alert(nte);
 
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo site_url(); ?>/Pemilikekraf/newPemilikEkraf",
+                    url  : "<?php echo site_url(); ?>/Ekraf/newTeknologiEkraf",
                     dataType : "JSON",
                     data : {
-                        nama:nama,
-                        ekraf:ekraf,
-                        email:email,
-                        hp:hp,
-                        username:username,
-                        password:password,
+                        nama:ne,
+                        id_teknologi:nte,
                     },
 
                     success: function(){ 
@@ -309,36 +271,28 @@
                             timer: 1500
                         })
                         $('#Modal_Add').modal('hide'); 
-                        $("#pemilikekraf").DataTable().destroy();
-                        $("#pemilikekraf").find('tbody').empty();
+                        $("#teknologi").DataTable().destroy();
+                        $("#teknologi").find('tbody').empty();
                         document.getElementById('formbaru').reset();
-                        showPemilikEkraf();
+                        showTeknologi();
                     }
                 });
 
                 return false;
             });
 
-                //update pemilikekraf
-                $('#pemilikekraf').on('click','.item_edit',function(){
+                //update subsektor
+                $('#teknologi').on('click','.item_edit',function(){
                     // memasukkan data yang dipilih dari tbl list agenda updatean ke variabel 
                     var upid            = $(this).data('id');
-                    var upnama          = $(this).data('nama'); 
-                    var upne          = $(this).data('ne'); 
-                    var upemail         = $(this).data('email'); 
-                    var upnohp          = $(this).data('no_hp'); 
-                    var upusername      = $(this).data('username'); 
-                    var uppassword      = $(this).data('password'); 
+                    var upnamae          = $(this).data('namae'); 
+                    var upnamat          = $(this).data('namat');
 
-                    // alert(upusername);
+                    // alert(upnama);
                     // memasukkan data ke form updatean
                     $('[name="u_id"]').val(upid);
-                    $('[name="namaup"]').val(upnama);
-                    $('[name="ekrafup"]').val(upne);
-                    $('[name="emailup"]').val(upemail);
-                    $('[name="hpup"]').val(upnohp);
-                    $('[name="usernameup"]').val(upusername);
-                    $('[name="passwordup"]').val(uppassword);
+                    $('[name="uekraf"]').val(upnamae);
+                    $('[name="uteknologi"]').val(upnamat);
 
                     // alert(upnama);
                     $('#Modal_Update').modal('show');
@@ -348,26 +302,18 @@
                 $('#formupdate').submit(function(e){
                     e.preventDefault(); 
                     // memasukkan data dari form update ke variabel untuk update db
-                     var up_id       = $('#u_id').val();
-                    var up_nama     = $('#namaup').val();
-                    var up_ne     = $('#ekrafup').val();
-                    var up_email     = $('#emailup').val();
-                    var up_hp     = $('#hpup').val();
-                    var up_username     = $('#usernameup').val();
-                    var up_password     = $('#passwordup').val();
+                    var up_id       = $('#u_id').val();
+                    var up_namae     = $('#uekraf').val();
+                    var up_namat    = $('#uteknologi').val();
 
                     $.ajax({
                         type : "POST",
-                        url  : "<?php echo site_url(); ?>/PemilikEkraf/updatePemilikEkraf",
+                        url  : "<?php echo site_url(); ?>/Ekraf/updateEkrafTeknologi",
                         dataType : "JSON",
                         data : { 
-                             id:up_id,
-                            nama:up_nama,
-                            ekraf:up_ne,
-                            email:up_email,
-                            hp:up_hp,
-                            username:up_username,
-                            password:up_password,
+                            id:up_id,
+                            nama:up_namae,
+                            id_teknologi:up_namat,
                         },
 
                         success: function(data){
@@ -378,23 +324,25 @@
                                 timer: 1500
                             })
                             $('#Modal_Update').modal('hide'); 
-                            $("#pemilikekraf").DataTable().destroy();
-                            $("#pemilikekraf").find('tbody').empty();
+                            $("#teknologi").DataTable().destroy();
+                            $("#teknologi").find('tbody').empty();
                             document.getElementById('formupdate').reset();
-                            showPemilikEkraf();
+                            showTeknologi();
                         }
                     });
                     return false;
                 });
 
-                //delete pemilikekraf
-                $('#pemilikekraf').on('click','.item_delete',function(){
+                //delete subsektor
+                $('#teknologi').on('click','.item_delete',function(){
                     var id = $(this).data('id');
-                    var nama = $(this).data('nama'); 
+                    var namae = $(this).data('namae'); 
+                    var namat = $(this).data('namat'); 
                     
                 // alert(act);
                 $('#Modal_Delete').modal('show');
-                document.getElementById("nama_akun_del").innerHTML=nama;
+                document.getElementById("nama_ekraf_del").innerHTML=namae;
+                document.getElementById("nama_teknologi_del").innerHTML=namat;
                 $('[name="id_del"]').val(id);
             });
 
@@ -405,7 +353,7 @@
                 
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo site_url(); ?>/Pemilikekraf/deletePemilikEkraf",
+                    url  : "<?php echo site_url(); ?>/Ekraf/deleteEkrafTeknologi",
                     dataType : "JSON",
                     data : {
                         id:id,
@@ -418,10 +366,10 @@
                             showConfirmButton: true,
                         })
                         $('#Modal_Delete').modal('hide'); 
-                        $("#pemilikekraf").DataTable().destroy();
-                        $("#pemilikekraf").find('tbody').empty();
+                        $("#teknologi").DataTable().destroy();
+                        $("#teknologi").find('tbody').empty();
                         document.getElementById('formdelete').reset();
-                        showPemilikEkraf();
+                        showTeknologi();
                     }
                 });
                 return false;

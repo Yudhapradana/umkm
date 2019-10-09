@@ -173,6 +173,7 @@ body{
                                 <ul aria-expanded="false" class="collapse">
                                     <li><a href="<?php echo base_url().'Ekraf'?>">List Ekraf </a></li>
                                     <li><a href="<?php echo base_url().'Ekraf/formInput'?>">Input Data Ekraf</a></li>
+                                    <li><a href="<?php echo base_url().'Ekraf/teknologi'?>">Teknologi Ekraf</a></li>
                                 </ul>
                             </li>
                             <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data Master</span></a>
