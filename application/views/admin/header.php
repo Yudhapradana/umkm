@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/bulat.png">
-    <title>UMKM</title>
+    <title>EKRAF</title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- morris CSS -->
@@ -160,7 +160,8 @@ body{
                         </div>
                         <!-- User profile text-->
                         <div class="profile-text">
-                            <h5>Admin</h5>
+                            <h5><?php   $this->session->nama ?></h5>
+                            <h6><?php   $this->session->role ?></h6>
                         </div>
                     </div>
                     <!-- End User profile text-->
@@ -170,14 +171,23 @@ body{
                             <li class="nav-devider"></li>
                             <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Data UMKM <span class="label label-rouded label-themecolor pull-right">2</span></span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="<?php echo base_url().'Umkm'?>">List UMKM </a></li>
-                                    <li><a href="<?php echo base_url().'FormUmkm'?>">Input Data UMKM</a></li>
+                                    <li><a href="<?php echo base_url().'Ekraf'?>">List Ekraf </a></li>
+                                    <li><a href="<?php echo base_url().'Ekraf/formInput'?>">Input Data Ekraf</a></li>
                                 </ul>
                             </li>
                             <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data Master</span></a>
                                 <ul aria-expanded="false" class="collapse">
                                     <li><a href="<?php echo base_url().'Subsektor'?>">Subsektor</a></li>
+                                    <li><a href="<?php echo base_url().'Sentra'?>">Sentra</a></li>
                                     <li><a href="<?php echo base_url().'Sumberdana'?>">Sumber Dana</a></li>
+                                    <li><a href="<?php echo base_url().'StatusPemilik'?>">Status Pemilik</a></li>
+                                    <li><a href="<?php echo base_url().'TeknologiEcommerce'?>">Teknologi Ecommerce</a></li>
+                                </ul>
+                            </li>
+                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data User</span></a>
+                                <ul aria-expanded="false" class="collapse">
+                                    <li><a href="<?php echo base_url().'Operator'?>">Operator</a></li>
+                                    <li><a href="<?php echo base_url().'PemilikEkraf'?>">Pemilik Ekraf</a></li>
                                 </ul>
                             </li>
                         </ul>

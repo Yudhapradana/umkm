@@ -11,7 +11,7 @@ class Subsektor extends CI_Controller {
 		{
 			// redirect('Dc_Controller/index');
 		}else{	
-			redirect('User/login');
+			redirect('Login');
 		}
 	}
 

@@ -5,33 +5,33 @@ class Subsektor_model extends CI_Model {
 
 	public function getData()
 	{
-		$query=$this->db->get('tb_subsektor');
+		$query=$this->db->get('subsektor');
 		return $query->result();
 	}
 
 	public function newSubsektor($nama_subsektor)
 	{
 			$data = array(
-            'nama_subsektor'               =>$nama_subsektor,
+            'nama'               =>$nama_subsektor,
         );
 
-        return $this->db->insert('tb_subsektor', $data);
+        return $this->db->insert('subsektor', $data);
 	}	
 
 	public function updateSubsektor($id,$nama_subsektor)
 	{
 		
 		$data = array(
-            'nama_subsektor'               =>$nama_subsektor,
+            'nama'               =>$nama_subsektor,
         );
 		$this->db->where('id_subsektor', $id);
-        return $this->db->update('tb_subsektor', $data);
+        return $this->db->update('subsektor', $data);
 	}
 
 	public function deleteSubsektor($id)
 	{
         $this->db->where('id_subsektor', $id);
-        $result = $this->db->delete('tb_subsektor');
+        $result = $this->db->delete('subsektor');
         return $result;
 	}
 

@@ -197,10 +197,10 @@
                                 var ii = i+1;
                                 html += '<tr>'+
                                 '<td>'+ii+'</td>'+
-                                '<td>'+data[i].nama_sumberdana+'</td>'+
-                                '<td>'+ '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_sumberdana+'" data-nama="'+data[i].nama_sumberdana+'" > <span class="fa fa-edit"></span> </a>'+ 
+                                '<td>'+data[i].nama+'</td>'+
+                                '<td>'+ '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_sumberdana+'" data-nama="'+data[i].nama+'" > <span class="fa fa-edit"></span> </a>'+ 
                                 '     '+
-                                '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id_sumberdana+'" data-nama="'+data[i].nama_sumberdana+'"> <span class="fa fa-trash"></span> </a>'+
+                                '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id_sumberdana+'" data-nama="'+data[i].nama+'"> <span class="fa fa-trash"></span> </a>'+
                                 '</td>'+
                                 '</tr>';
                             }

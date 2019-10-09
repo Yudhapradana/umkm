@@ -5,37 +5,37 @@ class Sumberdana_model extends CI_Model {
 
 	public function getData()
 	{
-		$query=$this->db->get('tb_sumberdana');
+		$query=$this->db->get('sumber_dana');
 		return $query->result();
 	}
 
-	public function newSumberdana($nama_sumberdana)
+	public function newSumberdana($nama_sumber_dana)
 	{
 			$data = array(
-            'nama_sumberdana'               =>$nama_sumberdana,
+            'nama'               =>$nama_sumber_dana,
         );
 
-        return $this->db->insert('tb_sumberdana', $data);
+        return $this->db->insert('sumber_dana', $data);
 	}	
 
-	public function updateSumberdana($id,$nama_sumberdana)
+	public function updateSumberdana($id,$nama_sumber_dana)
 	{
 		
 		$data = array(
-            'nama_sumberdana'               =>$nama_sumberdana,
+            'nama'               =>$nama_sumber_dana,
         );
-		$this->db->where('id_sumberdana', $id);
-        return $this->db->update('tb_sumberdana', $data);
+		$this->db->where('id_sumber_dana', $id);
+        return $this->db->update('sumber_dana', $data);
 	}
 
 	public function deleteSumberdana($id)
 	{
-        $this->db->where('id_sumberdana', $id);
-        $result = $this->db->delete('tb_sumberdana');
+        $this->db->where('id_sumber_dana', $id);
+        $result = $this->db->delete('sumber_dana');
         return $result;
 	}
 
 }
 
-/* End of file Sumberdana.php */
-/* Location: ./application/models/Sumberdana.php */
+/* End of file sumber_dana.php */
+/* Location: ./application/models/sumber_dana.php */
