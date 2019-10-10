@@ -33,21 +33,40 @@
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
 				<div class="login100-form validate-form flex-sb flex-w" >
-					        <?php echo form_open('Login/cekLogin');?>
+					        <?php echo form_open('Login/addAkun');?>
        
          <?=$this->session->flashdata('gglLogin')?>
 					<span class="login100-form-title p-b-32">
-						Account Login
+						Account Register
 					</span>
-
+					<span class="txt1 p-b-11">
+						Fullname
+					</span>
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "Fullname is required">
+						<input class="input100" type="text" name="nama" style="width: 400px; height: 35px" autocomplete="off">
+						<span class="focus-input100"></span>
+					</div>
+					<span class="txt1 p-b-11">
+						Email
+					</span>
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "Email is required">
+						<input class="input100" type="email" name="email" style="width: 400px;height: 35px" autocomplete="off" >
+						<span class="focus-input100"></span>
+					</div>
+					<span class="txt1 p-b-11">
+						Phone Number
+					</span>
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "Phone Number is required">
+						<input class="input100" type="text" name="telepon" style="width: 400px;height: 35px" autocomplete="off" >
+						<span class="focus-input100"></span>
+					</div>
 					<span class="txt1 p-b-11">
 						Username
 					</span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" style="width: 400px" >
+						<input class="input100" type="text" name="username" id="username" style="width: 400px;height: 35px" autocomplete="off" >
 						<span class="focus-input100"></span>
 					</div>
-					
 					<span class="txt1 p-b-11">
 						Password
 					</span>
@@ -55,28 +74,14 @@
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>
-						<input class="input100" type="password" name="password" >
+						<input class="input100" type="password" name="password" style="width: 400px;height: 35px"  >
 						<span class="focus-input100"></span>
 					</div>
 					
-					<div class="flex-sb-m w-full p-b-48">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
-
-						<div>
-							<a href="<?php echo site_url('Login/register') ?>" class="txt3">
-								Register
-							</a>
-						</div>
-					</div>
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
-							Login
+							Register
 						</button>
 					</div>
 <?php echo form_close(); ?>
@@ -103,7 +108,12 @@
 <!--===============================================================================================-->
 	<script src="<?php  echo base_url()?>assets/login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="<?php  echo base_url()?>assets/login/js/main.js"></script>
+	<script src="<?php  echo base_url()?>assets/login/js/main2.js"></script>
+
+	<script type="text/javascript">
+		
+
+	</script>
 
 </body>
 </html>

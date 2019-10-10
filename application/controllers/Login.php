@@ -17,15 +17,23 @@ class Login  extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('username','username', 'trim|required');
 		$this->form_validation->set_rules('password','password', 'trim|required|callback_cekDb');
-        //$this->form_validation->set_rules('password','password', 'trim|required');
 
 		if($this->form_validation->run()== false){
 			$this->load->view('login');
 		}else{
 			$session_data=$this->session->userdata('logged_in');
+			if($session_data['role']=='admin'){
 			redirect('Ekraf','refresh');
-		}
+		}else if($session_data['role']=='operator'){
+				redirect('Ekraf','refresh');
+			}else if ($session_data['role']=='ekraf') {
+				redirect('Ekraf','refresh');
+			}else{
+				redirect('Login','refresh');
+			}
 	}
+
+	
 
 	public function cekDb($password)
 	{
@@ -44,8 +52,8 @@ class Login  extends CI_Controller {
 				$sess_array = array(
 					'username'=>$row->username,
 					'password'=>$row->password,
-					// 'nama'=>$row->nama,
-					// 'role'=>$row->role,
+					 'nama'=>$row->nama,
+					 'role'=>$row->role,
 				);
 				$this->session->set_userdata('logged_in',$sess_array);
 			}
@@ -57,6 +65,32 @@ class Login  extends CI_Controller {
 			return false;
 		}
 	}
+
+	public function register(){
+		$this->load->view('register');
+	}
+
+	public function addAkun(){
+		$this->LoginModel->addAkun();
+		redirect('Login');
+	}
+	public function getUsername(){
+
+		$username = $this->input->post('username');
+        $this->load->database();
+            $query = $this->db->select('*')->where('username',$username)->get("user");
+            if($query->num_rows() > 0){
+         $data=array(
+                   'jumlah' => 1,
+               );
+            }else{
+            $data=array(
+                   'jumlah' => 0,
+               );
+            }
+             echo json_encode($data);
+	}
+
 
 }
 
