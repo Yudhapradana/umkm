@@ -134,7 +134,7 @@ body{
                                 <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url() ?>assets/images/users/default.png" alt="user" class="profile-pic" /></a>
                                 <div class="dropdown-menu dropdown-menu-right scale-up">
                                     <ul class="dropdown-user">
-                                        <li><a href="<?php echo base_url().'Umkm/logout'?>"><i class="fa fa-power-off"></i> Logout</a></li>
+                                        <li><a href="<?php echo base_url().'Login/logout'?>"><i class="fa fa-power-off"></i> Logout</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -162,6 +162,9 @@ body{
                         <div class="profile-text">
                             <h5><?php   $this->session->nama ?></h5>
                             <h6><?php   $this->session->role ?></h6>
+                            <?php $session=$this->session->userdata('logged_in');
+                            echo $session['nama'];?><br>
+                            <?php echo $session['role']; ?>
                         </div>
                     </div>
                     <!-- End User profile text-->
@@ -174,6 +177,7 @@ body{
                                     <li><a href="<?php echo base_url().'Ekraf'?>">List Ekraf </a></li>
                                     <li><a href="<?php echo base_url().'Ekraf/formInput'?>">Input Data Ekraf</a></li>
                                     <li><a href="<?php echo base_url().'Ekraf/teknologi'?>">Teknologi Ekraf</a></li>
+                                    <li><a href="<?php echo base_url().'Ekraf/galeri'?>">Galeri Ekraf</a></li>
                                 </ul>
                             </li>
                             <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data Master</span></a>

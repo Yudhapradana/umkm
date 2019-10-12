@@ -6,7 +6,7 @@ class Operator extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Operator_Model');
-				if ($this->session->userdata('logged_in')==TRUE) 
+		if ($this->session->userdata('logged_in')==TRUE) 
 		{
 			// redirect('Dc_Controller/index');
 		}else{	

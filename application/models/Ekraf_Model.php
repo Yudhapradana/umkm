@@ -119,6 +119,51 @@ class Ekraf_Model extends CI_Model {
         $result = $this->db->delete('ekraf_teknologi');
         return $result;
     }
+
+    public function getEkraf()
+    {
+        $query=$this->db->get('ekraf');
+        return $query->result();
+    }
+
+    public function newGaleri($id,$judul,$source)
+    {
+        $data = array(
+            'id_ekraf'        =>$id,
+            'judul'           =>$judul,
+            'url'             =>$source,
+        );
+       return $this->db->insert('galeri_produk', $data);
+    }
+
+    public function getListGaleri($id)
+    {
+        $query=$this->db->get('galeri_produk');
+        $this->db->where('id_ekraf', $id);
+        return $query->result();
+    }
+
+    public function updateGaleri($id,$judul,$source)
+    {
+        $data = array(
+            'judul'           =>$judul,
+            'url'             =>$source,
+        );
+        $this->db->where('id', $id);
+       return $this->db->update('galeri_produk', $data);
+    }
+    public function deleteGaleri($id)
+    {
+        $this->db->where('id', $id);
+        $result = $this->db->delete('galeri_produk');
+        return $result;
+    }
+
+    public function getGekraf($id)
+    {
+        $query = $this->db->query("SELECT * from galeri_produk as g inner join ekraf as e on g.id_ekraf=e.id_ekraf where g.id_ekraf='.$id.'");
+        return $query->result_array();
+    }
 }
 
 /* End of file Ekraf_Model.php */

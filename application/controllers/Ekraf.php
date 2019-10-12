@@ -146,6 +146,96 @@ class Ekraf extends CI_Controller {
 		echo json_encode($result);
 	}
 
+	public function galeri()
+	{
+		$this->load->view('admin/header');
+		$this->load->view('admin/galeri/index');
+	}
+
+	public function getEkraf()
+	{
+		echo json_encode( $this->Ekraf_Model->getEkraf());
+	}
+
+	public function listGaleri($id)
+	{
+		$this->load->view('admin/header');
+		$this->load->view('admin/galeri/list');
+	}
+
+	public function getListGaleri($id)
+	{
+		echo json_encode( $this->Ekraf_Model->getListGaleri($id));
+	}
+
+	public function newGaleri($id)
+	{
+		$new_name = date("Y-m-d-H-i-s");	
+		$config['upload_path']="./assets/uploads"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png|jpeg'; //type file yang boleh di upload
+        $config['file_name'] = $new_name;  //set name
+         
+        $this->load->library('upload',$config); //call library upload 
+        
+        if($this->upload->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+            
+            $judul= $this->input->post('judul'); //get judul image
+            // $image= $data['upload_data']['file_name']; //set file name ke variable image
+            $path = $_FILES['file']['name'];
+            $ext = pathinfo($path, PATHINFO_EXTENSION);
+			$source =  "uploads/".$new_name.".".$ext;  //set file name ke variable image 
+            
+            $this->Ekraf_Model->newGaleri($id,$judul,$source); //kirim value ke model m_upload
+        }
+	}
+
+	public function updateGaleri()
+	{
+		$id = $this->input->post('id_u');
+		$judul = $this->input->post('upjudul');
+		$fotolama = $this->input->post('fotolama');
+		$new_name = date("Y-m-d-H-i-s");	
+		$config['upload_path']="./assets/uploads"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png|jpeg'; //type file yang boleh di upload
+        $config['file_name'] = $new_name;  //set name
+         
+        $this->load->library('upload',$config); //call library upload 
+        
+        if($this->upload->do_upload("file2")){ //upload file
+            $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+            
+            $path = $_FILES['file2']['name'];
+            $ext = pathinfo($path, PATHINFO_EXTENSION);
+			$source =  "uploads/".$new_name.".".$ext;  //set file name ke variable image 
+            
+            $data=$this->Ekraf_Model->updateGaleri($id,$judul,$source); //kirim value ke model m_upload
+            if ($data) {
+				unlink('./assets/'.$fotolama);
+				echo json_encode('sukses');
+			}else{
+				echo json_encode('gagalupload');
+			}
+        }else{
+			$this->Ekraf_Model->updateGaleri($id,$judul,$fotolama);
+			echo json_encode('sukses');
+		}
+	}
+
+	public function deleteGaleri()
+	{
+		$id = $this->input->post('id');
+		$result = $this->Ekraf_Model->deleteGaleri($id);
+		echo json_encode($result);
+	}
+
+	public function getGekraf($id)
+	{
+		$gekraf=$this->Ekraf_Model->getGekraf($id);
+		$gekraf2=$gekraf[0]['nama'];
+		echo $gekraf2;
+	}
+
 }
 
 /* End of file Ekraf.php */

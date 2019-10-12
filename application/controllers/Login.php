@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login  extends CI_Controller {
-	public function __construct()
+	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('LoginModel');
@@ -32,8 +32,7 @@ class Login  extends CI_Controller {
 				redirect('Login','refresh');
 			}
 	}
-
-	
+}
 
 	public function cekDb($password)
 	{
@@ -89,6 +88,13 @@ class Login  extends CI_Controller {
                );
             }
              echo json_encode($data);
+	}
+
+	public function logout()
+	{
+			$this->session->unset_userdata('logged_in');
+			echo "<script>alert('Logout Success') </script>";
+			redirect('Login','refresh');
 	}
 
 
