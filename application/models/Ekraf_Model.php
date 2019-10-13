@@ -42,7 +42,7 @@ class Ekraf_Model extends CI_Model {
             'merk'                  =>$merk,
             'no_merk'                  =>$no_merk,
             'tgl_merk'                  =>$tgl,
-        );
+    );
 
         return $this->db->insert('ekraf', $data);
 	}	
@@ -138,8 +138,8 @@ class Ekraf_Model extends CI_Model {
 
     public function getListGaleri($id)
     {
-        $query=$this->db->get('galeri_produk');
         $this->db->where('id_ekraf', $id);
+        $query=$this->db->get('galeri_produk');
         return $query->result();
     }
 
@@ -161,7 +161,7 @@ class Ekraf_Model extends CI_Model {
 
     public function getGekraf($id)
     {
-        $query = $this->db->query("SELECT * from galeri_produk as g inner join ekraf as e on g.id_ekraf=e.id_ekraf where g.id_ekraf='.$id.'");
+        $query = $this->db->query("SELECT * from ekraf where id_ekraf='$id'");
         return $query->result_array();
     }
 }

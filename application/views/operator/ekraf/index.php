@@ -336,15 +336,17 @@
                 <script type="text/javascript">
                     $(document).ready(function(){
                 //panggil get data
+                getKab();
                 showekraf();
                 //get data sumberdana
                 function showekraf() {
                     $.ajax({
                         type  : 'POST',
-                        url   : '<?php echo base_url()?>Ekraf/getData',
+                        url   : '<?php echo base_url()?>Operator/getDataEkraf',
                         async : false,
                         dataType : 'json',
                         success : function(data){
+                            // alert(data)
                             var html = '';
                             var i;
                             for(i=0; i<data.length; i++){
@@ -443,7 +445,7 @@
                 $('#formupdate').submit(function(e){
                             e.preventDefault();
                     $.ajax({
-                        url:'<?php echo base_url();?>index.php/Ekraf/updateEkraf', //URL submit
+                        url:'<?php echo base_url();?>index.php/Operator/updateEkraf', //URL submit
                         type:"post", //method Submit
                         data:new FormData(this), //penggunaan FormData
                         processData:false,
@@ -486,7 +488,7 @@
 
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo site_url(); ?>/Ekraf/deleteEkraf",
+                    url  : "<?php echo site_url(); ?>/Operator/deleteEkraf",
                     dataType : "JSON",
                     data : {
                         id:id,
@@ -588,12 +590,21 @@
             var id            = $(this).data('id');
 
             $('[name="idg"]').val(id);
-            var myUrl = "<?php echo site_url(); ?>Ekraf/formGaleri/"+id;
+            var myUrl = "<?php echo site_url(); ?>Operator/formGaleri/"+id;
             // alert(myUrl);
             window.location = myUrl;
             
             // $('#Modal_galeri').modal('show');
         });
+        function getKab() {
+                $.ajax({
+                url : "<?php echo site_url('Operator/getKab') ?>",
+                success : function(data){
+                    // alert(data);
+                    $('#kab').html(data);
+                }
+            })
+    }
 
         // var idg = 
         // alert(idg);

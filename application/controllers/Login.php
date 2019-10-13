@@ -25,9 +25,9 @@ class Login  extends CI_Controller {
 			if($session_data['role']=='admin'){
 			redirect('Ekraf','refresh');
 		}else if($session_data['role']=='operator'){
-				redirect('Ekraf','refresh');
+				redirect('Operator/getPage','refresh');
 			}else if ($session_data['role']=='ekraf') {
-				redirect('Ekraf','refresh');
+				redirect('PemilikEkraf/getPage','refresh');
 			}else{
 				redirect('Login','refresh');
 			}
@@ -53,6 +53,7 @@ class Login  extends CI_Controller {
 					'password'=>$row->password,
 					 'nama'=>$row->nama,
 					 'role'=>$row->role,
+					 'id_kab_kota' => $row->id_kab_kota,
 				);
 				$this->session->set_userdata('logged_in',$sess_array);
 			}

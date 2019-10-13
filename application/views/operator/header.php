@@ -45,6 +45,23 @@ body{
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<!-- <script type="text/javascript">
+    $(document).ready(function () {
+  //your code here
+        getKab();
+    });
+
+    function getKab() {
+                $.ajax({
+                url : "<?php echo site_url('Operator/getKab') ?>",
+                success : function(data){
+                    // alert(data);
+                    $('#kab').html(data);
+                }
+            })
+    }
+
+</script> -->
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -165,6 +182,7 @@ body{
                             <?php $session=$this->session->userdata('logged_in');
                             echo $session['nama'];?><br>
                             <?php echo $session['role'];  ?>
+                            <h6 id="kab"></h6>
                         </div>
                     </div>
                     <!-- End User profile text-->
@@ -174,25 +192,15 @@ body{
                             <li class="nav-devider"></li>
                             <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Data Ekraf <span class="label label-rouded label-themecolor pull-right">2</span></span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="<?php echo base_url().'Ekraf'?>">List Ekraf </a></li>
-                                    <li><a href="<?php echo base_url().'Ekraf/formInput'?>">Input Data Ekraf</a></li>
-                                    <li><a href="<?php echo base_url().'Ekraf/teknologi'?>">Teknologi Ekraf</a></li>
-                                    <li><a href="<?php echo base_url().'Ekraf/galeri'?>">Galeri Ekraf</a></li>
-                                </ul>
-                            </li>
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data Master</span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="<?php echo base_url().'Subsektor'?>">Subsektor</a></li>
-                                    <li><a href="<?php echo base_url().'Sentra'?>">Sentra</a></li>
-                                    <li><a href="<?php echo base_url().'Sumberdana'?>">Sumber Dana</a></li>
-                                    <li><a href="<?php echo base_url().'StatusPemilik'?>">Status Pemilik</a></li>
-                                    <li><a href="<?php echo base_url().'TeknologiEcommerce'?>">Teknologi Ecommerce</a></li>
+                                    <li><a href="<?php echo base_url().'Operator/getPage'?>">List Ekraf </a></li>
+                                    <li><a href="<?php echo base_url().'Operator/formInput'?>">Input Data Ekraf</a></li>
+                                    <li><a href="<?php echo base_url().'Operator/teknologi'?>">Teknologi Ekraf</a></li>
+                                    <li><a href="<?php echo base_url().'Operator/galeri'?>">Galeri Ekraf</a></li>
                                 </ul>
                             </li>
                             <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data User</span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="<?php echo base_url().'Operator'?>">Operator</a></li>
-                                    <li><a href="<?php echo base_url().'PemilikEkraf'?>">Pemilik Ekraf</a></li>
+                                    <li><a href="<?php echo base_url().'Operator/pemilikEkraf'?>">Pemilik Ekraf</a></li>
                                 </ul>
                             </li>
                         </ul>
