@@ -159,36 +159,36 @@
         <!-- ============================================================== -->
         <!-- All Jquery -->
         <!-- ============================================================== -->
-        <script src="assets/plugins/jquery/jquery.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
-        <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-        <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/popper.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
         <!-- slimscrollbar scrollbar JavaScript -->
-        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/jquery.slimscroll.js"></script>
         <!--Wave Effects -->
-        <script src="assets/js/waves.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/waves.js"></script>
         <!--Menu sidebar -->
-        <script src="assets/js/sidebarmenu.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/sidebarmenu.js"></script>
         <!--stickey kit -->
-        <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
         <!--Custom JavaScript -->
-        <script src="assets/js/custom.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/custom.min.js"></script>
         <!-- ============================================================== -->
         <!-- This page plugins -->
         <!-- ============================================================== -->
         <!--sparkline JavaScript -->
-        <script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
         <!--morris JavaScript -->
-        <script src="assets/plugins/raphael/raphael-min.js"></script>
-        <script src="assets/plugins/morrisjs/morris.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/raphael/raphael-min.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/morrisjs/morris.min.js"></script>
         <!-- Chart JS -->
-        <!-- <script src="assets/js/dashboard1.js"></script> -->
+        <!-- <script src="<?php echo base_url() ?>assets/js/dashboard1.js"></script> -->
         <!-- ============================================================== -->
         <!-- Style switcher -->
         <!-- ============================================================== -->
-        <script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-        <script type="text/javascript" src="assets/datatables/datatables.min.js"></script>
-        <script src="assets/js/sweetalert2@8.js"></script>
+        <script src="<?php echo base_url() ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>assets/datatables/datatables.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/sweetalert2@8.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function(){

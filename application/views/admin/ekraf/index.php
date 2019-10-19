@@ -27,7 +27,7 @@
                                 <thead>
                                     <tr>
                                         <th >No</th>
-                                        <th style="position: sticky;left:0px;background-color:white;">Nama</th>
+                                        <th>Nama</th>
                                         <th >Alamat</th>
                                         <th >Kelurahan</th>
                                         <th >Sentra</th>

@@ -8,7 +8,7 @@ class Operator extends CI_Controller {
 		$this->load->model('Operator_Model');
 		$this->load->model('StatusPemilik_Model');
 		$this->load->model('Sumberdana_model');
-		$this->load->model('Sentra_model');
+		$this->load->model('Sentra_Model');
 		$this->load->model('Ekraf_Model');
 		$this->load->model('TeknologiEcommerce_Model');
 		if ($this->session->userdata('logged_in')==TRUE) 
@@ -21,8 +21,8 @@ class Operator extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('operator/header');
-		$this->load->view('operator/Operator/index');	
+		$this->load->view('admin/header');
+		$this->load->view('admin/operator/index');	
 	}
 
 	public function getData()
@@ -71,7 +71,7 @@ class Operator extends CI_Controller {
 	public function getPage()
 	{
 		$session=$this->session->userdata('logged_in');
-		$data['sentra'] = $this->Sentra_model->getList();
+		$data['sentra'] = $this->Sentra_Model->getList();
 		$data['status'] = $this->StatusPemilik_Model->getData();
 		$data['sumberdana'] = $this->Sumberdana_model->getData();
 		$data['desa'] = $this->Operator_Model->getListDesa($session['id_kab_kota']);
@@ -89,14 +89,14 @@ class Operator extends CI_Controller {
 	public function formInput()
 	{
 		$session=$this->session->userdata('logged_in');
-		$data['sentra'] = $this->Sentra_model->getList();
+		$data['sentra'] = $this->Sentra_Model->getList();
 		$data['status'] = $this->StatusPemilik_Model->getData();
 		$data['sumberdana'] = $this->Sumberdana_model->getData();
 		$data['desa'] = $this->Operator_Model->getListDesa($session['id_kab_kota']);
 		// print_r($session['id_kab_kota']);
 		// die();
 		$this->load->view('operator/header');
-		$this->load->view('operator/ekraf/formInput',$data);
+		$this->load->view('operator/ekraf/forminput',$data);
 	}
 
 	public function newEkraf()
@@ -349,9 +349,13 @@ class Operator extends CI_Controller {
 
 	public function getKab()
 	{
+		$kab2=" ";
 		$session=$this->session->userdata('logged_in');
-		// print_r($this->Operator_Model->getKab($session['id_kab_kota']));
-		echo json_encode( $this->Operator_Model->getKab($session['id_kab_kota']));
+		$kab = $this->Operator_Model->getKab($session['id_kab_kota']);
+		foreach ($kab as $key) {
+			$kab2= $key->nama;
+		}
+		echo $kab2;
 	}
 }
 

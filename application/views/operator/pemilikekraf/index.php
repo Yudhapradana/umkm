@@ -234,6 +234,7 @@
         <script type="text/javascript">
             $(document).ready(function(){
                 //panggil get data
+                getKab();
                 showPemilikEkraf();
                 //get data pemilikekraf
                 function showPemilikEkraf() {
@@ -427,6 +428,16 @@
                 return false;
             });
             });
+
+function getKab() {
+                $.ajax({
+                url : "<?php echo site_url('Operator/getKab') ?>",
+                success : function(data){
+                    // alert(data);
+                    $('#kab').html(data);
+                }
+            })
+    }
         </script>
     </body>
 

@@ -6,7 +6,7 @@ class StatusPemilik extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('StatusPemilik_model');
+		$this->load->model('StatusPemilik_Model');
 				if ($this->session->userdata('logged_in')==TRUE) 
 		{
 			// redirect('Dc_Controller/index');
@@ -23,13 +23,13 @@ class StatusPemilik extends CI_Controller {
 
 	public function getDataStatusPemilik()
 	{
-		echo json_encode( $this->StatusPemilik_model->getData());
+		echo json_encode( $this->StatusPemilik_Model->getData());
 	}
 
 	public function newStatusPemilik()
 	{
 		$nama = $this->input->post('nama');
-		$result = $this->StatusPemilik_model->newStatusPemilik($nama);
+		$result = $this->StatusPemilik_Model->newStatusPemilik($nama);
 
 		echo json_encode($result);
 	}
@@ -38,7 +38,7 @@ class StatusPemilik extends CI_Controller {
 	{
 		$id = $this->input->post('id');
 		$nama = $this->input->post('nama');
-		$result = $this->StatusPemilik_model->updateStatusPemilik($id,$nama);
+		$result = $this->StatusPemilik_Model->updateStatusPemilik($id,$nama);
 
 		echo json_encode($result);
 	}
@@ -46,7 +46,7 @@ class StatusPemilik extends CI_Controller {
 	public function deleteStatusPemilik()
 	{
 		$id = $this->input->post('id');
-		$result = $this->StatusPemilik_model->deleteStatusPemilik($id);
+		$result = $this->StatusPemilik_Model->deleteStatusPemilik($id);
 		echo json_encode($result);
 	}
 

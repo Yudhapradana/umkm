@@ -27,7 +27,7 @@
                                 <thead>
                                     <tr>
                                         <th >No</th>
-                                        <th style="position: sticky;left:0px;background-color:white;">Nama</th>
+                                        <th>Nama</th>
                                         <th >Alamat</th>
                                         <th >Kelurahan</th>
                                         <th >Sentra</th>
@@ -337,6 +337,7 @@
                     $(document).ready(function(){
                 //panggil get data
                 getKab();
+                // alert(getKab());
                 showekraf();
                 //get data sumberdana
                 function showekraf() {

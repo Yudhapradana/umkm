@@ -7,7 +7,7 @@ class Ekraf extends CI_Controller {
 		parent::__construct();
 		$this->load->model('StatusPemilik_Model');
 		$this->load->model('Sumberdana_model');
-		$this->load->model('Sentra_model');
+		$this->load->model('Sentra_Model');
 		$this->load->model('Ekraf_Model');
 		$this->load->model('TeknologiEcommerce_Model');
 		if ($this->session->userdata('logged_in')==TRUE) 
@@ -20,7 +20,7 @@ class Ekraf extends CI_Controller {
 
 	public function index()
 	{
-		$data['sentra'] = $this->Sentra_model->getList();
+		$data['sentra'] = $this->Sentra_Model->getList();
 		$data['status'] = $this->StatusPemilik_Model->getData();
 		$data['sumberdana'] = $this->Sumberdana_model->getData();
 		$data['desa'] = $this->Ekraf_Model->getListDesa();
@@ -30,12 +30,12 @@ class Ekraf extends CI_Controller {
 
 	public function formInput()
 	{
-		$data['sentra'] = $this->Sentra_model->getList();
+		$data['sentra'] = $this->Sentra_Model->getList();
 		$data['status'] = $this->StatusPemilik_Model->getData();
 		$data['sumberdana'] = $this->Sumberdana_model->getData();
 		$data['desa'] = $this->Ekraf_Model->getListDesa();
 		$this->load->view('admin/header');
-		$this->load->view('admin/ekraf/formInput',$data);
+		$this->load->view('admin/ekraf/forminput',$data);
 	}
 
 	public function getData()

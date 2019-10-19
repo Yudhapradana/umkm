@@ -5,7 +5,7 @@ class Sentra extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Sentra_model');
+		$this->load->model('Sentra_Model');
 		$this->load->model('Subsektor_model');
 		if ($this->session->userdata('logged_in')==TRUE) 
 		{
@@ -24,14 +24,14 @@ class Sentra extends CI_Controller {
 
 	public function getDataSentra()
 	{
-		echo json_encode( $this->Sentra_model->getData());
+		echo json_encode( $this->Sentra_Model->getData());
 	}
 
 	public function newSentra()
 	{
 		$nama_sentra = $this->input->post('nama_sentra');
 		$id_subsektor = $this->input->post('id_subsektor');
-		$result = $this->Sentra_model->newSentra($nama_sentra,$id_subsektor);
+		$result = $this->Sentra_Model->newSentra($nama_sentra,$id_subsektor);
 
 		echo json_encode($result);
 	}
@@ -41,7 +41,7 @@ class Sentra extends CI_Controller {
 		$id = $this->input->post('id');
 		$id_subsektor = $this->input->post('id_subsektor');
 		$nama_sentra = $this->input->post('nama_sentra');
-		$result = $this->Sentra_model->updateSentra($id,$id_subsektor,$nama_sentra);
+		$result = $this->Sentra_Model->updateSentra($id,$id_subsektor,$nama_sentra);
 
 		echo json_encode($result);
 	}
@@ -49,7 +49,7 @@ class Sentra extends CI_Controller {
 	public function deleteSentra()
 	{
 		$id = $this->input->post('id');
-		$result = $this->Sentra_model->deleteSentra($id);
+		$result = $this->Sentra_Model->deleteSentra($id);
 		echo json_encode($result);
 	}
 

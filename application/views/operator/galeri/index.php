@@ -173,7 +173,7 @@
                     $('#row'+button_id+'').remove();  
                 });
 
-               
+                getKab();
                 showGaleri();
 
                 //get data subsektor
@@ -226,6 +226,15 @@
         });
                     
             });
+            function getKab() {
+                $.ajax({
+                url : "<?php echo site_url('Operator/getKab') ?>",
+                success : function(data){
+                    // alert(data);
+                    $('#kab').html(data);
+                }
+            })
+    }
         </script>
     </body>
 

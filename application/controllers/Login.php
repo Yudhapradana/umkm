@@ -54,6 +54,7 @@ class Login  extends CI_Controller {
 					 'nama'=>$row->nama,
 					 'role'=>$row->role,
 					 'id_kab_kota' => $row->id_kab_kota,
+					 'id_ekraf' => $row->id_ekraf,
 				);
 				$this->session->set_userdata('logged_in',$sess_array);
 			}
@@ -94,6 +95,7 @@ class Login  extends CI_Controller {
 	public function logout()
 	{
 			$this->session->unset_userdata('logged_in');
+			// $this->session->session_destroy();
 			echo "<script>alert('Logout Success') </script>";
 			redirect('Login','refresh');
 	}

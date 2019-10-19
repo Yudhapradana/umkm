@@ -263,7 +263,7 @@ class Operator_Model extends CI_Model {
 	public function getKab($kab)
 	{
 		$this->db->select('nama');
-		$this->db->where('id_kab_kota', $id);
+		$this->db->where('id_kab_kota', $kab);
 		$query=$this->db->get('kab_kota');
 		return $query->result();
 	}
