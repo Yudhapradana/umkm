@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2019 at 02:59 AM
+-- Generation Time: Oct 27, 2019 at 04:12 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -82628,18 +82628,33 @@ CREATE TABLE `ekraf` (
   `no_merk` varchar(100) NOT NULL,
   `tgl_merk` date NOT NULL,
   `latitude` decimal(10,8) DEFAULT NULL,
-  `longitude` decimal(11,8) DEFAULT NULL
+  `longitude` decimal(11,8) DEFAULT NULL,
+  `tahun` int(11) NOT NULL,
+  `omzet` int(11) NOT NULL,
+  `pencatatan_keuangan` enum('1','0','','') NOT NULL,
+  `laporan_terpisah` enum('1','0','','') NOT NULL,
+  `neraca` enum('1','0','','') NOT NULL,
+  `laba_rugi` enum('1','0','','') NOT NULL,
+  `buku_kas` enum('1','0','','') NOT NULL,
+  `laporan_keuangan` enum('1','0','','') NOT NULL,
+  `pameran_kab` enum('1','0','','') NOT NULL,
+  `pameran_prov` enum('1','0','','') NOT NULL,
+  `pameran_nasional` enum('1','0','','') NOT NULL,
+  `pameran_internasional` enum('1','0','','') NOT NULL,
+  `wilayah_pemasaran` varchar(255) NOT NULL,
+  `legalitas_usaha` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ekraf`
 --
 
-INSERT INTO `ekraf` (`id_ekraf`, `nama`, `alamat`, `id_desa_kelurahan`, `id_sentra`, `id_status_pemilik`, `jumlah_karyawan`, `upah_tenaga_kerja`, `id_sumber_dana`, `distribusi`, `permasalahan`, `ekspor`, `peluang_tantangan`, `perijinan`, `merk`, `no_merk`, `tgl_merk`, `latitude`, `longitude`) VALUES
-(1, 'PT keramik', 'jl. soekarno hatta no 100', '3516012016', 1, 2, 19, 90000, 1, 'Surabaya', 'kurangnya bahan baku', 'Tidak ada', 'pembentukan keramik kreatif', 'legal', 'avian', '112', '2019-10-16', NULL, NULL),
-(2, 'PT. Coklat klasik', 'jl. gayungan', '3578221003', 1, 2, 20, 90000, 1, 'indonesia', 'banyak', 'Ada', 'Tidak ada', 'legal', 'coklat klasik', '112', '2019-10-01', NULL, NULL),
-(3, 'Celengan macan (Robet) -', 'Desa Remdemg Kecamatan Malo RT 6 RW 3 (081853356213)\r\n', '3306142006', 1, 2, 10, 100000, 1, 'jawa timur', 'Tidak ada', 'Tidak ada', 'Tidak ada', 'legal', 'Robet', '123', '2019-10-01', NULL, NULL),
-(4, 'PT. Indonesia Merdeka', 'jl. kembang turi', '3305042020', 1, 3, 1, 90000, 1, 'malang', 'Tidak ada', 'Tidak ada', 'banyak', 'legal', 'im', '12132', '2019-10-23', NULL, NULL);
+INSERT INTO `ekraf` (`id_ekraf`, `nama`, `alamat`, `id_desa_kelurahan`, `id_sentra`, `id_status_pemilik`, `jumlah_karyawan`, `upah_tenaga_kerja`, `id_sumber_dana`, `distribusi`, `permasalahan`, `ekspor`, `peluang_tantangan`, `perijinan`, `merk`, `no_merk`, `tgl_merk`, `latitude`, `longitude`, `tahun`, `omzet`, `pencatatan_keuangan`, `laporan_terpisah`, `neraca`, `laba_rugi`, `buku_kas`, `laporan_keuangan`, `pameran_kab`, `pameran_prov`, `pameran_nasional`, `pameran_internasional`, `wilayah_pemasaran`, `legalitas_usaha`) VALUES
+(1, 'PT keramik', 'jl. soekarno hatta no 100', '3516012016', 1, 2, 19, 90000, 1, 'Surabaya', 'kurangnya bahan baku', 'Tidak ada', 'pembentukan keramik kreatif', 'legal', 'avian', '112', '2019-10-16', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', ''),
+(2, 'PT. Coklat klasik', 'jl. gayungan', '3578221003', 1, 2, 20, 90000, 1, 'indonesia', 'banyak', 'Ada', 'Tidak ada', 'legal', 'coklat klasik', '112', '2019-10-01', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', ''),
+(3, 'Celengan macan (Robet) -', 'Desa Remdemg Kecamatan Malo RT 6 RW 3 (081853356213)\r\n', '3306142006', 1, 2, 10, 100000, 1, 'jawa timur', 'Tidak ada', 'Tidak ada', 'Tidak ada', 'legal', 'Robet', '123', '2019-10-01', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Lokal', 'pirt'),
+(4, 'PT. Indonesia Merdeka', 'jl. kembang turi', '3305042020', 1, 3, 1, 90000, 1, 'malang', 'Tidak ada', 'Tidak ada', 'banyak', 'legal', 'im', '12132', '2019-10-23', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', ''),
+(5, 'arema', 'jl. soekarno hatta no 100', '3573051011', 1, 2, 90, 90000, 1, 'pes', 'Tidak ada', 'Tidak ada', 'Tidak ada', 'l', 'l', 'l', '2019-10-08', NULL, NULL, 2019, 0, '1', '0', '1', '0', '0', '1', '1', '0', '0', '0', 'Lokal;Nasional', 'siup;tdp;npwp');
 
 -- --------------------------------------------------------
 
@@ -90607,7 +90622,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `ekraf`
 --
 ALTER TABLE `ekraf`
-  MODIFY `id_ekraf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_ekraf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `ekraf_teknologi`

@@ -23,10 +23,12 @@
     <link href="<?php echo base_url() ?>assets/css/basic.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/datatables.min.css">
     <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
     <style>
         body {
           padding-right: 0 !important;
+
       }
   </style>
   <style type="text/css">
@@ -40,6 +42,12 @@
         border: 2px dashed #0087F7;
     }
 
+    input[type="checkbox"] {
+        -webkit-appearance: checkbox;
+        border-radius: 0;
+    }
+
+    
 </style>
 
 <script type="text/javascript">
