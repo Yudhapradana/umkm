@@ -14,249 +14,364 @@
                         
                     </div>
                     <div class="col-md-7 pull-right">
-                        <?php if ($countekraf == 0) { ?>
+                        <?php $session=$this->session->userdata('logged_in'); if ($session['id_ekraf'] == null) { ?>
                             <a href="javascript:void(0);" class="btn btn-success float-right" data-toggle="modal" data-target="#Modal_Add">
                                 <span class="fa fa-plus"></span> Add</a>
-                        <?php }else{ ?>
-                            <a href="javascript:void(0);" class="btn btn-warning float-right" onclick="showUpdate()">
-                                <span class="fa fa-edit"></span> Update</a>
-                    <?php } ?>
-                            
+                            <?php }else{ ?>
+                                <a href="javascript:void(0);" class="btn btn-warning float-right" onclick="showUpdate()">
+                                    <span class="fa fa-edit"></span> Update</a>
+                                <?php } ?>
+
+                            </div>
                         </div>
+                        <!-- ============================================================== -->
+                        <!-- End Bread crumb and right sidebar toggle -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Container fluid  -->
+                        <!-- ============================================================== -->
+                        <div class="container-fluid">
+                            <div class="col-12">
+                             <?php $session=$this->session->userdata('logged_in'); if ($session['id_ekraf'] == null) { ?>
+                                <div class="card" style="padding: 10px">
+                                    <div class="modal-body">
+                                        <h1><center>Tidak Ada Data Ekraf</center></h1>
+                                    </div>
+                                </div>
+                            <?php }else{ ?>
+                                <div class="card" style="padding: 10px">
+                                    <div class="modal-body">
+                                        <h3><center>Data Ekraf</center></h3>
+                                        <div class="form-group row col-12">
+                                            <div class="col-4">
+                                                <b><label>Nama</label></b><br>
+                                                <font id="nama"></font>
+                                            </div>
+                                            <div class="col-4">
+                                                <b><label>Desa/Kelurahan</label></b><br>
+                                                <font id="desa"></font>
+                                            </div>
+                                            <div class="col-4">
+                                                <b><label>Alamat</label></b><br>
+                                                <font id="alamat"></font>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row col-12">
+                                            <div class="col-4"> 
+                                                <b><label>Sentra</label></b><br>
+                                                <font id="sentra"></font>
+                                            </div>
+                                            <div class="col-4"> 
+                                                <b><label>Status Pemilik</label></b><br>
+                                                <font id="status"></font>
+                                            </div>
+                                            <div class="col-4">
+                                                <b><label>Jumlah Karyawan</label></b><br>
+                                                <font id="jk"></font>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row col-12">
+                                            <div class="col-4">
+                                                <b><label>Upah Karyawan (Rp)</label></b><br>
+                                                Rp. <font id="upah"></font>
+                                            </div>
+                                            <div class="col-4">
+                                                <b><label>Sumber Dana</label></b><br>
+                                                <font id="sumberdana"></font>
+                                            </div>
+                                            <div class="col-4">
+                                                <b><label>Distribusi</label></b><br>
+                                                <font id="distribusi"></font>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row col-12">
+                                            <div class="col-4">
+                                                <b><label>Permasalahan</label></b><br>
+                                                <font id="permasalahan"></font>
+                                            </div>
+                                            <div class="col-4">
+                                                <b><label>Ekspor</label></b><br>
+                                                <font id="ekspor"></font>
+                                            </div>
+                                            <div class="col-4">
+                                                <b><label>Peluang dan Tantangan</label></b><br>
+                                                <font id="peluang"></font>
+                                            </div>
+                                        </div>
+                                        <h3><center>Perijinan Ekraf</center></h3>
+
+                                        <div class="form-group row col-12">
+                                            <div class="col-3">
+                                                <b><label>Perijinan</label></b><br>
+                                                <font id="perijinan"></font>
+                                            </div>
+                                            <div class="col-3">
+                                                <b><label>Merk</label></b><br>
+                                                <font id="merk"></font>
+                                            </div>
+                                            <div class="col-3">
+                                                <b><label>No Merk</label></b><br>
+                                                <font id="no_merk"></font>
+                                            </div>
+                                            <div class="col-3">
+                                                <b><label>Tanggal Merk</label></b><br>
+                                                <font id="tgl_merk"></font>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End Container fluid  -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- footer -->
+                    <!-- ============================================================== -->
+                    <footer class="footer"> © 2019 with love </footer>
+                    <!-- ============================================================== -->
+                    <!-- End footer -->
+                    <!-- ============================================================== -->
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- End Page wrapper  -->
                 <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Container fluid  -->
-                <!-- ============================================================== -->
-                <div class="container-fluid">
-                    <div class="col-12">
-                         <?php if ($countekraf == 0) { ?>
-                            <div class="card" style="padding: 10px">
-                                <div class="modal-body">
-                                    <h1><center>Tidak Data Ekraf</center></h1>
-                                </div>
+            </div>
+            <form id="forminput">
+                <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="max-width: 70%">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Tambah Data Ekraf</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             </div>
-                            <?php }else{ ?>
-                        <div class="card" style="padding: 10px">
                             <div class="modal-body">
-                                <h3><center>Data Ekraf</center></h3>
                                 <div class="form-group row col-12">
                                     <div class="col-4">
-                                        <b><label>Nama</label></b><br>
-                                        <font id="nama"></font>
+                                        <label>Nama</label>
+                                        <input type="text" name="inama" id="inama" class="form-control" placeholder="Masukkan Nama" required>
                                     </div>
                                     <div class="col-4">
-                                        <b><label>Desa/Kelurahan</label></b><br>
-                                        <font id="desa"></font>
+                                        <label>Pilih Desa/Kelurahan</label>
+                                        <input type="text" id="idesa" name="idesa" class="form-control" placeholder="Masukkan Desa/kelurahan" list="data" required autocomplete="off" />
+                                        <datalist id="data">
+                                            <?php foreach ($desa as $key => $value) : ?>
+                                                <option value="<?= $value->nd ?>" data-json='<?php echo json_encode($value) ?>'><?= $value->nd ?>-<?= $value->nk ?></option>
+                                            <?php endforeach; ?>
+                                        </datalist>
                                     </div>
                                     <div class="col-4">
-                                        <b><label>Alamat</label></b><br>
-                                        <font id="alamat"></font>
+                                        <label>Alamat</label>
+                                        <textarea class="form-control" name="ialamat" id="ialamat" placeholder="Masukkan alamat" required></textarea>
                                     </div>
 
                                 </div>
                                 <div class="form-group row col-12">
                                     <div class="col-4"> 
-                                        <b><label>Sentra</label></b><br>
-                                        <font id="sentra"></font>
+                                        <label>Pilih Sentra</label>
+                                        <select name="isentra" id="isentra" class="form-control" required="">
+                                            <option value="" selected="" hidden="">Pilih Sentra</option>
+                                            <?php foreach ($sentra as $key): ?>
+                                                <option value="<?php echo $key->id_sentra ?>"><?php echo $key->nama ?></option>
+                                            <?php endforeach ?>
+                                        </select>
                                     </div>
                                     <div class="col-4"> 
-                                        <b><label>Status Pemilik</label></b><br>
-                                        <font id="status"></font>
+                                        <label>Pilih Status</label>
+                                        <select name="istatus" id="istatus" class="form-control" required="">
+                                            <option value="" selected="" hidden="">Pilih Status</option>
+                                            <?php foreach ($status as $key): ?>
+                                                <option value="<?php echo $key->id_status_pemilik ?>"><?php echo $key->nama ?></option>
+                                            <?php endforeach ?>
+                                        </select>
                                     </div>
                                     <div class="col-4">
-                                        <b><label>Jumlah Karyawan</label></b><br>
-                                        <font id="jk"></font>
-                                    </div>
-                                </div>
-                                <div class="form-group row col-12">
-                                    <div class="col-4">
-                                        <b><label>Upah Karyawan (Rp)</label></b><br>
-                                        Rp. <font id="upah"></font>
-                                    </div>
-                                    <div class="col-4">
-                                        <b><label>Sumber Dana</label></b><br>
-                                        <font id="sumberdana"></font>
-                                    </div>
-                                    <div class="col-4">
-                                        <b><label>Distribusi</label></b><br>
-                                        <font id="distribusi"></font>
+                                        <label>Jumlah Karyawan</label>
+                                        <input type="text" name="ijk" id="ijk" class="form-control" placeholder="Masukkan Jumlah" required>
                                     </div>
                                 </div>
                                 <div class="form-group row col-12">
                                     <div class="col-4">
-                                        <b><label>Permasalahan</label></b><br>
-                                        <font id="permasalahan"></font>
+                                        <label>Upah Karyawan (Rp)</label>
+                                        <input type="text" name="iupah" id="iupah" class="form-control" placeholder="Masukkan upah" required>
                                     </div>
                                     <div class="col-4">
-                                        <b><label>Ekspor</label></b><br>
-                                        <font id="ekspor"></font>
+                                        <label>Sumber Dana</label>
+                                        <select class="form-control" name="isumberdana" id="isumberdana" required>
+                                            <option class="form-control" selected="" hidden="" disabled="" value="">Pilih Sumberdana</option>
+                                            <?php foreach ($sumberdana as $key) { ?>
+                                                <option value="<?php echo $key->id_sumber_dana ?>"><?php echo $key->nama ?></option>
+                                            <?php } ?>
+                                        </select>
                                     </div>
                                     <div class="col-4">
-                                        <b><label>Peluang dan Tantangan</label></b><br>
-                                        <font id="peluang"></font>
+                                        <label>Distribusi</label>
+                                        <input type="text" name="idistribusi" id="idistribusi" class="form-control" placeholder="Masukkan distribusi" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-12">
+                                    <div class="col-4">
+                                        <label>Permasalahan</label>
+                                        <input type="text" name="ipermasalahan" id="ipermasalahan" class="form-control" placeholder="Masukkan permasalahan" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label>Ekspor</label>
+                                        <input type="text" name="iekspor" id="iekspor" class="form-control" placeholder="Masukkan eskpor" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label>Peluang dan Tantangan</label>
+                                        <input type="text" name="ipeluang" id="ipeluang" class="form-control" placeholder="Masukkan peluang/tantangan" required>
                                     </div>
                                 </div>
                                 <h3><center>Perijinan Ekraf</center></h3>
 
                                 <div class="form-group row col-12">
                                     <div class="col-3">
-                                        <b><label>Perijinan</label></b><br>
-                                        <font id="perijinan"></font>
+                                        <label>Perijinan</label>
+                                        <input type="text" name="iperijinan" id="iperijinan" class="form-control" placeholder="Masukkan perijinan" required>
                                     </div>
                                     <div class="col-3">
-                                        <b><label>Merk</label></b><br>
-                                        <font id="merk"></font>
+                                        <label>Merk</label>
+                                        <input type="text" name="imerk" id="imerk" class="form-control" placeholder="Masukkan Merk" required>
                                     </div>
                                     <div class="col-3">
-                                        <b><label>No Merk</label></b><br>
-                                        <font id="no_merk"></font>
+                                        <label>No Merk</label>
+                                        <input type="text" name="ino_merk" id="ino_merk" class="form-control" placeholder="Masukkan Nomor" required>
                                     </div>
                                     <div class="col-3">
-                                        <b><label>Tanggal Merk</label></b><br>
-                                        <font id="tgl_merk"></font>
+                                        <label>Tanggal Merk</label>
+                                        <input type="date" name="itgl" id="itgl" class="form-control" placeholder="Masukkan Tanggal " required>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php } ?>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Container fluid  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
-                <footer class="footer"> © 2019 with love </footer>
-                <!-- ============================================================== -->
-                <!-- End footer -->
-                <!-- ============================================================== -->
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
-            <!-- ============================================================== -->
-        </div>
-        <form id="formupdate">
-            <div class="modal fade" id="Modal_Update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
-                <div class="modal-dialog" role="document" style="max-width: 70%">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Update Data ekraf</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group row col-12">
-                                <div class="col-4">
-                                    <label>Nama</label>
-                                    <input type="text" name="unama" id="unama" class="form-control" placeholder="Masukkan Nama" required>
-                                </div>
-                                <div class="col-4">
-                                    <label>Pilih Desa/Kelurahan</label>
-                                    <input type="text" id="udesa" name="udesa" class="form-control" placeholder="Masukkan Desa/kelurahan" list="data" required autocomplete="off" />
-                                    <datalist id="data">
-                                        <?php foreach ($desa as $key => $value) : ?>
-                                            <option value="<?= $value->nd ?>" data-json='<?php echo json_encode($value) ?>'><?= $value->nd ?>-<?= $value->nk ?></option>
-                                        <?php endforeach; ?>
-                                    </datalist>
-                                </div>
-                                <div class="col-4">
-                                    <label>Alamat</label>
-                                    <textarea class="form-control" name="ualamat" id="ualamat" placeholder="Masukkan alamat" required></textarea>
-                                </div>
-
+                            <div class="modal-footer">
+                                <button type="submit" id="btn_push" class="btn btn-primary ">Add</button>
+                                <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
                             </div>
-                            <div class="form-group row col-12">
-                                <div class="col-4"> 
-                                    <label>Pilih Sentra</label>
-                                    <select name="usentra" id="usentra" class="form-control" required="">
-                                        <option value="" selected="" hidden="">Pilih Sentra</option>
-                                        <?php foreach ($sentra as $key): ?>
-                                            <option value="<?php echo $key->id_sentra ?>"><?php echo $key->nama ?></option>
-                                        <?php endforeach ?>
-                                    </select>
-                                </div>
-                                <div class="col-4"> 
-                                    <label>Pilih Status</label>
-                                    <select name="ustatus" id="ustatus" class="form-control" required="">
-                                        <option value="" selected="" hidden="">Pilih Status</option>
-                                        <?php foreach ($status as $key): ?>
-                                            <option value="<?php echo $key->id_status_pemilik ?>"><?php echo $key->nama ?></option>
-                                        <?php endforeach ?>
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <label>Jumlah Karyawan</label>
-                                    <input type="text" name="ujk" id="ujk" class="form-control" placeholder="Masukkan Jumlah" required>
-                                </div>
-                            </div>
-                            <div class="form-group row col-12">
-                                <div class="col-4">
-                                    <label>Upah Karyawan (Rp)</label>
-                                    <input type="text" name="uupah" id="uupah" class="form-control" placeholder="Masukkan upah" required>
-                                </div>
-                                <div class="col-4">
-                                    <label>Sumber Dana</label>
-                                    <select class="form-control" name="usumberdana" id="usumberdana" required>
-                                        <option class="form-control" selected="" hidden="" disabled="" value="">Pilih Sumberdana</option>
-                                        <?php foreach ($sumberdana as $key) { ?>
-                                            <option value="<?php echo $key->id_sumber_dana ?>"><?php echo $key->nama ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <label>Distribusi</label>
-                                    <input type="text" name="udistribusi" id="udistribusi" class="form-control" placeholder="Masukkan distribusi" required>
-                                </div>
-                            </div>
-                            <div class="form-group row col-12">
-                                <div class="col-4">
-                                    <label>Permasalahan</label>
-                                    <input type="text" name="upermasalahan" id="upermasalahan" class="form-control" placeholder="Masukkan permasalahan" required>
-                                </div>
-                                <div class="col-4">
-                                    <label>Ekspor</label>
-                                    <input type="text" name="uekspor" id="uekspor" class="form-control" placeholder="Masukkan eskpor" required>
-                                </div>
-                                <div class="col-4">
-                                    <label>Peluang dan Tantangan</label>
-                                    <input type="text" name="upeluang" id="upeluang" class="form-control" placeholder="Masukkan peluang/tantangan" required>
-                                </div>
-                            </div>
-                            <h3><center>Perijinan Ekraf</center></h3>
-
-                            <div class="form-group row col-12">
-                                <div class="col-3">
-                                    <label>Perijinan</label>
-                                    <input type="text" name="uperijinan" id="uperijinan" class="form-control" placeholder="Masukkan perijinan" required>
-                                </div>
-                                <div class="col-3">
-                                    <label>Merk</label>
-                                    <input type="text" name="umerk" id="umerk" class="form-control" placeholder="Masukkan Merk" required>
-                                </div>
-                                <div class="col-3">
-                                    <label>No Merk</label>
-                                    <input type="text" name="uno_merk" id="uno_merk" class="form-control" placeholder="Masukkan Nomor" required>
-                                </div>
-                                <div class="col-3">
-                                    <label>Tanggal Merk</label>
-                                    <input type="date" name="utgl" id="utgl" class="form-control" placeholder="Masukkan Tanggal " required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <!-- inputan button simpan dan Cancel -->
-                            <input type="text" id="uid" name="uid" hidden="">
-                            <!-- <input type="hidden" name="fotolama" id="fotolama" class="form-control"> -->
-                            <button type="submit" id="btn_push" class="btn btn-primary ">Save</button>
-                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+            <form id="formupdate">
+                <div class="modal fade" id="Modal_Update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="max-width: 70%">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Update Data ekraf</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group row col-12">
+                                    <div class="col-4">
+                                        <label>Nama</label>
+                                        <input type="text" name="unama" id="unama" class="form-control" placeholder="Masukkan Nama" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label>Pilih Desa/Kelurahan</label>
+                                        <input type="text" id="udesa" name="udesa" class="form-control" placeholder="Masukkan Desa/kelurahan" list="data" required autocomplete="off" />
+                                        <datalist id="data">
+                                            <?php foreach ($desa as $key => $value) : ?>
+                                                <option value="<?= $value->nd ?>" data-json='<?php echo json_encode($value) ?>'><?= $value->nd ?>-<?= $value->nk ?></option>
+                                            <?php endforeach; ?>
+                                        </datalist>
+                                    </div>
+                                    <div class="col-4">
+                                        <label>Alamat</label>
+                                        <textarea class="form-control" name="ualamat" id="ualamat" placeholder="Masukkan alamat" required></textarea>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row col-12">
+                                    <div class="col-4"> 
+                                        <label>Pilih Sentra</label>
+                                        <select name="usentra" id="usentra" class="form-control" required="">
+                                            <option value="" selected="" hidden="">Pilih Sentra</option>
+                                            <?php foreach ($sentra as $key): ?>
+                                                <option value="<?php echo $key->id_sentra ?>"><?php echo $key->nama ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-4"> 
+                                        <label>Pilih Status</label>
+                                        <select name="ustatus" id="ustatus" class="form-control" required="">
+                                            <option value="" selected="" hidden="">Pilih Status</option>
+                                            <?php foreach ($status as $key): ?>
+                                                <option value="<?php echo $key->id_status_pemilik ?>"><?php echo $key->nama ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <label>Jumlah Karyawan</label>
+                                        <input type="text" name="ujk" id="ujk" class="form-control" placeholder="Masukkan Jumlah" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-12">
+                                    <div class="col-4">
+                                        <label>Upah Karyawan (Rp)</label>
+                                        <input type="text" name="uupah" id="uupah" class="form-control" placeholder="Masukkan upah" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label>Sumber Dana</label>
+                                        <select class="form-control" name="usumberdana" id="usumberdana" required>
+                                            <option class="form-control" selected="" hidden="" disabled="" value="">Pilih Sumberdana</option>
+                                            <?php foreach ($sumberdana as $key) { ?>
+                                                <option value="<?php echo $key->id_sumber_dana ?>"><?php echo $key->nama ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <label>Distribusi</label>
+                                        <input type="text" name="udistribusi" id="udistribusi" class="form-control" placeholder="Masukkan distribusi" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-12">
+                                    <div class="col-4">
+                                        <label>Permasalahan</label>
+                                        <input type="text" name="upermasalahan" id="upermasalahan" class="form-control" placeholder="Masukkan permasalahan" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label>Ekspor</label>
+                                        <input type="text" name="uekspor" id="uekspor" class="form-control" placeholder="Masukkan eskpor" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label>Peluang dan Tantangan</label>
+                                        <input type="text" name="upeluang" id="upeluang" class="form-control" placeholder="Masukkan peluang/tantangan" required>
+                                    </div>
+                                </div>
+                                <h3><center>Perijinan Ekraf</center></h3>
+
+                                <div class="form-group row col-12">
+                                    <div class="col-3">
+                                        <label>Perijinan</label>
+                                        <input type="text" name="uperijinan" id="uperijinan" class="form-control" placeholder="Masukkan perijinan" required>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>Merk</label>
+                                        <input type="text" name="umerk" id="umerk" class="form-control" placeholder="Masukkan Merk" required>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>No Merk</label>
+                                        <input type="text" name="uno_merk" id="uno_merk" class="form-control" placeholder="Masukkan Nomor" required>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>Tanggal Merk</label>
+                                        <input type="date" name="utgl" id="utgl" class="form-control" placeholder="Masukkan Tanggal " required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <!-- inputan button simpan dan Cancel -->
+                                <input type="text" id="uid" name="uid" hidden="">
+                                <!-- <input type="hidden" name="fotolama" id="fotolama" class="form-control"> -->
+                                <button type="submit" id="btn_push" class="btn btn-primary ">Save</button>
+                                <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
             <!-- ============================================================== -->
             <!-- End Wrapper -->
             <!-- ============================================================== -->
@@ -335,28 +450,53 @@
                                 var kota          = data[i].kota;
                                 var provinsi          = data[i].provinsi;
 
-                               document.getElementById("nama").innerHTML= nama;
-                               document.getElementById("desa").innerHTML= desa;
-                               document.getElementById("alamat").innerHTML= alamat+', Kec. '+kecamatan+', '+kota+', '+provinsi;
-                               document.getElementById("sentra").innerHTML= sentra;
-                               document.getElementById("status").innerHTML= status;
-                               document.getElementById("jk").innerHTML= jk;
-                               document.getElementById("upah").innerHTML= upah;
-                               document.getElementById("sumberdana").innerHTML= sumberdana;
-                               document.getElementById("distribusi").innerHTML= distribusi;
-                               document.getElementById("permasalahan").innerHTML= permasalahan;
-                               document.getElementById("ekspor").innerHTML= ekspor;
-                               document.getElementById("peluang").innerHTML= peluang;
-                               document.getElementById("perijinan").innerHTML= perijinan;
-                               document.getElementById("no_merk").innerHTML= no_merk;
-                               document.getElementById("merk").innerHTML= merk;
-                               document.getElementById("tgl_merk").innerHTML= tgl_merk;
+                                document.getElementById("nama").innerHTML= nama;
+                                document.getElementById("desa").innerHTML= desa;
+                                document.getElementById("alamat").innerHTML= alamat+', Kec. '+kecamatan+', '+kota+', '+provinsi;
+                                document.getElementById("sentra").innerHTML= sentra;
+                                document.getElementById("status").innerHTML= status;
+                                document.getElementById("jk").innerHTML= jk;
+                                document.getElementById("upah").innerHTML= upah;
+                                document.getElementById("sumberdana").innerHTML= sumberdana;
+                                document.getElementById("distribusi").innerHTML= distribusi;
+                                document.getElementById("permasalahan").innerHTML= permasalahan;
+                                document.getElementById("ekspor").innerHTML= ekspor;
+                                document.getElementById("peluang").innerHTML= peluang;
+                                document.getElementById("perijinan").innerHTML= perijinan;
+                                document.getElementById("no_merk").innerHTML= no_merk;
+                                document.getElementById("merk").innerHTML= merk;
+                                document.getElementById("tgl_merk").innerHTML= tgl_merk;
                             }
                         }
                     });
-        }
+                }
 
-        
+                $('#forminput').submit(function(e){
+                    e.preventDefault();
+                    // if ($('#nama_umkm').get(0).files.length != 0) {
+                        $.ajax({
+                        url:'<?php echo base_url();?>index.php/PemilikEkraf/newEkraf', //URL submit
+                        type:"post", //method Submit
+                        data:new FormData(this), //penggunaan FormData
+                        processData:false,
+                        contentType:false,
+                        cache:false,
+                        async:false,
+                        success: function(data){ 
+                            Swal.fire({
+                                type: 'success',
+                                title: 'Berhasil menambahkan data ',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            $('#Modal_Add').modal('hide');
+                            document.getElementById('forminput').reset();
+                            window.location.reload();  
+                        }
+                        
+                    });
+                        return false;
+            });
 
 
                 //update sumberdana
@@ -428,8 +568,10 @@
                     return false;
                 });
 
+                
 
-            $('#ekraf').on('click','.item_detail',function(){
+
+                $('#ekraf').on('click','.item_detail',function(){
                     // memasukkan data yang dipilih dari tbl list agenda updatean ke variabel
                     var id            = $(this).data('id');
                     var nama          = $(this).data('nama');
@@ -476,11 +618,11 @@
                 });
 
 
-            
-        });
+
+            });
 
 
-            var rupiah = document.getElementById('uupah');
+            var rupiah = document.getElementById('iupah');
             rupiah.addEventListener('keyup', function(e){
             // tambahkan 'Rp.' pada saat form di ketik
             // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
@@ -519,12 +661,12 @@
         // alert(idg);
 
         function showUpdate() {
-                    $.ajax({
-                        type  : 'POST',
-                        url   : '<?php echo base_url()?>PemilikEkraf/getDataEkraf',
-                        async : false,
-                        dataType : 'json',
-                        success : function(data){
+            $.ajax({
+                type  : 'POST',
+                url   : '<?php echo base_url()?>PemilikEkraf/getDataEkraf',
+                async : false,
+                dataType : 'json',
+                success : function(data){
                             // alert(data)
                             var html = '';
                             var i;
@@ -553,7 +695,7 @@
                                 var id_status_pemilik          = data[i].id_status_pemilik;
                                 var id_sumber_dana          = data[i].id_sumber_dana;
 
-                              
+
                                 $('[name="uid"]').val(id);
                                 $('[name="unama"]').val(nama);
                                 $('[name="udesa"]').val(desa);
@@ -576,8 +718,7 @@
                             }
                         }
                     });
-        }
-        
+        } 
     </script>
 </body>
 

@@ -14,12 +14,9 @@
                         <div class="col-md-6 row">
                             <h3 class="text-themecolor">Galeri Ekraf</h3><h3 class="text-themecolor" id="gekraf"></h3>
                         </div>
-                        <?php if ($countekraf == 0) { ?>
                         <div class="col-md-6 pull-right">
                             <a href="javascript:void(0);" class="btn btn-success float-right" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add</a>
-                            <?php }else{ ?>
-                                <a href="javascript:void(0);" class="btn btn-success float-right disabled" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add</a>
-                            <?php } ?>
+                            
                         </div>
                     </div>
                 </div>

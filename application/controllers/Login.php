@@ -55,6 +55,9 @@ class Login  extends CI_Controller {
 					 'role'=>$row->role,
 					 'id_kab_kota' => $row->id_kab_kota,
 					 'id_ekraf' => $row->id_ekraf,
+					 'id_user' => $row->id_user,
+					 'email' => $row->email,
+					 'no_hp' => $row->no_hp,
 				);
 				$this->session->set_userdata('logged_in',$sess_array);
 			}

@@ -5,9 +5,15 @@ class PemilikEkraf_Model extends CI_Model {
 
 	public function getData()
 	{
-		$query=$this->db->query("SELECT *,o.nama as name, e.nama as ne from user as o inner join ekraf as e on o.id_ekraf=e.id_ekraf where o.role='ekraf' order by o.nama ASC");
+		$query=$this->db->query("SELECT *,o.nama as name, e.nama as ne from user as o inner join ekraf as e on o.id_ekraf=e.id_ekraf where o.role='ekraf' or o.role='null' order by o.nama ASC");
 		return $query->result();	
-	}	
+	}
+
+    public function getDataWaiting()
+    {
+        $query=$this->db->query("SELECT * from user where role='ekraf' and id_ekraf is null or role is null and id_ekraf is null order by nama asc");
+        return $query->result();     
+    }	
 
 	public function findIdEkraf($ekraf)
 	{
@@ -21,7 +27,7 @@ class PemilikEkraf_Model extends CI_Model {
 	{
 		$data = array(
             'nama'               	=>$nama,
-            'id_ekraf'           =>$ekraf3,
+            'id_ekraf'              =>$ekraf3,
             'email'               	=>$email,
             'no_hp'               	=>$hp,
             'username'              =>$username,
@@ -36,7 +42,7 @@ class PemilikEkraf_Model extends CI_Model {
 	{
 		$data = array(
             'nama'               	=>$nama,
-            'id_ekraf'           =>$ekraf3,
+            'id_ekraf'              =>$ekraf3,
             'email'               	=>$email,
             'no_hp'               	=>$hp,
             'username'              =>$username,
@@ -64,6 +70,30 @@ class PemilikEkraf_Model extends CI_Model {
 	{
 		$query = $this->db->query("SELECT count(*) from ekraf where id_ekraf='id'");
 		return $query->result();
+	}
+
+	public function newEkraf($nama,$alamat,$desa2,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl)
+	{
+			$data = array(
+            'nama'                  =>$nama,
+            'alamat'                =>$alamat,
+            'id_desa_kelurahan'     =>$desa2,
+            'id_sentra'             =>$sentra,
+            'id_status_pemilik'     =>$status,
+            'jumlah_karyawan'       =>$jk,
+            'upah_tenaga_kerja'            =>$upah,
+            'id_sumber_dana'            =>$sumberdana,
+            'distribusi'            =>$distribusi,
+            'permasalahan'          =>$permasalahan,
+            'ekspor'                =>$ekspor,
+            'peluang_tantangan'     =>$peluang,
+            'perijinan'                  =>$perijinan,
+            'merk'                  =>$merk,
+            'no_merk'                  =>$no_merk,
+            'tgl_merk'                  =>$tgl,
+        );
+        return $this->db->insert('ekraf', $data);
+
 	}
 
 	public function updateEkraf($id,$nama,$alamat,$desa2,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl)
@@ -162,6 +192,55 @@ class PemilikEkraf_Model extends CI_Model {
     {
         $this->db->where('id', $id);
         $result = $this->db->delete('galeri_produk');
+        return $result;
+    }
+
+    public function updateId($id1,$id2)
+    {
+    	$data = array(
+            'id_ekraf'           =>$id2,
+        );
+        $this->db->where('id_user', $id1);
+       return $this->db->update('user', $data);
+    }
+
+    public function confirmation($id)
+    {
+        $data = array(
+            'role'           =>"ekraf",
+        );
+        $this->db->where('id_user', $id);
+       return $this->db->update('user', $data);
+    }
+
+    public function updateProfile($id,$nama,$username,$email,$hp)
+    {
+        $data = array(
+                'nama'                   =>$nama,
+                'username'                   =>$username,
+                'email'                   =>$email,
+                'no_hp'                   =>$hp,
+            );
+        $this->db->where('id_user', $id);
+        $result = $this->db->update('user', $data);
+        return $result;
+    }
+
+    public function getPass($id)
+    {
+        $this->db->select('password');
+        $this->db->where('id_user', $id);
+        $query=$this->db->get('user');
+        return $query->result_array();
+    }
+
+    public function changePass($id,$passold,$passnew)
+    {
+         $data = array( 'password'=>$passnew );
+
+        $this->db->where('id_user', $id);
+        $this->db->where('password', $passold);
+        $result = $this->db->update('user', $data);
         return $result;
     }
 }

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/bulat.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() ?>assets/images/bulat.png">
     <title>EKRAF</title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,46 +22,120 @@
     <link href="<?php echo base_url() ?>assets/css/dropzone.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/basic.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/datatables.min.css">
+    <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+
     <style>
-            body {
-              padding-right: 0 !important;
-          }
-      </style>
-      <style type="text/css">
+        body {
+          padding-right: 0 !important;
+      }
+  </style>
+  <style type="text/css">
 
-body{
-    background-color: #E8E9EC;
-}
+    body{
+        background-color: #E8E9EC;
+    }
 
-.dropzone {
-    margin-top: 100px;
-    border: 2px dashed #0087F7;
-}
+    .dropzone {
+        margin-top: 100px;
+        border: 2px dashed #0087F7;
+    }
 
 </style>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<!-- <script type="text/javascript">
-    $(document).ready(function () {
-  //your code here
-        getKab();
-    });
+<script type="text/javascript">
+    $(document).ready(function(data){
 
-    function getKab() {
+        $('#formchangepass').submit(function(e){
+            e.preventDefault();
+                // memasukkan data inputan ke variabel
+                var passold             = $('#passold').val();
+                var passnew             = $('#passnew').val();
+                var passnew2            = $('#passnew2').val();
+                
                 $.ajax({
-                url : "<?php echo site_url('Operator/getKab') ?>",
-                success : function(data){
-                    // alert(data);
-                    $('#kab').html(data);
-                }
-            })
-    }
+                    type : "POST",
+                    url  : "<?php echo site_url(); ?>/Operator/changePassword",
+                    dataType : "JSON",
+                    data : {
+                        passold:passold,
+                        passnew:passnew,
+                        passnew2:passnew2,
+                    },
 
-</script> -->
+                    success: function(data){ 
+                        // alert(data.code);
+                        if (data.code == 1) {
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Ada Kesalahan',
+                                text: 'Password Lama Tidak Sesuai',
+                            })
+                        }else if (data.code == 2) {
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Ada Kesalahan',
+                                text: 'Konfirmasi Password Baru Tidak Cocok',
+                            })
+                        }else{
+                            Swal.fire({
+                                type: 'success',
+                                title: 'Berhasil mengubah password ',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            $('#Modal_changepass').modal('hide'); 
+                            // method clear form & calendar agenda
+                            document.getElementById('formchangepass').reset();
+
+                        }
+                    }
+                });
+
+                return false;
+            });
+
+        $('#formchangeprofile').submit(function(e){
+            e.preventDefault();
+                // memasukkan data inputan ke variabel
+                var username                = $('#username').val();
+                var nama                = $('#nama').val();
+                var email                = $('#email').val();
+                var hp                  = $('#hp').val();
+                
+                $.ajax({
+                    type : "POST",
+                    url  : "<?php echo site_url(); ?>/Operator/updateProfile",
+                    dataType : "JSON",
+                    data : {
+                        nama:nama,
+                        username:username,
+                        email:email,
+                        hp:hp,
+                    },
+
+                    success: function(data){ 
+                        // Swal.fire({
+                        //     type: 'success',
+                        //     title: 'Berhasil update profile ',
+                        //     showConfirmButton: false,
+                        //     timer: 1000
+                        // })
+                        document.getElementById('formchangeprofile').reset();
+                        $('#Modal_profile').modal('hide');
+                        window.location.reload();
+                    }
+                });
+
+                return false;
+            });
+    });
+    
+</script>
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -71,7 +145,7 @@ body{
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-    </div>
+        </div>
         <!-- ============================================================== -->
         <!-- Main wrapper - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -90,20 +164,20 @@ body{
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                                 <!-- Dark Logo icon -->
                                 <img src="<?php echo base_url() ?>assets/images/bulat.png" alt="homepage" width="20" height="20" class="dark-logo" />
-                                 
+                                
                                 <img src="<?php echo base_url() ?>assets/images/bulat.png" alt="homepage" class="light-logo" />
                             </b>
                             <!--End Logo icon -->
                             <!-- Logo text --><span>
-                               <!-- dark Logo text -->
-                               <img src="<?php echo base_url() ?>assets/images/tulisan.png" width="180" height="60" alt="homepage" class="dark-logo" />
-                               <!-- Light Logo text -->    
-                               <img src="<?php echo base_url() ?>assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
-                    </div>
-                           <!-- ============================================================== -->
-                           <!-- End Logo -->
-                           <!-- ============================================================== -->
-                           <div class="navbar-collapse">
+                             <!-- dark Logo text -->
+                             <img src="<?php echo base_url() ?>assets/images/tulisan.png" width="180" height="60" alt="homepage" class="dark-logo" />
+                             <!-- Light Logo text -->    
+                             <img src="<?php echo base_url() ?>assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                         </div>
+                         <!-- ============================================================== -->
+                         <!-- End Logo -->
+                         <!-- ============================================================== -->
+                         <div class="navbar-collapse">
                             <!-- ============================================================== -->
                             <!-- toggle and nav items -->
                             <!-- ============================================================== -->
@@ -151,6 +225,8 @@ body{
                                 <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url() ?>assets/images/users/default.png" alt="user" class="profile-pic" /></a>
                                 <div class="dropdown-menu dropdown-menu-right scale-up">
                                     <ul class="dropdown-user">
+                                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_profile"><i class="fa fa-user"></i> Ubah Profil</a></li>
+                                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_changepass"><i class="fa fa-key"></i> Ubah Password</a></li>
                                         <li><a href="<?php echo base_url().'Login/logout'?>"><i class="fa fa-power-off"></i> Logout</a></li>
                                     </ul>
                                 </div>
@@ -209,3 +285,84 @@ body{
                 </div>
                 <!-- End Sidebar scroll-->
             </aside>
+            <form id="formchangepass">
+                <div class="modal fade" id="Modal_changepass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Ubah Password</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
+                            </div>
+                            <div class="modal-body">               
+                                <div class="container-fluid">   
+                                    <div class="row"> 
+                                        <!-- form inputan nama kegiatan -->
+                                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Password Lama</label>
+                                                <input type="password" id="passold" class="form-control" placeholder="Masukkan Password Lama" style="width: 100%" required>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Password Baru</label>
+                                                <input type="password" id="passnew" class="form-control" placeholder="Masukkan Password Baru" style="width: 100%" required>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Konfirmasi Password Baru</label>
+                                                <input type="password" id="passnew2" class="form-control" placeholder="Masukkan Password Baru" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- inputan button simpan dan Cancel -->
+                                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
+                                            <button type="submit" id="btn_push" class="btn btn-primary ">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form id="formchangeprofile">
+                <div class="modal fade" id="Modal_profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Change Profile</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
+                            </div>
+                            <div class="modal-body">               
+                                <div class="container-fluid">   
+                                    <div class="row">        
+                                        <!-- form inputan nama kegiatan -->
+                                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Username</label>
+                                                <input type="text" id="username" name="username" value="<?php echo $session['username']; ?>" class="form-control" placeholder="Masukkan Username" style="width: 100%">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Nama</label>
+                                                <input type="text" id="nama" name="nama" value="<?php echo $session['nama']; ?>" class="form-control" placeholder="Masukkan Nama" style="width: 100%" required>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Email</label>
+                                                <input type="email" id="email" name="email" value="<?php echo $session['email']; ?>" class="form-control" placeholder="Masukkan Email" style="width: 100%" required>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>No Hp</label>
+                                                <input type="text" id="hp" name="hp" value="<?php echo $session['no_hp']; ?>" class="form-control" placeholder="Masukkan No Hp" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- inputan button simpan dan Cancel -->
+                                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
+                                            <button type="submit" id="btn_save" class="btn btn-primary ">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>

@@ -11,6 +11,7 @@ class Operator extends CI_Controller {
 		$this->load->model('Sentra_Model');
 		$this->load->model('Ekraf_Model');
 		$this->load->model('TeknologiEcommerce_Model');
+		$this->load->model('LoginModel');
 		if ($this->session->userdata('logged_in')==TRUE) 
 		{
 			// redirect('Dc_Controller/index');
@@ -357,6 +358,83 @@ class Operator extends CI_Controller {
 		}
 		echo $kab2;
 	}
+
+	public function updateProfile()
+    {
+    	$session=$this->session->userdata('logged_in');
+    	$id = $session['id_user'];
+    	$nama = $this->input->post('nama');
+    	$username = $this->input->post('username');
+    	$email = $this->input->post('email');
+    	$hp = $this->input->post('hp');
+    	$result = $this->Ekraf_Model->updateProfile($id,$nama,$username,$email,$hp);
+    	$result2=$this->LoginModel->login($username, $session['password']);
+		// print_r($result);
+		// die();
+    	if($result2){
+    		$sess_array = array();
+
+    		foreach ($result2 as $row){
+    			$sess_array = array(
+    				'username'=>$row->username,
+    				'password'=>$row->password,
+    				'nama'=>$row->nama,
+    				'email'=>$row->email,
+    				'no_hp'=>$row->no_hp,
+    				'role'=>$row->role,
+    				'id_kab_kota' => $row->id_kab_kota,
+    				'id_ekraf' => $row->id_ekraf,
+    				'id_user' => $row->id_user,
+    			);
+    			$this->session->set_userdata('logged_in',$sess_array);
+    		}
+    	}
+    	echo json_encode($result);
+    }
+
+    public function changePassword()
+    {
+    	$result="";
+    	$data = [];
+    	$session=$this->session->userdata('logged_in');
+    	$id = $session['id_user'];
+    	$passold = $this->input->post('passold');
+    	$passnew = $this->input->post('passnew');
+    	$passnew2 = $this->input->post('passnew2');
+    	$getpass = $this->Ekraf_Model->getPass($id);
+    	$getpass2=$getpass[0]['password'];
+
+    	if ($passold != $getpass2) {
+    		$data =['code' => 1];
+    	}else if ($passnew != $passnew2) {
+    		$data =['code' => 2];
+    	}else{
+    		$data =['code' => 3, 'result' => $this->Ekraf_Model->changePass($id,$passold,$passnew)];
+    		$result2=$this->LoginModel->login($session['username'], $session['password']);
+		// print_r($result);
+		// die();
+    		if($result2){
+    			$sess_array = array();
+
+    			foreach ($result2 as $row){
+    				$sess_array = array(
+    					'username'=>$row->username,
+    					'password'=>$row->password,
+    					'nama'=>$row->nama,
+    					'email'=>$row->email,
+    					'no_hp'=>$row->no_hp,
+    					'role'=>$row->role,
+    					'id_kab_kota' => $row->id_kab_kota,
+    					'id_ekraf' => $row->id_ekraf,
+    					'id_user' => $row->id_user,
+    				);
+    				$this->session->set_userdata('logged_in',$sess_array);
+    			}
+    		}
+    	}
+
+    	echo json_encode($data);
+    }
 }
 
 /* End of file Operator.php */

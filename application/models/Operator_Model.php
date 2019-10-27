@@ -267,6 +267,37 @@ class Operator_Model extends CI_Model {
 		$query=$this->db->get('kab_kota');
 		return $query->result();
 	}
+
+    public function updateProfile($id,$nama,$username,$email,$hp)
+    {
+        $data = array(
+                'nama'                   =>$nama,
+                'username'                   =>$username,
+                'email'                   =>$email,
+                'no_hp'                   =>$hp,
+            );
+        $this->db->where('id_user', $id);
+        $result = $this->db->update('user', $data);
+        return $result;
+    }
+
+    public function getPass($id)
+    {
+        $this->db->select('password');
+        $this->db->where('id_user', $id);
+        $query=$this->db->get('user');
+        return $query->result_array();
+    }
+
+    public function changePass($id,$passold,$passnew)
+    {
+         $data = array( 'password'=>$passnew );
+
+        $this->db->where('id_user', $id);
+        $this->db->where('password', $passold);
+        $result = $this->db->update('user', $data);
+        return $result;
+    }
 }
 /* End of file Operator_Model.php */
 /* Location: ./application/models/Operator_Model.php */

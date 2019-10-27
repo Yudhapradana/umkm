@@ -9,6 +9,7 @@ class Ekraf extends CI_Controller {
 		$this->load->model('Sumberdana_model');
 		$this->load->model('Sentra_Model');
 		$this->load->model('Ekraf_Model');
+		$this->load->model('LoginModel');
 		$this->load->model('TeknologiEcommerce_Model');
 		if ($this->session->userdata('logged_in')==TRUE) 
 		{
@@ -45,57 +46,57 @@ class Ekraf extends CI_Controller {
 
 	public function newEkraf()
 	{
-			$nama = $this->input->post('nama');
-			$alamat = $this->input->post('alamat');
-			$desa = $this->input->post('desa');
-			$desa2 = $this->Ekraf_Model->findIdDesa($desa);
-			$desa3=$desa2[0]['id_desa_kelurahan']; 
-			$sentra = $this->input->post('sentra');
-			$status = $this->input->post('status');
-			$jk = $this->input->post('jk');
-			$upah = $this->input->post('upah');
-			$upah = str_replace("Rp", "", $upah);
-			$upah = str_replace(".", "", $upah);
-			$upah = str_replace(" ", "", $upah);
-			$sumberdana = $this->input->post('sumberdana');
-			$distribusi = $this->input->post('distribusi');
-			$permasalahan = $this->input->post('permasalahan');
-			$ekspor = $this->input->post('ekspor');
-			$peluang = $this->input->post('peluang');
-			$perijinan = $this->input->post('perijinan');
-			$merk = $this->input->post('merk');
-			$no_merk = $this->input->post('no_merk');
-			$tgl = $this->input->post('tgl');
+		$nama = $this->input->post('nama');
+		$alamat = $this->input->post('alamat');
+		$desa = $this->input->post('desa');
+		$desa2 = $this->Ekraf_Model->findIdDesa($desa);
+		$desa3=$desa2[0]['id_desa_kelurahan']; 
+		$sentra = $this->input->post('sentra');
+		$status = $this->input->post('status');
+		$jk = $this->input->post('jk');
+		$upah = $this->input->post('upah');
+		$upah = str_replace("Rp", "", $upah);
+		$upah = str_replace(".", "", $upah);
+		$upah = str_replace(" ", "", $upah);
+		$sumberdana = $this->input->post('sumberdana');
+		$distribusi = $this->input->post('distribusi');
+		$permasalahan = $this->input->post('permasalahan');
+		$ekspor = $this->input->post('ekspor');
+		$peluang = $this->input->post('peluang');
+		$perijinan = $this->input->post('perijinan');
+		$merk = $this->input->post('merk');
+		$no_merk = $this->input->post('no_merk');
+		$tgl = $this->input->post('tgl');
 
-			$this->Ekraf_Model->newEkraf($nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl);
+		$this->Ekraf_Model->newEkraf($nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl);
 	}
 
 	public function updateEkraf()
 	{
 		$id = $this->input->post('id');
 		$nama = $this->input->post('nama');
-			$alamat = $this->input->post('alamat');
-			$desa = $this->input->post('desa');
-			$desa2 = $this->Ekraf_Model->findIdDesa($desa);
-			$desa3 = $desa2[0]['id_desa_kelurahan']; 
-			$sentra = $this->input->post('sentra');
-			$status = $this->input->post('status');
-			$jk = $this->input->post('jk');
-			$upah = $this->input->post('upah');
-			$upah = str_replace("Rp", "", $upah);
-			$upah = str_replace(".", "", $upah);
-			$upah = str_replace(" ", "", $upah);
-			$sumberdana = $this->input->post('sumberdana');
-			$distribusi = $this->input->post('distribusi');
-			$permasalahan = $this->input->post('permasalahan');
-			$ekspor = $this->input->post('ekspor');
-			$peluang = $this->input->post('peluang');
-			$perijinan = $this->input->post('perijinan');
-			$merk = $this->input->post('merk');
-			$no_merk = $this->input->post('no_merk');
-			$tgl = $this->input->post('tgl');
+		$alamat = $this->input->post('alamat');
+		$desa = $this->input->post('desa');
+		$desa2 = $this->Ekraf_Model->findIdDesa($desa);
+		$desa3 = $desa2[0]['id_desa_kelurahan']; 
+		$sentra = $this->input->post('sentra');
+		$status = $this->input->post('status');
+		$jk = $this->input->post('jk');
+		$upah = $this->input->post('upah');
+		$upah = str_replace("Rp", "", $upah);
+		$upah = str_replace(".", "", $upah);
+		$upah = str_replace(" ", "", $upah);
+		$sumberdana = $this->input->post('sumberdana');
+		$distribusi = $this->input->post('distribusi');
+		$permasalahan = $this->input->post('permasalahan');
+		$ekspor = $this->input->post('ekspor');
+		$peluang = $this->input->post('peluang');
+		$perijinan = $this->input->post('perijinan');
+		$merk = $this->input->post('merk');
+		$no_merk = $this->input->post('no_merk');
+		$tgl = $this->input->post('tgl');
 
-			$this->Ekraf_Model->updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl);
+		$this->Ekraf_Model->updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl);
 	}
 
 	public function deleteEkraf()
@@ -174,7 +175,7 @@ class Ekraf extends CI_Controller {
 		$config['upload_path']="./assets/uploads"; //path folder file upload
         $config['allowed_types']='gif|jpg|png|jpeg'; //type file yang boleh di upload
         $config['file_name'] = $new_name;  //set name
-         
+
         $this->load->library('upload',$config); //call library upload 
         
         if($this->upload->do_upload("file")){ //upload file
@@ -185,21 +186,21 @@ class Ekraf extends CI_Controller {
             $path = $_FILES['file']['name'];
             $ext = pathinfo($path, PATHINFO_EXTENSION);
 			$source =  "uploads/".$new_name.".".$ext;  //set file name ke variable image 
-            
+
             $this->Ekraf_Model->newGaleri($id,$judul,$source); //kirim value ke model m_upload
         }
-	}
+    }
 
-	public function updateGaleri()
-	{
-		$id = $this->input->post('id_u');
-		$judul = $this->input->post('upjudul');
-		$fotolama = $this->input->post('fotolama');
-		$new_name = date("Y-m-d-H-i-s");	
+    public function updateGaleri()
+    {
+    	$id = $this->input->post('id_u');
+    	$judul = $this->input->post('upjudul');
+    	$fotolama = $this->input->post('fotolama');
+    	$new_name = date("Y-m-d-H-i-s");	
 		$config['upload_path']="./assets/uploads"; //path folder file upload
         $config['allowed_types']='gif|jpg|png|jpeg'; //type file yang boleh di upload
         $config['file_name'] = $new_name;  //set name
-         
+
         $this->load->library('upload',$config); //call library upload 
         
         if($this->upload->do_upload("file2")){ //upload file
@@ -208,33 +209,110 @@ class Ekraf extends CI_Controller {
             $path = $_FILES['file2']['name'];
             $ext = pathinfo($path, PATHINFO_EXTENSION);
 			$source =  "uploads/".$new_name.".".$ext;  //set file name ke variable image 
-            
+
             $data=$this->Ekraf_Model->updateGaleri($id,$judul,$source); //kirim value ke model m_upload
             if ($data) {
-				unlink('./assets/'.$fotolama);
-				echo json_encode('sukses');
-			}else{
-				echo json_encode('gagalupload');
-			}
+            	unlink('./assets/'.$fotolama);
+            	echo json_encode('sukses');
+            }else{
+            	echo json_encode('gagalupload');
+            }
         }else{
-			$this->Ekraf_Model->updateGaleri($id,$judul,$fotolama);
-			echo json_encode('sukses');
-		}
-	}
+        	$this->Ekraf_Model->updateGaleri($id,$judul,$fotolama);
+        	echo json_encode('sukses');
+        }
+    }
 
-	public function deleteGaleri()
-	{
-		$id = $this->input->post('id');
-		$result = $this->Ekraf_Model->deleteGaleri($id);
-		echo json_encode($result);
-	}
+    public function deleteGaleri()
+    {
+    	$id = $this->input->post('id');
+    	$result = $this->Ekraf_Model->deleteGaleri($id);
+    	echo json_encode($result);
+    }
 
-	public function getGekraf($id)
-	{
-		$gekraf=$this->Ekraf_Model->getGekraf($id);
-		$gekraf2=$gekraf[0]['nama'];
-		echo $gekraf2;
-	}
+    public function getGekraf($id)
+    {
+    	$gekraf=$this->Ekraf_Model->getGekraf($id);
+    	$gekraf2=$gekraf[0]['nama'];
+    	echo $gekraf2;
+    }
+
+    public function updateProfile()
+    {
+    	$session=$this->session->userdata('logged_in');
+    	$id = $session['id_user'];
+    	$nama = $this->input->post('nama');
+    	$username = $this->input->post('username');
+    	$email = $this->input->post('email');
+    	$hp = $this->input->post('hp');
+    	$result = $this->Ekraf_Model->updateProfile($id,$nama,$username,$email,$hp);
+    	$result2=$this->LoginModel->login($username, $session['password']);
+		// print_r($result);
+		// die();
+    	if($result2){
+    		$sess_array = array();
+
+    		foreach ($result2 as $row){
+    			$sess_array = array(
+    				'username'=>$row->username,
+    				'password'=>$row->password,
+    				'nama'=>$row->nama,
+    				'email'=>$row->email,
+    				'no_hp'=>$row->no_hp,
+    				'role'=>$row->role,
+    				'id_kab_kota' => $row->id_kab_kota,
+    				'id_ekraf' => $row->id_ekraf,
+    				'id_user' => $row->id_user,
+    			);
+    			$this->session->set_userdata('logged_in',$sess_array);
+    		}
+    	}
+    	echo json_encode($result);
+    }
+
+    public function changePassword()
+    {
+    	$result="";
+    	$data = [];
+    	$session=$this->session->userdata('logged_in');
+    	$id = $session['id_user'];
+    	$passold = $this->input->post('passold');
+    	$passnew = $this->input->post('passnew');
+    	$passnew2 = $this->input->post('passnew2');
+    	$getpass = $this->Ekraf_Model->getPass($id);
+    	$getpass2=$getpass[0]['password'];
+
+    	if ($passold != $getpass2) {
+    		$data =['code' => 1];
+    	}else if ($passnew != $passnew2) {
+    		$data =['code' => 2];
+    	}else{
+    		$data =['code' => 3, 'result' => $this->Ekraf_Model->changePass($id,$passold,$passnew)];
+    		$result2=$this->LoginModel->login($session['username'], $session['password']);
+		// print_r($result);
+		// die();
+    		if($result2){
+    			$sess_array = array();
+
+    			foreach ($result2 as $row){
+    				$sess_array = array(
+    					'username'=>$row->username,
+    					'password'=>$row->password,
+    					'nama'=>$row->nama,
+    					'email'=>$row->email,
+    					'no_hp'=>$row->no_hp,
+    					'role'=>$row->role,
+    					'id_kab_kota' => $row->id_kab_kota,
+    					'id_ekraf' => $row->id_ekraf,
+    					'id_user' => $row->id_user,
+    				);
+    				$this->session->set_userdata('logged_in',$sess_array);
+    			}
+    		}
+    	}
+
+    	echo json_encode($data);
+    }
 
 }
 

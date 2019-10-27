@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/bulat.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() ?>assets/images/bulat.png">
     <title>EKRAF</title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,8 @@
     <link href="<?php echo base_url() ?>assets/css/dropzone.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/basic.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/datatables.min.css">
+    <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+
     <style>
             body {
               padding-right: 0 !important;
@@ -46,21 +48,93 @@ body{
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 <script type="text/javascript">
-  //   $(document).ready(function () {
-  // //your code here
-  //       getKab();
-  //   });
+    $(document).ready(function(data){
 
-    function getKab() {
+        $('#formchangepass').submit(function(e){
+            e.preventDefault();
+                // memasukkan data inputan ke variabel
+                var passold             = $('#passold').val();
+                var passnew             = $('#passnew').val();
+                var passnew2            = $('#passnew2').val();
+                
                 $.ajax({
-                url : "<?php echo site_url('Operator/getKab') ?>",
-                success : function(data){
-                    // alert(data);
-                    $('#kab').html(data);
-                }
-            })
-    }
+                    type : "POST",
+                    url  : "<?php echo site_url(); ?>/PemilikEkraf/changePassword",
+                    dataType : "JSON",
+                    data : {
+                        passold:passold,
+                        passnew:passnew,
+                        passnew2:passnew2,
+                    },
 
+                    success: function(data){ 
+                        // alert(data.code);
+                        if (data.code == 1) {
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Ada Kesalahan',
+                                text: 'Password Lama Tidak Sesuai',
+                            })
+                        }else if (data.code == 2) {
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Ada Kesalahan',
+                                text: 'Konfirmasi Password Baru Tidak Cocok',
+                            })
+                        }else{
+                            Swal.fire({
+                                type: 'success',
+                                title: 'Berhasil mengubah password ',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            $('#Modal_changepass').modal('hide'); 
+                            // method clear form & calendar agenda
+                            document.getElementById('formchangepass').reset();
+
+                        }
+                    }
+                });
+
+                return false;
+            });
+
+        $('#formchangeprofile').submit(function(e){
+            e.preventDefault();
+                // memasukkan data inputan ke variabel
+                var username                = $('#username').val();
+                var nama                = $('#nama').val();
+                var email                = $('#email').val();
+                var hp                  = $('#hp').val();
+                
+                $.ajax({
+                    type : "POST",
+                    url  : "<?php echo site_url(); ?>/PemilikEkraf/updateProfile",
+                    dataType : "JSON",
+                    data : {
+                        nama:nama,
+                        username:username,
+                        email:email,
+                        hp:hp,
+                    },
+
+                    success: function(data){ 
+                        // Swal.fire({
+                        //     type: 'success',
+                        //     title: 'Berhasil update profile ',
+                        //     showConfirmButton: false,
+                        //     timer: 1000
+                        // })
+                        document.getElementById('formchangeprofile').reset();
+                        $('#Modal_profile').modal('hide');
+                        window.location.reload();
+                    }
+                });
+
+                return false;
+            });
+    });
+    
 </script>
 </head>
 
@@ -151,6 +225,8 @@ body{
                                 <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url() ?>assets/images/users/default.png" alt="user" class="profile-pic" /></a>
                                 <div class="dropdown-menu dropdown-menu-right scale-up">
                                     <ul class="dropdown-user">
+                                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_profile"><i class="fa fa-user"></i> Ubah Profil</a></li>
+                                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_changepass"><i class="fa fa-key"></i> Ubah Password</a></li>
                                         <li><a href="<?php echo base_url().'Login/logout'?>"><i class="fa fa-power-off"></i> Logout</a></li>
                                     </ul>
                                 </div>
@@ -194,13 +270,121 @@ body{
                                 <ul aria-expanded="false" class="collapse">
                                     <li><a href="<?php echo base_url().'PemilikEkraf/getPage'?>">Info Ekraf </a></li>
                                     <li><a href="<?php echo base_url().'PemilikEkraf/teknologi'?>">Teknologi Ekraf</a></li>
-                                    <li><a href="<?php echo base_url().'PemilikEkraf/listgaleri/'. $session['id_ekraf']; ?>">Galeri Ekraf</a></li>
+                                    <?php if($session['id_ekraf'] == null){ ?>
+                                         <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_Peringatan">Galeri Ekraf</a></li>
+                                    <?php }else{ ?>
+                                        <li><a href="<?php echo base_url().'PemilikEkraf/listgaleri/'. $session['id_ekraf']; ?>">Galeri Ekraf</a></li>
+                                    <?php } ?>
                                 </ul>
                             </li>
                             
                         </ul>
                     </nav>
                     <!-- End Sidebar navigation -->
+                    
                 </div>
                 <!-- End Sidebar scroll-->
             </aside>
+            <form id="peringatan">
+                        <div class="modal fade" id="Modal_Peringatan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Peringatan</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
+                                    </div>
+                                    <div class="modal-body">                          
+
+                                        <div class="form-group col-lg-12">
+                                            <font>Anda belum mempunyai ekraf, isi data ekraf terlebih dahulu</font>
+                                            <input type="hidden" name="id_del" id="id_del" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success col-md-3" data-dismiss="modal" style="margin-right: 20px">OK</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+<form id="formchangepass">
+                <div class="modal fade" id="Modal_changepass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Ubah Password</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
+                            </div>
+                            <div class="modal-body">               
+                                <div class="container-fluid">   
+                                    <div class="row"> 
+                                        <!-- form inputan nama kegiatan -->
+                                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Password Lama</label>
+                                                <input type="password" id="passold" class="form-control" placeholder="Masukkan Password Lama" style="width: 100%" required>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Password Baru</label>
+                                                <input type="password" id="passnew" class="form-control" placeholder="Masukkan Password Baru" style="width: 100%" required>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Konfirmasi Password Baru</label>
+                                                <input type="password" id="passnew2" class="form-control" placeholder="Masukkan Password Baru" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- inputan button simpan dan Cancel -->
+                                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
+                                            <button type="submit" id="btn_push" class="btn btn-primary ">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form id="formchangeprofile">
+                <div class="modal fade" id="Modal_profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Change Profile</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
+                            </div>
+                            <div class="modal-body">               
+                                <div class="container-fluid">   
+                                    <div class="row">        
+                                        <!-- form inputan nama kegiatan -->
+                                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Username</label>
+                                                <input type="text" id="username" name="username" value="<?php echo $session['username']; ?>" class="form-control" placeholder="Masukkan Username" style="width: 100%">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Nama</label>
+                                                <input type="text" id="nama" name="nama" value="<?php echo $session['nama']; ?>" class="form-control" placeholder="Masukkan Nama" style="width: 100%" required>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>Email</label>
+                                                <input type="email" id="email" name="email" value="<?php echo $session['email']; ?>" class="form-control" placeholder="Masukkan Email" style="width: 100%" required>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label>No Hp</label>
+                                                <input type="text" id="hp" name="hp" value="<?php echo $session['no_hp']; ?>" class="form-control" placeholder="Masukkan No Hp" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- inputan button simpan dan Cancel -->
+                                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
+                                            <button type="submit" id="btn_save" class="btn btn-primary ">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>

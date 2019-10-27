@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="col-12">
             <div class="card" style="padding: 10px">
-                 <?php if ($countekraf == 0) { ?>
+                 <?php $session=$this->session->userdata('logged_in'); if ($session['id_ekraf'] != null) { ?>
                 <div class="pull-right"><a href="javascript:void(0);" class="btn btn-success float-right" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add</a></div>
                 <?php }else{ ?>
                 <div class="pull-right"><a href="javascript:void(0);" class="btn btn-success float-right disabled" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add</a></div>
