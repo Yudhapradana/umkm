@@ -87,7 +87,7 @@
                                             <input type="text" id="desa" name="desa" class="form-control" placeholder="Masukkan Desa/kelurahan" list="data" required autocomplete="off" />
                                             <datalist id="data">
                                                 <?php foreach ($desa as $key => $value) : ?>
-                                                <option value="<?= $value->nd ?>" data-json='<?php echo json_encode($value) ?>'><?= $value->nd ?>-<?= $value->nk ?></option>
+                                                <option value="<?= $value->nd ?>-<?= $value->nk?>" data-json='<?php echo json_encode($value) ?>'><?= $value->nd ?>-<?= $value->nk ?></option>
                                             <?php endforeach; ?>
                                             </datalist>
                                         </div>
