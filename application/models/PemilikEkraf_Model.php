@@ -121,13 +121,11 @@ class PemilikEkraf_Model extends CI_Model {
 		return $this->db->update('ekraf', $data);
 	}
 
-	public function findIdDesa($desa)
-	{
-		$this->db->select('id_desa_kelurahan');
-		$this->db->where('nama', $desa);
-		$query=$this->db->get('desa_kelurahan');
-		return $query->result_array();
-	}
+	public function findIdDesa($desa,$kecamatan)
+    {
+        $query = $this->db->query("SELECT d.id_desa_kelurahan as id from desa_kelurahan as d inner join kecamatan as k on d.id_kecamatan=k.id_kecamatan where d.nama='$desa' and k.nama='$kecamatan'");
+        return $query->result_array();
+    }
 
 	public function getDataTeknologiEkraf($id)
     {

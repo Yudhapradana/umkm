@@ -97,9 +97,13 @@ class PemilikEkraf extends CI_Controller {
 	{
 		$nama = $this->input->post('inama');
 		$alamat = $this->input->post('ialamat');
-		$desa = $this->input->post('idesa');
-		$desa2 = $this->PemilikEkraf_Model->findIdDesa($desa);
-		$desa3=$desa2[0]['id_desa_kelurahan']; 
+		$desa = explode('-', $this->input->post('desa'));
+		$de = $desa[0];
+		$ke = $desa[1];
+		$desa2 = $this->Ekraf_Model->findIdDesa($de,$ke);
+		// print_r($desa2);
+		// die();
+		$desa3=$desa2[0]['id']; 
 		$sentra = $this->input->post('isentra');
 		$status = $this->input->post('istatus');
 		$jk = $this->input->post('ijk');
@@ -148,96 +152,100 @@ class PemilikEkraf extends CI_Controller {
 		}
 	}
 
-		public function updateEkraf()
-		{
-			$id = $this->input->post('uid');
-			$nama = $this->input->post('unama');
-			$alamat = $this->input->post('ualamat');
-			$desa = $this->input->post('udesa');
-			$desa2 = $this->PemilikEkraf_Model->findIdDesa($desa);
-			$desa3 = $desa2[0]['id_desa_kelurahan']; 
-			$sentra = $this->input->post('usentra');
-			$status = $this->input->post('ustatus');
-			$jk = $this->input->post('ujk');
-			$upah = $this->input->post('uupah');
-			$upah = str_replace("Rp", "", $upah);
-			$upah = str_replace(".", "", $upah);
-			$upah = str_replace(" ", "", $upah);
-			$sumberdana = $this->input->post('usumberdana');
-			$distribusi = $this->input->post('udistribusi');
-			$permasalahan = $this->input->post('upermasalahan');
-			$ekspor = $this->input->post('uekspor');
-			$peluang = $this->input->post('upeluang');
-			$perijinan = $this->input->post('uperijinan');
-			$merk = $this->input->post('umerk');
-			$no_merk = $this->input->post('uno_merk');
-			$tgl = $this->input->post('utgl');
+	public function updateEkraf()
+	{
+		$id = $this->input->post('uid');
+		$nama = $this->input->post('unama');
+		$alamat = $this->input->post('ualamat');
+		$desa = explode('-', $this->input->post('desa'));
+		$de = $desa[0];
+		$ke = $desa[1];
+		$desa2 = $this->Ekraf_Model->findIdDesa($de,$ke);
+		// print_r($desa2);
+		// die();
+		$desa3=$desa2[0]['id']; 
+		$sentra = $this->input->post('usentra');
+		$status = $this->input->post('ustatus');
+		$jk = $this->input->post('ujk');
+		$upah = $this->input->post('uupah');
+		$upah = str_replace("Rp", "", $upah);
+		$upah = str_replace(".", "", $upah);
+		$upah = str_replace(" ", "", $upah);
+		$sumberdana = $this->input->post('usumberdana');
+		$distribusi = $this->input->post('udistribusi');
+		$permasalahan = $this->input->post('upermasalahan');
+		$ekspor = $this->input->post('uekspor');
+		$peluang = $this->input->post('upeluang');
+		$perijinan = $this->input->post('uperijinan');
+		$merk = $this->input->post('umerk');
+		$no_merk = $this->input->post('uno_merk');
+		$tgl = $this->input->post('utgl');
 
-			$this->PemilikEkraf_Model->updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl);
-		}
+		$this->PemilikEkraf_Model->updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl);
+	}
 
-		public function teknologi()
-		{
-			$session=$this->session->userdata('logged_in');
-			$data['teknologi'] = $this->TeknologiEcommerce_Model->getData();
-			$session=$this->session->userdata('logged_in');
-			$data['countekraf'] = $this->PemilikEkraf_Model->countEkraf($session['id_ekraf']);
+	public function teknologi()
+	{
+		$session=$this->session->userdata('logged_in');
+		$data['teknologi'] = $this->TeknologiEcommerce_Model->getData();
+		$session=$this->session->userdata('logged_in');
+		$data['countekraf'] = $this->PemilikEkraf_Model->countEkraf($session['id_ekraf']);
 		// $data['ekraf'] = $this->PemilikEkraf_Model->getDataEkraf($session['id_kab_kota']);
-			$this->load->view('pemilikekraf/header');
-			$this->load->view('pemilikekraf/teknologi/index',$data);
-		}
+		$this->load->view('pemilikekraf/header');
+		$this->load->view('pemilikekraf/teknologi/index',$data);
+	}
 
-		public function getDataTeknologiEkraf()
-		{
-			$session=$this->session->userdata('logged_in');
-			echo json_encode( $this->PemilikEkraf_Model->getDataTeknologiEkraf($session['id_ekraf']));
-		}
+	public function getDataTeknologiEkraf()
+	{
+		$session=$this->session->userdata('logged_in');
+		echo json_encode( $this->PemilikEkraf_Model->getDataTeknologiEkraf($session['id_ekraf']));
+	}
 
-		public function newTeknologiEkraf()
-		{
-			$session=$this->session->userdata('logged_in');
-			$ekraf = $session['id_ekraf'];
-			$id_teknologi = $this->input->post('id_teknologi');
-			$result = $this->PemilikEkraf_Model->newTeknologiEkraf($ekraf,$id_teknologi);
+	public function newTeknologiEkraf()
+	{
+		$session=$this->session->userdata('logged_in');
+		$ekraf = $session['id_ekraf'];
+		$id_teknologi = $this->input->post('id_teknologi');
+		$result = $this->PemilikEkraf_Model->newTeknologiEkraf($ekraf,$id_teknologi);
 
-			echo json_encode($result);
-		}
+		echo json_encode($result);
+	}
 
-		public function updateEkrafTeknologi()
-		{
-			$id = $this->input->post('id');
-			$session=$this->session->userdata('logged_in');
-			$ekraf = $session['id_ekraf'];
-			$id_teknologi = $this->input->post('id_teknologi');
-			$result = $this->PemilikEkraf_Model->updateTeknologiEkraf($id,$ekraf,$id_teknologi);
+	public function updateEkrafTeknologi()
+	{
+		$id = $this->input->post('id');
+		$session=$this->session->userdata('logged_in');
+		$ekraf = $session['id_ekraf'];
+		$id_teknologi = $this->input->post('id_teknologi');
+		$result = $this->PemilikEkraf_Model->updateTeknologiEkraf($id,$ekraf,$id_teknologi);
 
-			echo json_encode($result);
-		}
+		echo json_encode($result);
+	}
 
-		public function deleteEkrafTeknologi()
-		{
-			$id = $this->input->post('id');
-			$result = $this->PemilikEkraf_Model->deleteEkrafTeknologi($id);
-			echo json_encode($result);
-		}
+	public function deleteEkrafTeknologi()
+	{
+		$id = $this->input->post('id');
+		$result = $this->PemilikEkraf_Model->deleteEkrafTeknologi($id);
+		echo json_encode($result);
+	}
 
-		public function listGaleri($id)
-		{
-			$session=$this->session->userdata('logged_in');
-			$data['countekraf'] = $this->PemilikEkraf_Model->countEkraf($session['id_ekraf']);
-			$this->load->view('pemilikekraf/header');
-			$this->load->view('pemilikekraf/galeri/list',$data);
-		}
+	public function listGaleri($id)
+	{
+		$session=$this->session->userdata('logged_in');
+		$data['countekraf'] = $this->PemilikEkraf_Model->countEkraf($session['id_ekraf']);
+		$this->load->view('pemilikekraf/header');
+		$this->load->view('pemilikekraf/galeri/list',$data);
+	}
 
-		public function getListGaleri($id)
-		{
+	public function getListGaleri($id)
+	{
 		// print_r($id);
-			echo json_encode( $this->PemilikEkraf_Model->getListGaleri($id));
-		}
+		echo json_encode( $this->PemilikEkraf_Model->getListGaleri($id));
+	}
 
-		public function newGaleri($id)
-		{
-			$new_name = date("Y-m-d-H-i-s");	
+	public function newGaleri($id)
+	{
+		$new_name = date("Y-m-d-H-i-s");	
 		$config['upload_path']="./assets/uploads"; //path folder file upload
         $config['allowed_types']='gif|jpg|png|jpeg'; //type file yang boleh di upload
         $config['file_name'] = $new_name;  //set name

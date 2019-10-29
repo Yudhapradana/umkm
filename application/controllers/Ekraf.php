@@ -48,9 +48,13 @@ class Ekraf extends CI_Controller {
 	{
 		$nama = $this->input->post('nama');
 		$alamat = $this->input->post('alamat');
-		$desa = $this->input->post('desa');
-		$desa2 = $this->Ekraf_Model->findIdDesa($desa);
-		$desa3=$desa2[0]['id_desa_kelurahan']; 
+		$desa = explode('-', $this->input->post('desa'));
+		$de = $desa[0];
+		$ke = $desa[1];
+		$desa2 = $this->Ekraf_Model->findIdDesa($de,$ke);
+		// print_r($desa2);
+		// die();
+		$desa3=$desa2[0]['id'];
 		$sentra = $this->input->post('sentra');
 		$status = $this->input->post('status');
 		$jk = $this->input->post('jk');
@@ -95,9 +99,13 @@ class Ekraf extends CI_Controller {
 		$id = $this->input->post('id');
 		$nama = $this->input->post('nama');
 		$alamat = $this->input->post('alamat');
-		$desa = $this->input->post('desa');
-		$desa2 = $this->Ekraf_Model->findIdDesa($desa);
-		$desa3=$desa2[0]['id_desa_kelurahan']; 
+		$desa = explode('-', $this->input->post('desa'));
+		$de = $desa[0];
+		$ke = $desa[1];
+		$desa2 = $this->Ekraf_Model->findIdDesa($de,$ke);
+		// print_r($desa2);
+		// die();
+		$desa3=$desa2[0]['id']; 
 		$sentra = $this->input->post('sentra');
 		$status = $this->input->post('status');
 		$jk = $this->input->post('jk');
@@ -133,6 +141,7 @@ class Ekraf extends CI_Controller {
 		$wilayah2 = implode(";", $wilayah);
 		$legalitas = $this->input->post('legalitas');
 		$legalitas2 = implode(";", $legalitas);
+
 
 		$this->Ekraf_Model->updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2);
 	}
