@@ -24,7 +24,10 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/datatables.min.css">
     <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
+   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/dropify.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/dropify.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/fonts/dropify.woff">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/fonts/dropify.ttf">
     <style>
         body {
           padding-right: 0 !important;

@@ -1,3 +1,4 @@
+ 
             <!-- ============================================================== -->
             <!-- End Left Sidebar - style you can find in sidebar.scss  -->
             <!-- ============================================================== -->
@@ -21,7 +22,11 @@
                 <!-- ============================================================== -->
                 <div class="container-fluid">
                     <div class="col-12">
+
                         <div class="card" style="padding: 10px">
+                             <div class="pull-right">
+                             <a href="javascript:void(0);" class="btn btn-success float-right" data-toggle="modal" data-target="#Modal_Import" style="margin: 5px; padding: 5px"><span class="fa "></span>Import</a>
+                        </div>
                             <!-- <div class="pull-right"><a href="javascript:void(0);" class="btn btn-success float-right" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add</a></div> -->
                             <table class="table table-bordered table-responsive-lg nowrap" id="ekraf" width="100%">
                                 <thead>
@@ -490,7 +495,39 @@
             </div>
         </div>
     </form>
-
+<form id="formimportAct" enctype="multipart/form-data">
+    <div class="modal fade" id="Modal_Import" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Import Activity From Excel</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
+                </div>
+                <div class="modal-body">               
+                    <div class="container-fluid">   
+                        <div class="row">        
+                            <!-- form inputan nama kegiatan -->
+                            <div class="form-group col-lg-12 row">
+                                <div class="col-12">
+                                    <label>Upload File</label>
+                                    <input type="file" name="fileku" id="fileku" class="form-control dropify" data-height="100" required>
+                                </div>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div class="modal-footer">
+                            <!-- inputan button simpan dan Cancel -->
+                            <a href="<?php echo base_url().'index.php/Dc_controller/downloadformat' ?>" title="Download Format" class="btn btn-success float-left"><span class="fa fa-download"></span> Format</a>
+                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
+                            <button type="submit" id="btn_push" class="btn btn-primary bd-toogle-animated-progress">Tambah</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
 
     <!-- ============================================================== -->
     <!-- End Wrapper -->
@@ -530,9 +567,20 @@
     <script src="<?php echo base_url() ?>assets/js/sweetalert2@8.js"></script>
     <script src="<?php echo base_url() ?>assets/js/dropzone-amd-module.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/dropzone.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/dropify.js"></script>
+<script src="<?php echo base_url() ?>assets/js/dropify.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
+                $('.dropify').dropify({
+            messages: {
+                default: 'Drag atau drop untuk memilih File',
+                replace: 'Ganti',
+                remove:  'Hapus',
+                error:   'error',
+            }
+        });
+
                 //panggil get data
                 showekraf();
                 //get data sumberdana
@@ -833,6 +881,7 @@
 
         // var idg = 
         // alert(idg);
+
         
     </script>
 </body>
