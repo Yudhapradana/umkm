@@ -489,7 +489,7 @@
                 $('#btn-cari').on('click',function(){
                     var kota = $('#loc').val(); 
                     var val = $('#searchNama').val();
-
+                    console.log(val);
                      $.ajax({
           type : "POST",
           url: '<?php echo base_url();?>User/getDataSearch',

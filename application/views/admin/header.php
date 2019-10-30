@@ -24,10 +24,12 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/datatables.min.css">
     <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/dropify.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/dropify.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/fonts/dropify.woff">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/fonts/dropify.ttf">
+    <!-- <script src="<?php echo base_url() ?>assets/fonts/dropify.woff"></script>
+    <script src="<?php echo base_url() ?>assets/fonts/dropify.ttf"></script> -->
+    <link href="<?php echo base_url() ?>assets/css/dropify.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/dropify.min.css" rel="stylesheet">
+
+
     <style>
         body {
           padding-right: 0 !important;
@@ -140,6 +142,18 @@
                 return false;
             });
     });
+
+    var isShow = false;
+
+    function dropshow() {
+        if (isShow) {
+            $('.mudun').removeClass('show'); 
+            isShow = false;
+        }else{
+            $('.mudun').addClass('show'); 
+            isShow = true;
+        }
+    }
     
 </script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -233,8 +247,9 @@
                             <!-- ============================================================== -->
                             <!-- Profile -->
                             <!-- ============================================================== -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url() ?>assets/images/users/default.png" alt="user" class="profile-pic" /></a>
+                            <li class="nav-item dropdown mudun" onclick="dropshow()">
+                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" >
+                                    <img src="<?php echo base_url() ?>assets/images/users/default.png" alt="user" class="profile-pic" /></a>
                                 <div class="dropdown-menu dropdown-menu-right scale-up">
                                     <ul class="dropdown-user">
                                         <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_profile"><i class="fa fa-user"></i> Ubah Profil</a></li>

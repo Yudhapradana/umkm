@@ -360,7 +360,93 @@ class Ekraf extends CI_Controller {
 
     	echo json_encode($data);
     }
+    public function import()
+    {
+    	if(isset($_FILES["fileku"]["name"])){
+    		$path = $_FILES["fileku"]["tmp_name"];
+    		$object = PHPExcel_IOFactory::load($path);
+    		$objWriter = PHPExcel_IOFactory::createWriter($object, 'Excel2007');
+    		$objWriter->save('uploads/DataImport.xlsx');
+    		foreach($object->getWorksheetIterator() as $worksheet){
+    			$highestRow = $worksheet->getHighestRow();
+    			$highestColumn = $worksheet->getHighestColumn();
+    			for($row=2; $row<=$highestRow; $row++){
+    				$nama = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$alamat = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$desa = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$kecamatan = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$sentra = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$status = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$jk = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$upah = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$sumberdana = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$distribusi = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$permasalahan = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$ekspor = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$peluang = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$perijinan = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$merk = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$no_merk = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$tgl = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$tahun = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$omzet = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+					//desa,sentra,status,sumberdana
+    				$desa2 = $this->Ekraf_Model->findIdDesa($desa,$kecamatan);
+    				$desa3=$desa2[0]['id'];
+    				// if (empty($desa3)) {
+    				// 	$desa3=
+    				// }
 
+    				$sentra2 = $this->Ekraf_Model->findIdSentra($sentra);
+    				$sentra3=$sentra2[0]['id_sentra'];
+
+    				$status2 = $this->Ekraf_Model->findIdStatus($status);
+    				$status3=$status2[0]['id_status_pemilik'];
+
+    				$sumberdana2 = $this->Ekraf_Model->findIdSumberdana($sumberdana);
+    				$sumberdana3=$sumberdana2[0]['id_sumber_dana'];
+
+    				$data[] = array(
+    					'nama' => $nama,
+    					'alamat' => $alamat,
+    					'id_desa_kelurahan' => $desa3,
+    					'id_sentra' => $sentra3,
+    					'id_status_pemilik' => $status3,
+    					'jumlah_karyawan' => $jk,
+    					'upah_tenaga_kerja' => $upah,
+    					'id_sumber_dana' => $sumberdana3,
+    					'distribusi' => $distribusi,
+    					'permasalahan' => $permasalahan,
+    					'ekspor' => $ekspor,
+    					'peluang_tantangan' => $peluang,
+    					'perijinan' => $perijinan,
+    					'merk' => $merk,
+    					'no_merk' => $no_merk,
+    					'tgl_merk' => $tgl,
+    					'omzet' => $omzet,
+    					'tahun' => $tahun,
+    					'pencatatan_keuangan' => 0,
+    					'laporan_terpisah' => 0,
+    					'neraca' => 0,
+    					'laba_rugi' => 0,
+    					'buku_kas' => 0,
+    					'laporan_keuangan' => 0,
+    					'pameran_kab' => 0,
+    					'pameran_prov' => 0,
+    					'pameran_nasional' => 0,
+    					'pameran_internasional' => 0,
+    					'wilayah_pemasaran' => ' ',
+    					'legalitas_usaha' => ' ',
+
+    				);
+
+    			}
+    		}
+    		$result=$this->Ekraf_Model->import($data);
+    		echo json_encode($result);
+
+    	}
+    }
 }
 
 /* End of file Ekraf.php */

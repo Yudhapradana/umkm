@@ -1,4 +1,3 @@
- 
             <!-- ============================================================== -->
             <!-- End Left Sidebar - style you can find in sidebar.scss  -->
             <!-- ============================================================== -->
@@ -13,6 +12,9 @@
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">Data Ekraf</h3>
                     </div>
+                    <div class="col-md-7 pull-right">
+                        <a href="javascript:void(0);" class="btn btn-success float-right" data-toggle="modal" data-target="#Modal_Import"><span class="fa fa-plus"></span> Import</a>
+                    </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -22,12 +24,8 @@
                 <!-- ============================================================== -->
                 <div class="container-fluid">
                     <div class="col-12">
-
                         <div class="card" style="padding: 10px">
-                             <div class="pull-right">
-                             <a href="javascript:void(0);" class="btn btn-success float-right" data-toggle="modal" data-target="#Modal_Import" style="margin: 5px; padding: 5px"><span class="fa "></span>Import</a>
-                        </div>
-                            <!-- <div class="pull-right"><a href="javascript:void(0);" class="btn btn-success float-right" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add</a></div> -->
+
                             <table class="table table-bordered table-responsive-lg nowrap" id="ekraf" width="100%">
                                 <thead>
                                     <tr>
@@ -147,11 +145,11 @@
                             </div>
                             <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="col-4">
-                                   <label>Tahun Memulai Usaha</label>
-                                   <input type="text" name="tahun" id="tahun" class="form-control" placeholder="Masukkan Tahun Usaha" required>
+                                 <label>Tahun Memulai Usaha</label>
+                                 <input type="text" name="tahun" id="tahun" class="form-control" placeholder="Masukkan Tahun Usaha" required>
 
-                               </div>
-                               <div class="col-4">
+                             </div>
+                             <div class="col-4">
                                 <label>Ekspor</label>
                                 <input type="text" name="ekspor" id="ekspor" class="form-control" placeholder="Masukkan eskpor">
                             </div>
@@ -163,70 +161,70 @@
                         </div>
                         <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="col-6">
-                             <label>Permasalahan</label>
-                             <input type="text" name="permasalahan" id="permasalahan" class="form-control" placeholder="Masukkan permasalahan" required>
+                               <label>Permasalahan</label>
+                               <input type="text" name="permasalahan" id="permasalahan" class="form-control" placeholder="Masukkan permasalahan" required>
+                           </div>
+                           <div class="col-6">
+                             <label>Peluang dan Tantangan</label>
+                             <input type="text" name="peluang" id="peluang" class="form-control" placeholder="Masukkan peluang/tantangan" required>
                          </div>
-                         <div class="col-6">
-                           <label>Peluang dan Tantangan</label>
-                           <input type="text" name="peluang" id="peluang" class="form-control" placeholder="Masukkan peluang/tantangan" required>
-                       </div>
-                   </div>
-                   <h3><center>Perijinan Ekraf</center></h3>
+                     </div>
+                     <h3><center>Perijinan Ekraf</center></h3>
 
-                   <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="col-3">
-                        <label>Perijinan</label>
-                        <input type="text" name="perijinan" id="perijinan" class="form-control" placeholder="Masukkan perijinan" required>
+                     <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="col-3">
+                            <label>Perijinan</label>
+                            <input type="text" name="perijinan" id="perijinan" class="form-control" placeholder="Masukkan perijinan" required>
+                        </div>
+                        <div class="col-3">
+                            <label>Merk</label>
+                            <input type="text" name="merk" id="merk" class="form-control" placeholder="Masukkan Merk" required>
+                        </div>
+                        <div class="col-3">
+                            <label>No Merk</label>
+                            <input type="text" name="no_merk" id="no_merk" class="form-control" placeholder="Masukkan Nomor" required>
+                        </div>
+                        <div class="col-3">
+                            <label>Tanggal Merk</label>
+                            <input type="date" name="tgl" id="tgl" class="form-control" placeholder="Masukkan Tanggal " required>
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <label>Merk</label>
-                        <input type="text" name="merk" id="merk" class="form-control" placeholder="Masukkan Merk" required>
-                    </div>
-                    <div class="col-3">
-                        <label>No Merk</label>
-                        <input type="text" name="no_merk" id="no_merk" class="form-control" placeholder="Masukkan Nomor" required>
-                    </div>
-                    <div class="col-3">
-                        <label>Tanggal Merk</label>
-                        <input type="date" name="tgl" id="tgl" class="form-control" placeholder="Masukkan Tanggal " required>
-                    </div>
-                </div>
-                <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <label>Legalitas Usaha</label>
-                    </div>
-                    <div class="form-check col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <label>Legalitas Usaha</label>
+                        </div>
+                        <div class="form-check col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="siup" id="siup" name="legalitas[]">
+                              <label class="form-check-label" for="siup">
+                                SIUP
+                            </label>
+                        </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="siup" id="siup" name="legalitas[]">
-                          <label class="form-check-label" for="siup">
-                            SIUP
+                          <input class="form-check-input" type="checkbox" value="tdp" id="tdp" name="legalitas[]">
+                          <label class="form-check-label" for="tdp">
+                            TDP
                         </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="tdp" id="tdp" name="legalitas[]">
-                      <label class="form-check-label" for="tdp">
-                        TDP
+                      <input class="form-check-input" type="checkbox" value="npwp" id="npwp" name="legalitas[]">
+                      <label class="form-check-label" for="npwp">
+                        NPWP
                     </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="npwp" id="npwp" name="legalitas[]">
-                  <label class="form-check-label" for="npwp">
-                    NPWP
+                  <input class="form-check-input" type="checkbox" value="bpom" id="bpom" name="legalitas[]">
+                  <label class="form-check-label" for="bpom">
+                    BPOM
                 </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="bpom" id="bpom" name="legalitas[]">
-              <label class="form-check-label" for="bpom">
-                BPOM
+              <input class="form-check-input" type="checkbox" value="pirt" id="pirt" name="legalitas[]">
+              <label class="form-check-label" for="pirt">
+                PIRT
             </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="pirt" id="pirt" name="legalitas[]">
-          <label class="form-check-label" for="pirt">
-            PIRT
-        </label>
     </div>
-</div>
 </div>
 <h3><center>Pelatihan Laporan Keuangan Ekraf</center></h3>
 <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -360,19 +358,19 @@
           <label class="form-check-label" for="lokal">
             Lokal
         </label>
-        </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="Nasional" id="nasional" name="wilayah[]">
-              <label class="form-check-label" for="nasional">
-                Nasional
-            </label>
-        </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="Ekspor" id="eksporw" name="wilayah[]">
-      <label class="form-check-label" for="eksporw">
-        Ekspor
-    </label>
     </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="Nasional" id="nasional" name="wilayah[]">
+      <label class="form-check-label" for="nasional">
+        Nasional
+    </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="Ekspor" id="eksporw" name="wilayah[]">
+  <label class="form-check-label" for="eksporw">
+    Ekspor
+</label>
+</div>
 </div>
 
 </div>
@@ -449,7 +447,7 @@
                     </div>
                     <hr>
                     <div class="form-group row col-12">
-                        
+
                         <div class="col-4">
                             <label class="font-weight-bold">Upah Karyawan (Rp)</label>
                             <h5 id="dupah"></h5>
@@ -524,138 +522,144 @@
                           <label class="form-check-label" for="dtdp">
                             TDP
                         </label>
-                        </div>
-                        <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="npwp" id="dnpwp" name="dlegalitas[]" disabled="">
-                              <label class="form-check-label" for="dnpwp">
-                                NPWP
-                            </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="bpom" id="dbpom" name="dlegalitas[]" disabled="">
-                          <label class="form-check-label" for="dbpom">
-                            BPOM
-                        </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="pirt" id="dpirt" name="dlegalitas[]" disabled="">
-                          <label class="form-check-label" for="dpirt">
-                            PIRT
-                        </label>
-                    </div>
-                    </div>
-                    </div>
-                    <h3><center>Pelatihan Laporan Keuangan Ekraf</center></h3>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <label>Belum memiliki pencatatan keuangan</label>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <h5 id="dpencatatan_keuangan"></h5>
-                        </div>
-                    </div>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <label>Belum memiliki laporan terpisah</label>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <h5 id="dlaporan_terpisah"></h5>
-                        </div>
-                    </div>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <label>Belum memiliki neraca</label>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <h5 id="dneraca"></h5>
-                        </div>
-                    </div>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <label>Belum memiliki Laba rugi</label>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <h5 id="dlaba_rugi"></h5>
-                        </div>
-                    </div>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <label>Belum memiliki Buku kas</label>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <h5 id="dbuku_kas"></h5>
-                        </div>
-                    </div>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <label>Pernah mengikuti pelatihan laporan keuangan</label>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <h5 id="dlaporan_keuangan"></h5>
-                        </div>
-                    </div>
-                    <h3><center>Pameran Dalam dan Luar Negeri</center></h3>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <label>Pernah difasilitasi pemerintah mengikuti pameran dalam negeri level kabupaten</label>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                           <h5 id="dpameran_kab"></h5>
-                        </div>
-                    </div>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <label>Pernah difasilitasi pemerintah mengikuti pameran dalam negeri level provinsi</label>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <h5 id="dpameran_prov"></h5>
-                        </div>
-                    </div>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <label>Pernah difasilitasi pemerintah mengikuti pameran dalam negeri level nasional</label>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <h5 id="dpameran_nasional"></h5>
-                        </div>
-                    </div>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <label>Pernah difasilitasi pemerintah mengikuti pameran dalam negeri level internasional</label>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <h5 id="dpameran_internasional"></h5>
-                        </div>
-                    </div>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <label>Wilayah Pemasaran</label>
-                        </div>
-                        <div class="form-check col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="Lokal" id="dlokal" name="dwilayah[]" disabled="">
-                              <label class="form-check-label" for="dlokal">
-                                Lokal
-                            </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="Nasional" id="dnasional" name="dwilayah[]" disabled="">
-                          <label class="form-check-label" for="dnasional">
-                            Nasional
-                        </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Ekspor" id="deksporw" name="dwilayah[]" disabled="">
-                      <label class="form-check-label" for="deksporw">
-                        Ekspor
+                      <input class="form-check-input" type="checkbox" value="npwp" id="dnpwp" name="dlegalitas[]" disabled="">
+                      <label class="form-check-label" for="dnpwp">
+                        NPWP
                     </label>
                 </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="bpom" id="dbpom" name="dlegalitas[]" disabled="">
+                  <label class="form-check-label" for="dbpom">
+                    BPOM
+                </label>
             </div>
-
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="pirt" id="dpirt" name="dlegalitas[]" disabled="">
+              <label class="form-check-label" for="dpirt">
+                PIRT
+            </label>
         </div>
-<<<<<<< HEAD
-    </form>
-<form id="formimportAct" enctype="multipart/form-data">
+    </div>
+</div>
+<h3><center>Pelatihan Laporan Keuangan Ekraf</center></h3>
+<div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label>Belum memiliki pencatatan keuangan</label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h5 id="dpencatatan_keuangan"></h5>
+    </div>
+</div>
+<div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label>Belum memiliki laporan terpisah</label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h5 id="dlaporan_terpisah"></h5>
+    </div>
+</div>
+<div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label>Belum memiliki neraca</label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h5 id="dneraca"></h5>
+    </div>
+</div>
+<div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label>Belum memiliki Laba rugi</label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h5 id="dlaba_rugi"></h5>
+    </div>
+</div>
+<div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label>Belum memiliki Buku kas</label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h5 id="dbuku_kas"></h5>
+    </div>
+</div>
+<div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label>Pernah mengikuti pelatihan laporan keuangan</label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h5 id="dlaporan_keuangan"></h5>
+    </div>
+</div>
+<h3><center>Pameran Dalam dan Luar Negeri</center></h3>
+<div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label>Pernah difasilitasi pemerintah mengikuti pameran dalam negeri level kabupaten</label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+     <h5 id="dpameran_kab"></h5>
+ </div>
+</div>
+<div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label>Pernah difasilitasi pemerintah mengikuti pameran dalam negeri level provinsi</label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h5 id="dpameran_prov"></h5>
+    </div>
+</div>
+<div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label>Pernah difasilitasi pemerintah mengikuti pameran dalam negeri level nasional</label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h5 id="dpameran_nasional"></h5>
+    </div>
+</div>
+<div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label>Pernah difasilitasi pemerintah mengikuti pameran dalam negeri level internasional</label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h5 id="dpameran_internasional"></h5>
+    </div>
+</div>
+<div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label>Wilayah Pemasaran</label>
+    </div>
+    <div class="form-check col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="Lokal" id="dlokal" name="dwilayah[]" disabled="">
+          <label class="form-check-label" for="dlokal">
+            Lokal
+        </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="Nasional" id="dnasional" name="dwilayah[]" disabled="">
+      <label class="form-check-label" for="dnasional">
+        Nasional
+    </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="Ekspor" id="deksporw" name="dwilayah[]" disabled="">
+  <label class="form-check-label" for="deksporw">
+    Ekspor
+</label>
+</div>
+</div>
+
+</div>
+</div>
+<div class="modal-footer">
+
+</div>
+</div>
+</div>
+</div>
+</form>
+<form id="formimport" enctype="multipart/form-data">
     <div class="modal fade" id="Modal_Import" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -677,9 +681,9 @@
                         <!--  -->
                         <div class="modal-footer">
                             <!-- inputan button simpan dan Cancel -->
-                            <a href="<?php echo base_url().'index.php/Dc_controller/downloadformat' ?>" title="Download Format" class="btn btn-success float-left"><span class="fa fa-download"></span> Format</a>
-                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
+                            <!-- <a href="<?php echo base_url().'index.php/Dc_controller/downloadformat' ?>" title="Download Format" class="btn btn-success float-left"><span class="fa fa-download"></span> Format</a> -->
                             <button type="submit" id="btn_push" class="btn btn-primary bd-toogle-animated-progress">Tambah</button>
+                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -688,70 +692,51 @@
     </div>
 </div>
 </form>
-=======
-    </div>
-    <div class="modal-footer">
 
-    </div>
-</div>
-</div>
-</div>
-</form>
 
->>>>>>> 9b456ef2eed36e3dec8231afba60d2e2d3841415
-
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?php echo base_url() ?>assets/js/jquery.slimscroll.js"></script>
-    <!--Wave Effects -->
-    <script src="<?php echo base_url() ?>assets/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="<?php echo base_url() ?>assets/js/sidebarmenu.js"></script>
-    <!--stickey kit -->
-    <script src="<?php echo base_url() ?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-    <!--Custom JavaScript -->
-    <script src="<?php echo base_url() ?>assets/js/custom.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- This page plugins -->
-    <!-- ============================================================== -->
-    <!--sparkline JavaScript -->
-    <script src="<?php echo base_url() ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
-    <!--morris JavaScript -->
-    <script src="<?php echo base_url() ?>assets/plugins/raphael/raphael-min.js"></script>
-    <script src="<?php echo base_url() ?>assets/plugins/morrisjs/morris.min.js"></script>
-    <!-- Chart JS -->
-    <!-- <script src="<?php echo base_url() ?>assets/js/dashboard1.js"></script> -->
-    <!-- ============================================================== -->
-    <!-- Style switcher -->
-    <!-- ============================================================== -->
-    <script src="<?php echo base_url() ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-    <script type="text/javascript" src="<?php echo base_url() ?>assets/datatables/datatables.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/sweetalert2@8.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/dropzone-amd-module.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/dropzone.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/dropify.js"></script>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/popper.min.js"></script>
+<script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="<?php echo base_url() ?>assets/js/jquery.slimscroll.js"></script>
+<!--Wave Effects -->
+<script src="<?php echo base_url() ?>assets/js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="<?php echo base_url() ?>assets/js/sidebarmenu.js"></script>
+<!--stickey kit -->
+<script src="<?php echo base_url() ?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+<!--Custom JavaScript -->
+<script src="<?php echo base_url() ?>assets/js/custom.min.js"></script>
+<!-- ============================================================== -->
+<!-- This page plugins -->
+<!-- ============================================================== -->
+<!--sparkline JavaScript -->
+<script src="<?php echo base_url() ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+<!--morris JavaScript -->
+<script src="<?php echo base_url() ?>assets/plugins/raphael/raphael-min.js"></script>
+<script src="<?php echo base_url() ?>assets/plugins/morrisjs/morris.min.js"></script>
+<!-- Chart JS -->
+<!-- <script src="<?php echo base_url() ?>assets/js/dashboard1.js"></script> -->
+<!-- ============================================================== -->
+<!-- Style switcher -->
+<!-- ============================================================== -->
+<script src="<?php echo base_url() ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/datatables/datatables.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/sweetalert2@8.js"></script>
+<script src="<?php echo base_url() ?>assets/js/dropzone-amd-module.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/dropzone.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/dropify.js"></script>
 <script src="<?php echo base_url() ?>assets/js/dropify.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-                $('.dropify').dropify({
-            messages: {
-                default: 'Drag atau drop untuk memilih File',
-                replace: 'Ganti',
-                remove:  'Hapus',
-                error:   'error',
-            }
-        });
-
+<script type="text/javascript">
+    $(document).ready(function(){
                 //panggil get data
                 showekraf();
                 //get data sumberdana
@@ -895,9 +880,9 @@
                     $('#Modal_Update').modal('show');
                 });
 
-                $('#formupdate').submit(function(e){
-                            e.preventDefault();
-                    $.ajax({
+            $('#formupdate').submit(function(e){
+                        e.preventDefault();
+                $.ajax({
                         url:'<?php echo base_url();?>index.php/Ekraf/updateEkraf', //URL submit
                         type:"post", //method Submit
                         data:new FormData(this), //penggunaan FormData
@@ -919,8 +904,8 @@
                             showekraf();         
                         }
                     });
-                    return false;
-                });
+                return false;
+            });
 
 
                 //delete sumberdana
@@ -1084,7 +1069,7 @@
                     document.getElementById("dpameran_prov").innerHTML= pameran_prov;
                     document.getElementById("dpameran_nasional").innerHTML= pameran_nasional;
                     document.getElementById("dpameran_internasional").innerHTML= pameran_internasional;
-                     $('[name="dwilayah[]"]').val(wilayah_pemasaran2);
+                    $('[name="dwilayah[]"]').val(wilayah_pemasaran2);
                     $('[name="dlegalitas[]"]').val(legalitas_usaha2);
 
                     // document.getElementById("dalamat").innerHTML= alamat+', '+kecamatan+', '+kota+', '+provinsi;
@@ -1094,8 +1079,15 @@
                     $('#Modal_Detail').modal('show');
                 });
 
-
             
+            $('.dropify').dropify({
+                messages: {
+                    default: 'Drag atau drop untuk memilih File',
+                    replace: 'Ganti',
+                    remove:  'Hapus',
+                    error:   'error',
+                }
+            });
         });
 
 
@@ -1144,7 +1136,6 @@
 
         // var idg = 
         // alert(idg);
-
         
     </script>
 </body>

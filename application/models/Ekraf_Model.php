@@ -9,6 +9,21 @@ class Ekraf_Model extends CI_Model {
 		return $query->result();
 	}
 
+    public function getDataByLoc()
+    {
+        $kota = $this->input->post('id_kab_kota');
+        $query=$this->db->query("SELECT *, e.nama as ne, d.nama as nd, s.nama as ns, t.nama as nt, u.nama as nu, k.nama as kec, ka.nama as kota, p.nama as pro from ekraf as e inner join desa_kelurahan as d on e.id_desa_kelurahan=d.id_desa_kelurahan inner join kecamatan as k on d.id_kecamatan=k.id_kecamatan inner join kab_kota as ka on k.id_kab_kota=ka.id_kab_kota inner join provinsi as p on ka.id_provinsi=p.id_provinsi inner join  sentra as s on e.id_sentra=s.id_sentra inner join sumber_dana as u on e.id_sumber_dana=u.id_sumber_dana inner join status_pemilik as t on e.id_status_pemilik=t.id_status_pemilik where k.id_kab_kota= $kota order by e.nama ASC");
+        return $query->result();
+    }
+
+      public function getDataSearch()
+    {
+        $kota = $this->input->post('id_kab_kota');
+        $nama = $this->input->post('nama');
+        $query=$this->db->query("SELECT *, e.nama as ne, d.nama as nd, s.nama as ns, t.nama as nt, u.nama as nu, k.nama as kec, ka.nama as kota, p.nama as pro from ekraf as e inner join desa_kelurahan as d on e.id_desa_kelurahan=d.id_desa_kelurahan inner join kecamatan as k on d.id_kecamatan=k.id_kecamatan inner join kab_kota as ka on k.id_kab_kota=ka.id_kab_kota inner join provinsi as p on ka.id_provinsi=p.id_provinsi inner join  sentra as s on e.id_sentra=s.id_sentra inner join sumber_dana as u on e.id_sumber_dana=u.id_sumber_dana inner join status_pemilik as t on e.id_status_pemilik=t.id_status_pemilik where k.id_kab_kota= $kota and e.nama like '%".$nama."%' order by e.nama ASC");
+        return $query->result();
+    }
+
     public function getListDesa()
     {
         $query = $this->db->query("SELECT *,d.nama as nd,k.nama as nk FROM `desa_kelurahan` as d inner join kecamatan as k on d.id_kecamatan=k.id_kecamatan inner join kab_kota as a on k.id_kab_kota=a.id_kab_kota inner join provinsi as p on a.id_provinsi=p.id_provinsi WHERE p.nama='Jawa Timur' order by d.nama asc");
@@ -218,6 +233,35 @@ class Ekraf_Model extends CI_Model {
         $this->db->where('password', $passold);
         $result = $this->db->update('user', $data);
         return $result;
+    }
+
+    public function findIdSentra($nama)
+    {
+        $this->db->select('id_sentra');
+        $this->db->where('nama', $nama);
+        $query=$this->db->get('sentra');
+        return $query->result_array();
+    }
+
+    public function findIdStatus($nama)
+    {
+        $this->db->select('id_status_pemilik');
+        $this->db->where('nama', $nama);
+        $query=$this->db->get('status_pemilik');
+        return $query->result_array();
+    }
+
+    public function findIdSumberdana($nama)
+    {
+        $this->db->select('id_sumber_dana');
+        $this->db->where('nama', $nama);
+        $query=$this->db->get('sumber_dana');
+        return $query->result_array();
+    }
+
+    public function import($data)
+    {
+        return $this->db->insert_batch('ekraf',$data);
     }
 }
 
