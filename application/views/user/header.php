@@ -212,16 +212,9 @@
                             <!-- ============================================================== -->
                             <!-- Profile -->
                             <!-- ============================================================== -->
-                            <!-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url() ?>assets/images/users/default.png" alt="user" class="profile-pic" /></a>
-                                <div class="dropdown-menu dropdown-menu-right scale-up">
-                                    <ul class="dropdown-user">
-                                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_profile"><i class="fa fa-user"></i> Ubah Profil</a></li>
-                                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_changepass"><i class="fa fa-key"></i> Ubah Password</a></li>
-                                        <li><a href="<?php echo base_url().'Login/logout'?>"><i class="fa fa-power-off"></i> Logout</a></li>
-                                    </ul>
-                                </div>
-                            </li> -->
+                            <li class="nav-item">
+                                <a class="btn btn-success" href="<?php echo site_url('Login') ?>" >Login</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

@@ -11,7 +11,7 @@ class User  extends CI_Controller {
 		$this->load->model('Ekraf_Model');
 		$this->load->model('LoginModel');
 		$this->load->model('TeknologiEcommerce_Model');
-	
+
 	}
 
 	public function index()
@@ -24,26 +24,37 @@ class User  extends CI_Controller {
 		$this->load->view('user/index',$data);
 	}
 
-	  public function getKota(){
+	public function getKota(){
 
 
-        $this->load->database();
+		$this->load->database();
+		if(!empty($this->input->get("q"))){
+			$this->db->like('kab_kota.nama', $this->input->get("q"));
+			$this->db->select('kab_kota.id_kab_kota as id,kab_kota.nama as text');
+			$this->db->from('kab_kota');
+			$this->db->join('provinsi', 'provinsi.id_provinsi = kab_kota.id_provinsi');
+			$this->db->where('provinsi.nama', 'Jawa Timur');
+			$this->db->order_by('kab_kota.nama', 'asc');
+			$query=$this->db->get();
+			// $query = $this->db->query("SELECT k.id_kab_kota as id,k.nama as 'text' from kab_kota as k inner join provinsi as p on k.id_provinsi=p.id_provinsi where p.nama='Jawa Timur' order by k.nama asc");
+			$json = $query->result();
+		}else{
+			// $this->db->like('kab_kota.nama', $this->input->get("q"));
+			$this->db->select('kab_kota.id_kab_kota as id,kab_kota.nama as text');
+			$this->db->from('kab_kota');
+			$this->db->join('provinsi', 'provinsi.id_provinsi = kab_kota.id_provinsi');
+			$this->db->where('provinsi.nama', 'Jawa Timur');
+			$this->db->order_by('kab_kota.nama', 'asc');
+			$query=$this->db->get();
+			// $query = $this->db->query("SELECT k.id_kab_kota as id,k.nama as 'text' from kab_kota as k inner join provinsi as p on k.id_provinsi=p.id_provinsi where p.nama='Jawa Timur' order by k.nama asc");
+			$json = $query->result();
+		}
 
-        
-        if(!empty($this->input->get("q"))){
-            $this->db->like('nama', $this->input->get("q"));
-            $query = $this->db->select('id_kab_kota as id,nama as text')->get("kab_kota");
-            $json = $query->result();
-        }else{
-              $query = $this->db->select('id_kab_kota as id,nama as text')->get("kab_kota");
-            $json = $query->result();
-        }
 
-        
-        echo json_encode($json);
+		echo json_encode($json);
 
-    }
-    public function getDataByLoc()
+	}
+	public function getDataByLoc()
 	{
 		echo json_encode( $this->Ekraf_Model->getDataByLoc());
 	}
@@ -52,6 +63,9 @@ class User  extends CI_Controller {
 		echo json_encode( $this->Ekraf_Model->getDataSearch());
 	}
 
-	
+	public function getDataEkraf()
+	{
+		echo json_encode( $this->Ekraf_Model->getData());
+	}
 
 }
