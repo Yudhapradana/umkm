@@ -394,14 +394,14 @@ class Ekraf extends CI_Controller {
 					//desa,sentra,status,sumberdana
     				$desa2 = $this->Ekraf_Model->findIdDesa($desa,$kecamatan);
     				
-    				 if (empty($desa3)) {
+    				 if (empty($desa2)) {
     				 	$desa3=0;
     				 }else{
     				 	$desa3=$desa2[0]['id'];
     				 }
 
     				$sentra2 = $this->Ekraf_Model->findIdSentra($sentra);
-    				 if (empty($desa3)) {
+    				 if (empty($sentra2)) {
     				 	$sentra3=0;
     				 }else{
     				 	$sentra3=$sentra2[0]['id_sentra'];
@@ -409,14 +409,14 @@ class Ekraf extends CI_Controller {
     				
 
     				$status2 = $this->Ekraf_Model->findIdStatus($status);
-    				if (empty($desa3)) {
+    				if (empty($status2)) {
     				 	$status3=0;
     				 }else{
     				 	$status3=$status2[0]['id_status_pemilik'];
     				 }
     				
     				$sumberdana2 = $this->Ekraf_Model->findIdSumberdana($sumberdana);
-    				if (empty($desa3)) {
+    				if (empty($sumberdana2)) {
     				 	$sumberdana3=0;
     				 }else{
     				 	$sumberdana3=$sumberdana2[0]['id_sumber_dana'];
@@ -459,9 +459,13 @@ class Ekraf extends CI_Controller {
 
     			}
     		}
+
+
     		$result=$this->Ekraf_Model->import($data);
     		echo json_encode($result);
 
+    	}else{
+    		die();
     	}
     }
      public function downloadFormat(){
