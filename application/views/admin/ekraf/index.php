@@ -970,6 +970,7 @@
                                 showekraf();
                                 $('#fileku').val('');
                                 $('.dropify-clear').click();
+                                $('.modal-backdrop').removeClass('show');
                                 $('#Modal_Import').modal('hide');
                                 
                             },
