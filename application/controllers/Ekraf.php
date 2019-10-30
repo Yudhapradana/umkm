@@ -10,7 +10,7 @@ class Ekraf extends CI_Controller {
 		$this->load->model('Sentra_Model');
 		$this->load->model('Ekraf_Model');
 		$this->load->model('LoginModel');
-		       $this->load->library('Excel','upload');
+		$this->load->library('Excel','upload');
 		$this->load->model('TeknologiEcommerce_Model');
 		if ($this->session->userdata('logged_in')==TRUE) 
 		{
@@ -365,10 +365,6 @@ class Ekraf extends CI_Controller {
     {
     	if(isset($_FILES["fileku"]["name"])){
     		$path = $_FILES["fileku"]["tmp_name"];
-    			echo "<pre>";
-		var_dump($path);
-		echo "</pre>";
-		
     		$object = PHPExcel_IsOFactory::load($path);
     		$objWriter = PHPExcel_IOFactory::createWriter($object, 'Excel2007');
     		$objWriter->save('uploads/DataImport.xlsx');
@@ -466,8 +462,6 @@ class Ekraf extends CI_Controller {
     		$result=$this->Ekraf_Model->import($data);
     		echo json_encode($result);
 
-    	}else{
-    		die();
     	}
     }
      public function downloadFormat(){
