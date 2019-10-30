@@ -10,6 +10,7 @@ class Ekraf extends CI_Controller {
 		$this->load->model('Sentra_Model');
 		$this->load->model('Ekraf_Model');
 		$this->load->model('LoginModel');
+		       $this->load->library('Excel','upload');
 		$this->load->model('TeknologiEcommerce_Model');
 		if ($this->session->userdata('logged_in')==TRUE) 
 		{
@@ -364,7 +365,11 @@ class Ekraf extends CI_Controller {
     {
     	if(isset($_FILES["fileku"]["name"])){
     		$path = $_FILES["fileku"]["tmp_name"];
-    		$object = PHPExcel_IOFactory::load($path);
+    			echo "<pre>";
+		var_dump($path);
+		echo "</pre>";
+		
+    		$object = PHPExcel_IsOFactory::load($path);
     		$objWriter = PHPExcel_IOFactory::createWriter($object, 'Excel2007');
     		$objWriter->save('uploads/DataImport.xlsx');
     		foreach($object->getWorksheetIterator() as $worksheet){
@@ -372,39 +377,55 @@ class Ekraf extends CI_Controller {
     			$highestColumn = $worksheet->getHighestColumn();
     			for($row=2; $row<=$highestRow; $row++){
     				$nama = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$alamat = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$desa = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$kecamatan = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$sentra = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$status = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$jk = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$upah = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$sumberdana = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$distribusi = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$permasalahan = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$ekspor = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$peluang = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$perijinan = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$merk = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$no_merk = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$tgl = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$tahun = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-    				$omzet = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+    				$alamat = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+    				$desa = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+    				$kecamatan = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+    				$sentra = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+    				$status = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+    				$jk = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+    				$upah = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+    				$sumberdana = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
+    				$distribusi = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
+    				$permasalahan = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
+    				$ekspor = $worksheet->getCellByColumnAndRow(11, $row)->getValue();
+    				$peluang = $worksheet->getCellByColumnAndRow(12, $row)->getValue();
+    				$perijinan = $worksheet->getCellByColumnAndRow(13, $row)->getValue();
+    				$merk = $worksheet->getCellByColumnAndRow(14, $row)->getValue();
+    				$no_merk = $worksheet->getCellByColumnAndRow(15, $row)->getValue();
+    				$tgl = $worksheet->getCellByColumnAndRow(16, $row)->getValue();
+    				$tahun = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
+    				$omzet = $worksheet->getCellByColumnAndRow(18, $row)->getValue();
 					//desa,sentra,status,sumberdana
     				$desa2 = $this->Ekraf_Model->findIdDesa($desa,$kecamatan);
-    				$desa3=$desa2[0]['id'];
-    				// if (empty($desa3)) {
-    				// 	$desa3=
-    				// }
+    				
+    				 if (empty($desa3)) {
+    				 	$desa3=0;
+    				 }else{
+    				 	$desa3=$desa2[0]['id'];
+    				 }
 
     				$sentra2 = $this->Ekraf_Model->findIdSentra($sentra);
-    				$sentra3=$sentra2[0]['id_sentra'];
+    				 if (empty($desa3)) {
+    				 	$sentra3=0;
+    				 }else{
+    				 	$sentra3=$sentra2[0]['id_sentra'];
+    				 }
+    				
 
     				$status2 = $this->Ekraf_Model->findIdStatus($status);
-    				$status3=$status2[0]['id_status_pemilik'];
-
+    				if (empty($desa3)) {
+    				 	$status3=0;
+    				 }else{
+    				 	$status3=$status2[0]['id_status_pemilik'];
+    				 }
+    				
     				$sumberdana2 = $this->Ekraf_Model->findIdSumberdana($sumberdana);
-    				$sumberdana3=$sumberdana2[0]['id_sumber_dana'];
+    				if (empty($desa3)) {
+    				 	$sumberdana3=0;
+    				 }else{
+    				 	$sumberdana3=$sumberdana2[0]['id_sumber_dana'];
+    				 }
+    			
 
     				$data[] = array(
     					'nama' => $nama,
@@ -445,7 +466,12 @@ class Ekraf extends CI_Controller {
     		$result=$this->Ekraf_Model->import($data);
     		echo json_encode($result);
 
+    	}else{
+    		die();
     	}
+    }
+     public function downloadFormat(){
+        force_download('assets/format/formatimport.xlsx',null);
     }
 }
 

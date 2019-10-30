@@ -674,7 +674,7 @@
                             <div class="form-group col-lg-12 row">
                                 <div class="col-12">
                                     <label>Upload File</label>
-                                    <input type="file" name="fileku" id="fileku" class="form-control dropify" data-height="100" required>
+                                    <input type="file" name="fileku" id="fileku" class="form-control dropify" required>
                                 </div>
                             </div>
                         </div>
@@ -682,6 +682,7 @@
                         <div class="modal-footer">
                             <!-- inputan button simpan dan Cancel -->
                             <!-- <a href="<?php echo base_url().'index.php/Dc_controller/downloadformat' ?>" title="Download Format" class="btn btn-success float-left"><span class="fa fa-download"></span> Format</a> -->
+                               <a href="<?php echo base_url().'index.php/Ekraf/downloadformat' ?>"  title="Download Format" class="btn btn-success float-left"><span class="fa fa-download"></span> Format</a> 
                             <button type="submit" id="btn_push" class="btn btn-primary bd-toogle-animated-progress">Tambah</button>
                             <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
                         </div>
@@ -947,6 +948,42 @@
                 });
                 return false;
             });
+            $('#formimport').on('submit', function(event){
+                        event.preventDefault();
+                        $.ajax({
+                            url:"<?php echo site_url(); ?>/Ekraf/import",
+                            method:"POST",
+                            data:new FormData(this),
+                            contentType:false,
+                            cache:false,
+                            processData:false,
+                            success:function(data){
+                                Swal.fire({
+                                    type: 'success',
+                                    title: 'Berhasil Import Ekraf',
+                                    showConfirmButton: true,
+                            // timer: 1500
+                                })
+                                $("#ekraf").DataTable().destroy();
+                                $("#ekraf").find('tbody').empty();
+                                document.getElementById('formimport').reset();
+                                showekraf();
+                                $('#fileku').val('');
+                                $('.dropify-clear').click();
+                                $('#Modal_Import').modal('hide');
+                                
+                            },
+                            error:function(){
+                                Swal.fire({
+                                    type: 'error',
+                                    title: 'Ada Kesalahan',
+                                    text: 'Pastikan format sudah benar',
+                                    showConfirmButton: true,
+                            // timer: 1500
+                                })
+                            }
+                        })
+                    });
 
             $('#ekraf').on('click','.item_detail',function(){
                     // memasukkan data yang dipilih dari tbl list agenda updatean ke variabel
