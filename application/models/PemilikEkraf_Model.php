@@ -72,51 +72,77 @@ class PemilikEkraf_Model extends CI_Model {
 		return $query->result();
 	}
 
-	public function newEkraf($nama,$alamat,$desa2,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl)
+	public function newEkraf($nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2)
 	{
 			$data = array(
-            'nama'                  =>$nama,
-            'alamat'                =>$alamat,
-            'id_desa_kelurahan'     =>$desa2,
-            'id_sentra'             =>$sentra,
-            'id_status_pemilik'     =>$status,
-            'jumlah_karyawan'       =>$jk,
-            'upah_tenaga_kerja'            =>$upah,
-            'id_sumber_dana'            =>$sumberdana,
-            'distribusi'            =>$distribusi,
-            'permasalahan'          =>$permasalahan,
-            'ekspor'                =>$ekspor,
-            'peluang_tantangan'     =>$peluang,
-            'perijinan'                  =>$perijinan,
-            'merk'                  =>$merk,
-            'no_merk'                  =>$no_merk,
-            'tgl_merk'                  =>$tgl,
+                'nama'                  =>$nama,
+                'alamat'                =>$alamat,
+                'id_desa_kelurahan'     =>$desa3,
+                'id_sentra'             =>$sentra,
+                'id_status_pemilik'     =>$status,
+                'jumlah_karyawan'       =>$jk,
+                'upah_tenaga_kerja'     =>$upah,
+                'id_sumber_dana'        =>$sumberdana,
+                'distribusi'            =>$distribusi,
+                'permasalahan'          =>$permasalahan,
+                'ekspor'                =>$ekspor,
+                'peluang_tantangan'     =>$peluang,
+                'perijinan'             =>$perijinan,
+                'merk'                  =>$merk,
+                'no_merk'               =>$no_merk,
+                'tgl_merk'              =>$tgl,
+                'tahun'                 =>$tahun,
+                'pencatatan_keuangan'   =>$pencatatan_keuangan,
+                'laporan_terpisah'      =>$laporan_terpisah,
+                'neraca'                =>$neraca,
+                'laba_rugi'             =>$laba_rugi,
+                'buku_kas'              =>$buku_kas,
+                'laporan_terpisah'      =>$laporan_terpisah,
+                'pameran_kab'           =>$pameran_kab,
+                'pameran_prov'          =>$pameran_prov,
+                'pameran_nasional'      =>$pameran_nasional,
+                'pameran_internasional' =>$pameran_internasional,
+                'wilayah_pemasaran'     =>$wilayah2,
+                'legalitas_usaha'       =>$legalitas2,
         );
         return $this->db->insert('ekraf', $data);
 
 	}
 
-	public function updateEkraf($id,$nama,$alamat,$desa2,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl)
+	public function updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2)
 	{
 		
 		$data = array(
-			'nama'                  =>$nama,
-			'alamat'                =>$alamat,
-			'id_desa_kelurahan'     =>$desa2,
-			'id_sentra'             =>$sentra,
-			'id_status_pemilik'     =>$status,
-			'jumlah_karyawan'       =>$jk,
-			'upah_tenaga_kerja'            =>$upah,
-			'id_sumber_dana'            =>$sumberdana,
-			'distribusi'            =>$distribusi,
-			'permasalahan'          =>$permasalahan,
-			'ekspor'                =>$ekspor,
-			'peluang_tantangan'     =>$peluang,
-			'perijinan'                  =>$perijinan,
-			'merk'                  =>$merk,
-			'no_merk'                  =>$no_merk,
-			'tgl_merk'                  =>$tgl,
-		);
+                'nama'                  =>$nama,
+                'alamat'                =>$alamat,
+                'id_desa_kelurahan'     =>$desa3,
+                'id_sentra'             =>$sentra,
+                'id_status_pemilik'     =>$status,
+                'jumlah_karyawan'       =>$jk,
+                'upah_tenaga_kerja'     =>$upah,
+                'id_sumber_dana'        =>$sumberdana,
+                'distribusi'            =>$distribusi,
+                'permasalahan'          =>$permasalahan,
+                'ekspor'                =>$ekspor,
+                'peluang_tantangan'     =>$peluang,
+                'perijinan'             =>$perijinan,
+                'merk'                  =>$merk,
+                'no_merk'               =>$no_merk,
+                'tgl_merk'              =>$tgl,
+                'tahun'                 =>$tahun,
+                'pencatatan_keuangan'   =>$pencatatan_keuangan,
+                'laporan_terpisah'      =>$laporan_terpisah,
+                'neraca'                =>$neraca,
+                'laba_rugi'             =>$laba_rugi,
+                'buku_kas'              =>$buku_kas,
+                'laporan_terpisah'      =>$laporan_terpisah,
+                'pameran_kab'           =>$pameran_kab,
+                'pameran_prov'          =>$pameran_prov,
+                'pameran_nasional'      =>$pameran_nasional,
+                'pameran_internasional' =>$pameran_internasional,
+                'wilayah_pemasaran'     =>$wilayah2,
+                'legalitas_usaha'       =>$legalitas2,
+            );
 		$this->db->where('id_ekraf', $id);
 		return $this->db->update('ekraf', $data);
 	}

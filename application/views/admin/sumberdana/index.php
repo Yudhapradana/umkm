@@ -244,6 +244,7 @@
                         $("#sumberdana").DataTable().destroy();
                         $("#sumberdana").find('tbody').empty();
                         document.getElementById('formbaru').reset();
+                        window.location.reload();  
                         showSumberdana();
                     }
                 });

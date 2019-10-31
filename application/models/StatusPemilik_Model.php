@@ -5,6 +5,7 @@ class StatusPemilik_Model extends CI_Model {
 
 	public function getData()
 	{
+		$this->db->where('id_status_pemilik!=', 0);
 		$query=$this->db->get('status_pemilik');
 		return $query->result();
 	}

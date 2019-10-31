@@ -244,6 +244,8 @@
                         $("#subsektor").DataTable().destroy();
                         $("#subsektor").find('tbody').empty();
                         document.getElementById('formbaru').reset();
+                        // $('.modal-backdrop').removeClass('modal-backdrop');
+                        window.location.reload();  
                         showSubsektor();
                     }
                 });

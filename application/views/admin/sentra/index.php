@@ -261,6 +261,8 @@
                         $("#sentra").DataTable().destroy();
                         $("#sentra").find('tbody').empty();
                         document.getElementById('formbaru').reset();
+                        window.location.reload();  
+                        
                         showsentra();
                     }
                 });

@@ -145,11 +145,11 @@
                             </div>
                             <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="col-4">
-                                 <label>Tahun Memulai Usaha</label>
-                                 <input type="text" name="tahun" id="tahun" class="form-control" placeholder="Masukkan Tahun Usaha" required>
+                                   <label>Tahun Memulai Usaha</label>
+                                   <input type="text" name="tahun" id="tahun" class="form-control" placeholder="Masukkan Tahun Usaha" required>
 
-                             </div>
-                             <div class="col-4">
+                               </div>
+                               <div class="col-4">
                                 <label>Ekspor</label>
                                 <input type="text" name="ekspor" id="ekspor" class="form-control" placeholder="Masukkan eskpor">
                             </div>
@@ -161,70 +161,70 @@
                         </div>
                         <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="col-6">
-                               <label>Permasalahan</label>
-                               <input type="text" name="permasalahan" id="permasalahan" class="form-control" placeholder="Masukkan permasalahan" required>
-                           </div>
-                           <div class="col-6">
-                             <label>Peluang dan Tantangan</label>
-                             <input type="text" name="peluang" id="peluang" class="form-control" placeholder="Masukkan peluang/tantangan" required>
+                             <label>Permasalahan</label>
+                             <input type="text" name="permasalahan" id="permasalahan" class="form-control" placeholder="Masukkan permasalahan" required>
                          </div>
-                     </div>
-                     <h3><center>Perijinan Ekraf</center></h3>
+                         <div class="col-6">
+                           <label>Peluang dan Tantangan</label>
+                           <input type="text" name="peluang" id="peluang" class="form-control" placeholder="Masukkan peluang/tantangan" required>
+                       </div>
+                   </div>
+                   <h3><center>Perijinan Ekraf</center></h3>
 
-                     <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-3">
-                            <label>Perijinan</label>
-                            <input type="text" name="perijinan" id="perijinan" class="form-control" placeholder="Masukkan perijinan" required>
-                        </div>
-                        <div class="col-3">
-                            <label>Merk</label>
-                            <input type="text" name="merk" id="merk" class="form-control" placeholder="Masukkan Merk" required>
-                        </div>
-                        <div class="col-3">
-                            <label>No Merk</label>
-                            <input type="text" name="no_merk" id="no_merk" class="form-control" placeholder="Masukkan Nomor" required>
-                        </div>
-                        <div class="col-3">
-                            <label>Tanggal Merk</label>
-                            <input type="date" name="tgl" id="tgl" class="form-control" placeholder="Masukkan Tanggal " required>
-                        </div>
+                   <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-3">
+                        <label>Perijinan</label>
+                        <input type="text" name="perijinan" id="perijinan" class="form-control" placeholder="Masukkan perijinan" required>
                     </div>
-                    <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <label>Legalitas Usaha</label>
-                        </div>
-                        <div class="form-check col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="siup" id="siup" name="legalitas[]">
-                              <label class="form-check-label" for="siup">
-                                SIUP
-                            </label>
-                        </div>
+                    <div class="col-3">
+                        <label>Merk</label>
+                        <input type="text" name="merk" id="merk" class="form-control" placeholder="Masukkan Merk" required>
+                    </div>
+                    <div class="col-3">
+                        <label>No Merk</label>
+                        <input type="text" name="no_merk" id="no_merk" class="form-control" placeholder="Masukkan Nomor" required>
+                    </div>
+                    <div class="col-3">
+                        <label>Tanggal Merk</label>
+                        <input type="date" name="tgl" id="tgl" class="form-control" placeholder="Masukkan Tanggal " required>
+                    </div>
+                </div>
+                <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <label>Legalitas Usaha</label>
+                    </div>
+                    <div class="form-check col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="tdp" id="tdp" name="legalitas[]">
-                          <label class="form-check-label" for="tdp">
-                            TDP
+                          <input class="form-check-input" type="checkbox" value="siup" id="siup" name="legalitas[]">
+                          <label class="form-check-label" for="siup">
+                            SIUP
                         </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="npwp" id="npwp" name="legalitas[]">
-                      <label class="form-check-label" for="npwp">
-                        NPWP
+                      <input class="form-check-input" type="checkbox" value="tdp" id="tdp" name="legalitas[]">
+                      <label class="form-check-label" for="tdp">
+                        TDP
                     </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="bpom" id="bpom" name="legalitas[]">
-                  <label class="form-check-label" for="bpom">
-                    BPOM
+                  <input class="form-check-input" type="checkbox" value="npwp" id="npwp" name="legalitas[]">
+                  <label class="form-check-label" for="npwp">
+                    NPWP
                 </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="pirt" id="pirt" name="legalitas[]">
-              <label class="form-check-label" for="pirt">
-                PIRT
+              <input class="form-check-input" type="checkbox" value="bpom" id="bpom" name="legalitas[]">
+              <label class="form-check-label" for="bpom">
+                BPOM
             </label>
         </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="pirt" id="pirt" name="legalitas[]">
+          <label class="form-check-label" for="pirt">
+            PIRT
+        </label>
     </div>
+</div>
 </div>
 <h3><center>Pelatihan Laporan Keuangan Ekraf</center></h3>
 <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -378,7 +378,7 @@
 <div class="modal-footer">
     <!-- inputan button simpan dan Cancel -->
     <input type="text" id="id" name="id" hidden="">
-    <input type="hidden" name="fotolama" id="fotolama" class="form-control">
+    <!-- <input type="hidden" name="fotolama" id="fotolama" class="form-control"> -->
     <button type="submit" id="btn_push" class="btn btn-primary ">Save</button>
     <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
 </div>
@@ -598,8 +598,8 @@
         <label>Pernah difasilitasi pemerintah mengikuti pameran dalam negeri level kabupaten</label>
     </div>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <h5 id="dpameran_kab"></h5>
- </div>
+       <h5 id="dpameran_kab"></h5>
+   </div>
 </div>
 <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
@@ -649,8 +649,14 @@
 </label>
 </div>
 </div>
-
 </div>
+<!-- <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="container-fluid lazy">
+        <?php  foreach ($gambar as $key){ ?>
+           <img src="<?php  echo base_url()?>assets/uploads/<?php echo $key->galeri ?>" alt="Gambar 1">
+       <?php } ?>
+   </div>
+</div> -->
 </div>
 <div class="modal-footer">
 
@@ -682,7 +688,7 @@
                         <div class="modal-footer">
                             <!-- inputan button simpan dan Cancel -->
                             <!-- <a href="<?php echo base_url().'index.php/Dc_controller/downloadformat' ?>" title="Download Format" class="btn btn-success float-left"><span class="fa fa-download"></span> Format</a> -->
-                               <a href="<?php echo base_url().'index.php/Ekraf/downloadformat' ?>"  title="Download Format" class="btn btn-success float-left"><span class="fa fa-download"></span> Format</a> 
+                            <a href="<?php echo base_url().'index.php/Ekraf/downloadformat' ?>"  title="Download Format" class="btn btn-success float-left"><span class="fa fa-download"></span> Format</a> 
                             <button type="submit" id="btn_push" class="btn btn-primary bd-toogle-animated-progress">Tambah</button>
                             <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
                         </div>
@@ -772,9 +778,9 @@
                                 '<td>'+data[i].no_merk+'</td>'+
                                 '<td>'+data[i].tgl_merk+'</td>'+
                                 '<td>'+
-                                '<a href="javascript:void(0);" class="btn btn-primary btn-sm item_detail" data-id="'+data[i].id_ekraf+'" data-nama_ekraf="'+data[i].ne+'" data-alamat="'+data[i].alamat+'" data-nama_desa="'+data[i].nd+'" data-kecamatan="'+data[i].kec+'" data-kota="'+data[i].kota+'" data-provinsi="'+data[i].pro+'" data-sentra="'+data[i].id_sentra+'" data-status="'+data[i].id_status_pemilik+'" data-jk="'+data[i].jumlah_karyawan+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].id_sumber_dana+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-perijinan="'+data[i].perijinan+'" data-merk="'+data[i].merk+'" data-no_merk="'+data[i].no_merk+'" data-tgl="'+data[i].tgl_merk+'" data-tahun="'+data[i].tahun+'" data-omzet="'+data[i].omzet+'" data-pencatatan_keuangan="'+data[i].pencatatan_keuangan+'" data-laporan_terpisah="'+data[i].laporan_terpisah+'" data-neraca="'+data[i].neraca+'" data-laba_rugi="'+data[i].laba_rugi+'" data-buku_kas="'+data[i].buku_kas+'" data-laporan_keuangan="'+data[i].laporan_keuangan+'" data-pameran_kab="'+data[i].pameran_kab+'" data-pameran_prov="'+data[i].pameran_prov+'" data-pameran_nasional="'+data[i].pameran_nasional+'" data-pameran_internasional="'+data[i].pameran_internasional+'" data-wilayah_pemasaran="'+data[i].wilayah_pemasaran+'" data-legalitas_usaha="'+data[i].legalitas_usaha+'"> <span class="fa fa-info-circle"></span> </a>'+
+                                '<a href="javascript:void(0);" class="btn btn-primary btn-sm item_detail" data-id="'+data[i].id_ekraf+'" data-nama_ekraf="'+data[i].ne+'" data-alamat="'+data[i].alamat+'" data-nama_desa="'+data[i].nd+'" data-kecamatan="'+data[i].kec+'" data-kota="'+data[i].kota+'" data-provinsi="'+data[i].pro+'" data-sentra="'+data[i].ns+'" data-status="'+data[i].nt+'" data-jk="'+data[i].jumlah_karyawan+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nu+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-perijinan="'+data[i].perijinan+'" data-merk="'+data[i].merk+'" data-no_merk="'+data[i].no_merk+'" data-tgl="'+data[i].tgl_merk+'" data-tahun="'+data[i].tahun+'" data-omzet="'+data[i].omzet+'" data-pencatatan_keuangan="'+data[i].pencatatan_keuangan+'" data-laporan_terpisah="'+data[i].laporan_terpisah+'" data-neraca="'+data[i].neraca+'" data-laba_rugi="'+data[i].laba_rugi+'" data-buku_kas="'+data[i].buku_kas+'" data-laporan_keuangan="'+data[i].laporan_keuangan+'" data-pameran_kab="'+data[i].pameran_kab+'" data-pameran_prov="'+data[i].pameran_prov+'" data-pameran_nasional="'+data[i].pameran_nasional+'" data-pameran_internasional="'+data[i].pameran_internasional+'" data-wilayah_pemasaran="'+data[i].wilayah_pemasaran+'" data-legalitas_usaha="'+data[i].legalitas_usaha+'"> <span class="fa fa-info-circle"></span> </a>'+
                                 '     '+
-                                '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_ekraf+'" data-nama_ekraf="'+data[i].ne+'" data-alamat="'+data[i].alamat+'" data-nama_desa="'+data[i].nd+'" data-sentra="'+data[i].id_sentra+'" data-status="'+data[i].id_status_pemilik+'" data-jk="'+data[i].jumlah_karyawan+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].id_sumber_dana+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-perijinan="'+data[i].perijinan+'" data-merk="'+data[i].merk+'" data-no_merk="'+data[i].no_merk+'" data-tgl="'+data[i].tgl_merk+'" data-tahun="'+data[i].tahun+'" data-omzet="'+data[i].omzet+'" data-pencatatan_keuangan="'+data[i].pencatatan_keuangan+'" data-laporan_terpisah="'+data[i].laporan_terpisah+'" data-neraca="'+data[i].neraca+'" data-laba_rugi="'+data[i].laba_rugi+'" data-buku_kas="'+data[i].buku_kas+'" data-laporan_keuangan="'+data[i].laporan_keuangan+'" data-pameran_kab="'+data[i].pameran_kab+'" data-pameran_prov="'+data[i].pameran_prov+'" data-pameran_nasional="'+data[i].pameran_nasional+'" data-pameran_internasional="'+data[i].pameran_internasional+'" data-wilayah_pemasaran="'+data[i].wilayah_pemasaran+'" data-legalitas_usaha="'+data[i].legalitas_usaha+'"> <span class="fa fa-edit"></span> </a>'+
+                                '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_ekraf+'" data-nama_ekraf="'+data[i].ne+'" data-alamat="'+data[i].alamat+'" data-nama_desa="'+data[i].nd+'" data-kecamatan="'+data[i].kec+'" data-sentra="'+data[i].id_sentra+'" data-status="'+data[i].id_status_pemilik+'" data-jk="'+data[i].jumlah_karyawan+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].id_sumber_dana+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-perijinan="'+data[i].perijinan+'" data-merk="'+data[i].merk+'" data-no_merk="'+data[i].no_merk+'" data-tgl="'+data[i].tgl_merk+'" data-tahun="'+data[i].tahun+'" data-omzet="'+data[i].omzet+'" data-pencatatan_keuangan="'+data[i].pencatatan_keuangan+'" data-laporan_terpisah="'+data[i].laporan_terpisah+'" data-neraca="'+data[i].neraca+'" data-laba_rugi="'+data[i].laba_rugi+'" data-buku_kas="'+data[i].buku_kas+'" data-laporan_keuangan="'+data[i].laporan_keuangan+'" data-pameran_kab="'+data[i].pameran_kab+'" data-pameran_prov="'+data[i].pameran_prov+'" data-pameran_nasional="'+data[i].pameran_nasional+'" data-pameran_internasional="'+data[i].pameran_internasional+'" data-wilayah_pemasaran="'+data[i].wilayah_pemasaran+'" data-legalitas_usaha="'+data[i].legalitas_usaha+'"> <span class="fa fa-edit"></span> </a>'+
 
                                 '     '+
                                 '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id_ekraf+'" data-nama="'+data[i].ne+'"> <span class="fa fa-trash"></span> </a>'+
@@ -805,6 +811,7 @@
                     var id            = $(this).data('id');
                     var ne          = $(this).data('nama_ekraf');
                     var alamat          = $(this).data('alamat');
+                    var kec          = $(this).data('kecamatan');
                     // alert(nd);
                     var nd          = $(this).data('nama_desa');
                     var ns          = $(this).data('sentra');
@@ -841,7 +848,7 @@
                     $('[name="id"]').val(id);
                     $('[name="nama"]').val(ne);
                     $('[name="alamat"]').val(alamat);
-                    $('[name="desa"]').val(nd);
+                    $('[name="desa"]').val(nd+'-'+kec);
                     $('[name="sentra"]').val(ns);
                     $('[name="status"]').val(nt);
                     $('[name="jk"]').val(jk);
@@ -948,43 +955,46 @@
                 });
                 return false;
             });
+
             $('#formimport').on('submit', function(event){
-                        event.preventDefault();
-                        $.ajax({
-                            url:"<?php echo site_url(); ?>/Ekraf/import",
-                            method:"POST",
-                            data:new FormData(this),
-                            contentType:false,
-                            cache:false,
-                            processData:false,
-                            success:function(data){
-                                Swal.fire({
-                                    type: 'success',
-                                    title: 'Berhasil Import Ekraf',
-                                    showConfirmButton: true,
+                event.preventDefault();
+                $.ajax({
+                    url:"<?php echo site_url(); ?>/Ekraf/import",
+                    method:"POST",
+                    data:new FormData(this),
+                    contentType:false,
+                    cache:false,
+                    processData:false,
+                    success:function(data){
+                        Swal.fire({
+                            type: 'success',
+                            title: 'Berhasil Import Ekraf',
+                            showConfirmButton: true,
                             // timer: 1500
-                                })
-                                $("#ekraf").DataTable().destroy();
-                                $("#ekraf").find('tbody').empty();
-                                document.getElementById('formimport').reset();
-                                showekraf();
-                                $('#fileku').val('');
-                                $('.dropify-clear').click();
-                                $('.modal-backdrop').removeClass('show');
-                                $('#Modal_Import').modal('hide');
-                                
-                            },
-                            error:function(){
-                                Swal.fire({
-                                    type: 'error',
-                                    title: 'Ada Kesalahan',
-                                    text: 'Pastikan format sudah benar',
-                                    showConfirmButton: true,
-                            // timer: 1500
-                                })
-                            }
                         })
-                    });
+                        $("#ekraf").DataTable().destroy();
+                        $("#ekraf").find('tbody').empty();
+                        document.getElementById('formimport').reset();
+                        showekraf();
+                        $('#fileku').val('');
+                        $('.dropify-clear').click();
+                        $('.modal-backdrop').removeClass('show');
+                        $('#Modal_Import').modal('hide');
+                        window.location.reload();  
+
+
+                    },
+                    error:function(){
+                        Swal.fire({
+                            type: 'error',
+                            title: 'Ada Kesalahan',
+                            text: 'Pastikan format sudah benar',
+                            showConfirmButton: true,
+                            // timer: 1500
+                        })
+                    }
+                })
+            });
 
             $('#ekraf').on('click','.item_detail',function(){
                     // memasukkan data yang dipilih dari tbl list agenda updatean ke variabel
@@ -1023,7 +1033,7 @@
                     var kota          = $(this).data('kota');
                     var provinsi          = $(this).data('provinsi');
                     var wilayah_pemasaran2 = wilayah_pemasaran.split(";");
-                    // alert(pameran_internasional);
+                    // alert(nu);
                     var legalitas_usaha          = $(this).data('legalitas_usaha');
                     var legalitas_usaha2 = legalitas_usaha.split(";");
 

@@ -5,13 +5,13 @@ class Sentra_Model extends CI_Model {
 
 	public function getData()
 	{
-		$query=$this->db->query("SELECT *,e.nama as ns from sentra as e inner join subsektor as s on e.id_subsektor=s.id_subsektor");
+		$query=$this->db->query("SELECT *,e.nama as ns from sentra as e inner join subsektor as s on e.id_subsektor=s.id_subsektor where e.id_sentra!=0");
 		return $query->result();
 	}
 
 	public function getList()
 	{
-		$query=$this->db->query("SELECT * from sentra");
+		$query=$this->db->query("SELECT * from sentra where id_sentra!=0");
 		return $query->result();
 	}
 

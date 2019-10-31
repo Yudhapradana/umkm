@@ -95,33 +95,52 @@ class PemilikEkraf extends CI_Controller {
 
 	public function newEkraf()
 	{
-		$nama = $this->input->post('inama');
-		$alamat = $this->input->post('ialamat');
+		$nama = $this->input->post('nama');
+		$alamat = $this->input->post('alamat');
 		$desa = explode('-', $this->input->post('desa'));
 		$de = $desa[0];
 		$ke = $desa[1];
 		$desa2 = $this->Ekraf_Model->findIdDesa($de,$ke);
 		// print_r($desa2);
 		// die();
-		$desa3=$desa2[0]['id']; 
-		$sentra = $this->input->post('isentra');
-		$status = $this->input->post('istatus');
-		$jk = $this->input->post('ijk');
-		$upah = $this->input->post('iupah');
+		$desa3=$desa2[0]['id'];
+		$sentra = $this->input->post('sentra');
+		$status = $this->input->post('status');
+		$jk = $this->input->post('jk');
+		$upah = $this->input->post('upah');
 		$upah = str_replace("Rp", "", $upah);
 		$upah = str_replace(".", "", $upah);
 		$upah = str_replace(" ", "", $upah);
-		$sumberdana = $this->input->post('isumberdana');
-		$distribusi = $this->input->post('idistribusi');
-		$permasalahan = $this->input->post('ipermasalahan');
-		$ekspor = $this->input->post('iekspor');
-		$peluang = $this->input->post('ipeluang');
-		$perijinan = $this->input->post('iperijinan');
-		$merk = $this->input->post('imerk');
-		$no_merk = $this->input->post('ino_merk');
-		$tgl = $this->input->post('itgl');
+		$sumberdana = $this->input->post('sumberdana');
+		$distribusi = $this->input->post('distribusi');
+		$permasalahan = $this->input->post('permasalahan');
+		$ekspor = $this->input->post('ekspor');
+		$peluang = $this->input->post('peluang');
+		$perijinan = $this->input->post('perijinan');
+		$merk = $this->input->post('merk');
+		$no_merk = $this->input->post('no_merk');
+		$tgl = $this->input->post('tgl');
+		$tahun = $this->input->post('tahun');
+		$omzet = $this->input->post('omzet');
+		$omzet = str_replace("Rp", "", $omzet);
+		$omzet = str_replace(".", "", $omzet);
+		$omzet = str_replace(" ", "", $omzet);
+		$pencatatan_keuangan = $this->input->post('pencatatan_keuangan');
+		$laporan_terpisah = $this->input->post('laporan_terpisah');
+		$neraca = $this->input->post('neraca');
+		$laba_rugi = $this->input->post('laba_rugi');
+		$buku_kas = $this->input->post('buku_kas');
+		$laporan_keuangan = $this->input->post('laporan_keuangan');
+		$pameran_kab = $this->input->post('pameran_kab');
+		$pameran_prov = $this->input->post('pameran_prov');
+		$pameran_nasional = $this->input->post('pameran_nasional');
+		$pameran_internasional = $this->input->post('pameran_internasional');
+		$wilayah = $this->input->post('wilayah');
+		$wilayah2 = implode(";", $wilayah);
+		$legalitas = $this->input->post('legalitas');
+		$legalitas2 = implode(";", $legalitas);
 
-		$this->PemilikEkraf_Model->newEkraf($nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl);
+		$this->PemilikEkraf_Model->newEkraf($nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2);
 
 		$session=$this->session->userdata('logged_in');
 		$ekraf2 = $this->PemilikEkraf_Model->findIdekraf($nama);
@@ -157,7 +176,7 @@ class PemilikEkraf extends CI_Controller {
 		$id = $this->input->post('uid');
 		$nama = $this->input->post('unama');
 		$alamat = $this->input->post('ualamat');
-		$desa = explode('-', $this->input->post('desa'));
+		$desa = explode('-', $this->input->post('udesa'));
 		$de = $desa[0];
 		$ke = $desa[1];
 		$desa2 = $this->Ekraf_Model->findIdDesa($de,$ke);
@@ -180,8 +199,27 @@ class PemilikEkraf extends CI_Controller {
 		$merk = $this->input->post('umerk');
 		$no_merk = $this->input->post('uno_merk');
 		$tgl = $this->input->post('utgl');
+		$tahun = $this->input->post('utahun');
+		$omzet = $this->input->post('uomzet');
+		$omzet = str_replace("Rp", "", $omzet);
+		$omzet = str_replace(".", "", $omzet);
+		$omzet = str_replace(" ", "", $omzet);
+		$pencatatan_keuangan = $this->input->post('upencatatan_keuangan');
+		$laporan_terpisah = $this->input->post('ulaporan_terpisah');
+		$neraca = $this->input->post('uneraca');
+		$laba_rugi = $this->input->post('ulaba_rugi');
+		$buku_kas = $this->input->post('ubuku_kas');
+		$laporan_keuangan = $this->input->post('ulaporan_keuangan');
+		$pameran_kab = $this->input->post('upameran_kab');
+		$pameran_prov = $this->input->post('upameran_prov');
+		$pameran_nasional = $this->input->post('upameran_nasional');
+		$pameran_internasional = $this->input->post('upameran_internasional');
+		$wilayah = $this->input->post('uwilayah');
+		$wilayah2 = implode(";", $wilayah);
+		$legalitas = $this->input->post('ulegalitas');
+		$legalitas2 = implode(";", $legalitas);
 
-		$this->PemilikEkraf_Model->updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl);
+		$this->PemilikEkraf_Model->updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2);
 	}
 
 	public function teknologi()

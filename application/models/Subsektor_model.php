@@ -5,6 +5,7 @@ class Subsektor_model extends CI_Model {
 
 	public function getData()
 	{
+		$this->db->where('id_subsektor!=', 0);
 		$query=$this->db->get('subsektor');
 		return $query->result();
 	}
