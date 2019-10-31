@@ -25,41 +25,51 @@
     <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <!-- <script src="<?php echo base_url() ?>assets/fonts/dropify.woff"></script>
-    <script src="<?php echo base_url() ?>assets/fonts/dropify.ttf"></script> -->
-    <link href="<?php echo base_url() ?>assets/css/dropify.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>assets/css/dropify.min.css" rel="stylesheet">
+        <script src="<?php echo base_url() ?>assets/fonts/dropify.ttf"></script> -->
+        <link href="<?php echo base_url() ?>assets/css/dropify.css" rel="stylesheet">
+        <link href="<?php echo base_url() ?>assets/css/dropify.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?php  echo base_url()?>assets/user/css/slider.css">
+        <link rel="stylesheet" href="<?php  echo base_url()?>assets/css/slick.css">
+        <link rel="stylesheet" href="<?php  echo base_url()?>assets/css/slick-theme.css">
 
 
-    <style>
-        body {
-          padding-right: 0 !important;
+        <style>
+            body {
+              padding-right: 0 !important;
 
-      }
-  </style>
-  <style type="text/css">
+          }
 
-    body{
-        background-color: #E8E9EC;
-    }
+          .lazy{
+              background-color: #FFFAFA;
+              width: 1000px;
+              height: 300px;
+              margin:auto;
+          }
+      </style>
+      <style type="text/css">
 
-    .dropzone {
-        margin-top: 100px;
-        border: 2px dashed #0087F7;
-    }
+        body{
+            background-color: #E8E9EC;
+        }
 
-    input[type="checkbox"] {
-        -webkit-appearance: checkbox;
-        border-radius: 0;
-    }
+        .dropzone {
+            margin-top: 100px;
+            border: 2px dashed #0087F7;
+        }
 
-    
-</style>
+        input[type="checkbox"] {
+            -webkit-appearance: checkbox;
+            border-radius: 0;
+        }
 
-<script type="text/javascript">
-    $(document).ready(function(data){
 
-        $('#formchangepass').submit(function(e){
-            e.preventDefault();
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function(data){
+
+            $('#formchangepass').submit(function(e){
+                e.preventDefault();
                 // memasukkan data inputan ke variabel
                 var passold             = $('#passold').val();
                 var passnew             = $('#passnew').val();
@@ -107,8 +117,8 @@
                 return false;
             });
 
-        $('#formchangeprofile').submit(function(e){
-            e.preventDefault();
+            $('#formchangeprofile').submit(function(e){
+                e.preventDefault();
                 // memasukkan data inputan ke variabel
                 var username                = $('#username').val();
                 var nama                = $('#nama').val();
@@ -141,23 +151,23 @@
 
                 return false;
             });
-    });
+        });
 
-    var isShow = false;
+        var isShow = false;
 
-    function dropshow() {
-        if (isShow) {
-            $('.mudun').removeClass('show'); 
-            isShow = false;
-        }else{
-            $('.mudun').addClass('show'); 
-            isShow = true;
+        function dropshow() {
+            if (isShow) {
+                $('.mudun').removeClass('show'); 
+                isShow = false;
+            }else{
+                $('.mudun').addClass('show'); 
+                isShow = true;
+            }
         }
-    }
-    
-</script>
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    </script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -250,155 +260,155 @@
                             <li class="nav-item dropdown mudun" onclick="dropshow()">
                                 <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" >
                                     <img src="<?php echo base_url() ?>assets/images/users/default.png" alt="user" class="profile-pic" /></a>
-                                <div class="dropdown-menu dropdown-menu-right scale-up">
-                                    <ul class="dropdown-user">
-                                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_profile"><i class="fa fa-user"></i> Ubah Profil</a></li>
-                                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_changepass"><i class="fa fa-key"></i> Ubah Password</a></li>
-                                        <li><a href="<?php echo base_url().'Login/logout'?>"><i class="fa fa-power-off"></i> Logout</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
-            <!-- ============================================================== -->
-            <!-- End Topbar header -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Left Sidebar - style you can find in sidebar.scss  -->
-            <!-- ============================================================== -->
-            <aside class="left-sidebar">
-                <!-- Sidebar scroll-->
-                <div class="scroll-sidebar">
-                    <!-- User profile -->
-                    <div class="user-profile">
-                        <!-- User profile image -->
-                        <div class="profile-img"> <img src="<?php echo base_url() ?>assets/images/users/default.png" alt="user" />
-                            <!-- this is blinking heartbit-->
-
+                                    <div class="dropdown-menu dropdown-menu-right scale-up">
+                                        <ul class="dropdown-user">
+                                            <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_profile"><i class="fa fa-user"></i> Ubah Profil</a></li>
+                                            <li><a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_changepass"><i class="fa fa-key"></i> Ubah Password</a></li>
+                                            <li><a href="<?php echo base_url().'Login/logout'?>"><i class="fa fa-power-off"></i> Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <!-- User profile text-->
-                        <div class="profile-text">
-                            <h5><?php   $this->session->nama ?></h5>
-                            <h6><?php   $this->session->role ?></h6>
-                            <?php $session=$this->session->userdata('logged_in');
-                            echo $session['nama'];?><br>
-                            <?php echo $session['role'];  ?>
-                        </div>
-                    </div>
-                    <!-- End User profile text-->
-                    <!-- Sidebar navigation-->
-                    <nav class="sidebar-nav">
-                        <ul id="sidebarnav">
-                            <li class="nav-devider"></li>
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Data Ekraf <span class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="<?php echo base_url().'Ekraf'?>">List Ekraf </a></li>
-                                    <li><a href="<?php echo base_url().'Ekraf/formInput'?>">Input Data Ekraf</a></li>
-                                    <li><a href="<?php echo base_url().'Ekraf/teknologi'?>">Teknologi Ekraf</a></li>
-                                    <li><a href="<?php echo base_url().'Ekraf/galeri'?>">Galeri Ekraf</a></li>
-                                </ul>
-                            </li>
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data Master</span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="<?php echo base_url().'Subsektor'?>">Subsektor</a></li>
-                                    <li><a href="<?php echo base_url().'Sentra'?>">Sentra</a></li>
-                                    <li><a href="<?php echo base_url().'Sumberdana'?>">Sumber Dana</a></li>
-                                    <li><a href="<?php echo base_url().'StatusPemilik'?>">Status Pemilik</a></li>
-                                    <li><a href="<?php echo base_url().'TeknologiEcommerce'?>">Teknologi Ecommerce</a></li>
-                                </ul>
-                            </li>
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data User</span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="<?php echo base_url().'Operator'?>">Operator</a></li>
-                                    <li><a href="<?php echo base_url().'PemilikEkraf'?>">Pemilik Ekraf</a></li>
-                                </ul>
-                            </li>
-                        </ul>
                     </nav>
-                    <!-- End Sidebar navigation -->
-                </div>
-                <!-- End Sidebar scroll-->
-            </aside>
-            <form id="formchangepass">
-                <div class="modal fade" id="Modal_changepass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Ubah Password</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
-                            </div>
-                            <div class="modal-body">               
-                                <div class="container-fluid">   
-                                    <div class="row"> 
-                                        <!-- form inputan nama kegiatan -->
-                                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <label>Password Lama</label>
-                                                <input type="password" id="passold" class="form-control" placeholder="Masukkan Password Lama" style="width: 100%" required>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <label>Password Baru</label>
-                                                <input type="password" id="passnew" class="form-control" placeholder="Masukkan Password Baru" style="width: 100%" required>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <label>Konfirmasi Password Baru</label>
-                                                <input type="password" id="passnew2" class="form-control" placeholder="Masukkan Password Baru" style="width: 100%" required>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <!-- inputan button simpan dan Cancel -->
-                                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
-                                            <button type="submit" id="btn_push" class="btn btn-primary ">Save</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <form id="formchangeprofile">
-                <div class="modal fade" id="Modal_profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Change Profile</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
-                            </div>
-                            <div class="modal-body">               
-                                <div class="container-fluid">   
-                                    <div class="row">        
-                                        <!-- form inputan nama kegiatan -->
-                                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                </header>
+                <!-- ============================================================== -->
+                <!-- End Topbar header -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Left Sidebar - style you can find in sidebar.scss  -->
+                <!-- ============================================================== -->
+                <aside class="left-sidebar">
+                    <!-- Sidebar scroll-->
+                    <div class="scroll-sidebar">
+                        <!-- User profile -->
+                        <div class="user-profile">
+                            <!-- User profile image -->
+                            <div class="profile-img"> <img src="<?php echo base_url() ?>assets/images/users/default.png" alt="user" />
+                                <!-- this is blinking heartbit-->
 
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <label>Username</label>
-                                                <input type="text" id="username" name="username" value="<?php echo $session['username']; ?>" class="form-control" placeholder="Masukkan Username" style="width: 100%">
+                            </div>
+                            <!-- User profile text-->
+                            <div class="profile-text">
+                                <h5><?php   $this->session->nama ?></h5>
+                                <h6><?php   $this->session->role ?></h6>
+                                <?php $session=$this->session->userdata('logged_in');
+                                echo $session['nama'];?><br>
+                                <?php echo $session['role'];  ?>
+                            </div>
+                        </div>
+                        <!-- End User profile text-->
+                        <!-- Sidebar navigation-->
+                        <nav class="sidebar-nav">
+                            <ul id="sidebarnav">
+                                <li class="nav-devider"></li>
+                                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Data Ekraf <span class="label label-rouded label-themecolor pull-right">2</span></span></a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li><a href="<?php echo base_url().'Ekraf'?>">List Ekraf </a></li>
+                                        <li><a href="<?php echo base_url().'Ekraf/formInput'?>">Input Data Ekraf</a></li>
+                                        <li><a href="<?php echo base_url().'Ekraf/teknologi'?>">Teknologi Ekraf</a></li>
+                                        <li><a href="<?php echo base_url().'Ekraf/galeri'?>">Galeri Ekraf</a></li>
+                                    </ul>
+                                </li>
+                                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data Master</span></a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li><a href="<?php echo base_url().'Subsektor'?>">Subsektor</a></li>
+                                        <li><a href="<?php echo base_url().'Sentra'?>">Sentra</a></li>
+                                        <li><a href="<?php echo base_url().'Sumberdana'?>">Sumber Dana</a></li>
+                                        <li><a href="<?php echo base_url().'StatusPemilik'?>">Status Pemilik</a></li>
+                                        <li><a href="<?php echo base_url().'TeknologiEcommerce'?>">Teknologi Ecommerce</a></li>
+                                    </ul>
+                                </li>
+                                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data User</span></a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li><a href="<?php echo base_url().'Operator'?>">Operator</a></li>
+                                        <li><a href="<?php echo base_url().'PemilikEkraf'?>">Pemilik Ekraf</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- End Sidebar navigation -->
+                    </div>
+                    <!-- End Sidebar scroll-->
+                </aside>
+                <form id="formchangepass">
+                    <div class="modal fade" id="Modal_changepass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Ubah Password</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
+                                </div>
+                                <div class="modal-body">               
+                                    <div class="container-fluid">   
+                                        <div class="row"> 
+                                            <!-- form inputan nama kegiatan -->
+                                            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <label>Password Lama</label>
+                                                    <input type="password" id="passold" class="form-control" placeholder="Masukkan Password Lama" style="width: 100%" required>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <label>Password Baru</label>
+                                                    <input type="password" id="passnew" class="form-control" placeholder="Masukkan Password Baru" style="width: 100%" required>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <label>Konfirmasi Password Baru</label>
+                                                    <input type="password" id="passnew2" class="form-control" placeholder="Masukkan Password Baru" style="width: 100%" required>
+                                                </div>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <label>Nama</label>
-                                                <input type="text" id="nama" name="nama" value="<?php echo $session['nama']; ?>" class="form-control" placeholder="Masukkan Nama" style="width: 100%" required>
+                                            <div class="modal-footer">
+                                                <!-- inputan button simpan dan Cancel -->
+                                                <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
+                                                <button type="submit" id="btn_push" class="btn btn-primary ">Save</button>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <label>Email</label>
-                                                <input type="email" id="email" name="email" value="<?php echo $session['email']; ?>" class="form-control" placeholder="Masukkan Email" style="width: 100%" required>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <label>No Hp</label>
-                                                <input type="text" id="hp" name="hp" value="<?php echo $session['no_hp']; ?>" class="form-control" placeholder="Masukkan No Hp" style="width: 100%" required>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <!-- inputan button simpan dan Cancel -->
-                                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
-                                            <button type="submit" id="btn_save" class="btn btn-primary ">Save</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+                <form id="formchangeprofile">
+                    <div class="modal fade" id="Modal_profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Change Profile</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                       
+                                </div>
+                                <div class="modal-body">               
+                                    <div class="container-fluid">   
+                                        <div class="row">        
+                                            <!-- form inputan nama kegiatan -->
+                                            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <label>Username</label>
+                                                    <input type="text" id="username" name="username" value="<?php echo $session['username']; ?>" class="form-control" placeholder="Masukkan Username" style="width: 100%">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <label>Nama</label>
+                                                    <input type="text" id="nama" name="nama" value="<?php echo $session['nama']; ?>" class="form-control" placeholder="Masukkan Nama" style="width: 100%" required>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <label>Email</label>
+                                                    <input type="email" id="email" name="email" value="<?php echo $session['email']; ?>" class="form-control" placeholder="Masukkan Email" style="width: 100%" required>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <label>No Hp</label>
+                                                    <input type="text" id="hp" name="hp" value="<?php echo $session['no_hp']; ?>" class="form-control" placeholder="Masukkan No Hp" style="width: 100%" required>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <!-- inputan button simpan dan Cancel -->
+                                                <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
+                                                <button type="submit" id="btn_save" class="btn btn-primary ">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>

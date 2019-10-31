@@ -5,6 +5,7 @@ class Sumberdana_model extends CI_Model {
 
 	public function getData()
 	{
+		$this->db->where('id_sumber_dana!=', 0);
 		$query=$this->db->get('sumber_dana');
 		return $query->result();
 	}

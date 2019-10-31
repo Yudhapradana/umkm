@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2019 at 04:12 PM
+-- Generation Time: Oct 31, 2019 at 04:53 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -39,6 +39,7 @@ CREATE TABLE `desa_kelurahan` (
 --
 
 INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUES
+('0', 'Tidak Ada', 357305),
 ('1101012001', 'Keude Bakongan', 110101),
 ('1101012002', 'Ujung Mangki', 110101),
 ('1101012003', 'Ujung Padang', 110101),
@@ -1359,9 +1360,9 @@ INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUE
 ('1104102018', 'Bergang', 110410),
 ('1104102019', 'Blang Mancung Bawah', 110410),
 ('1104102020', 'Buge Ara', 110410),
-('1104102021', 'Genting Bulen', 110410),
-('1104102022', 'Jalan Tengah', 110410);
+('1104102021', 'Genting Bulen', 110410);
 INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUES
+('1104102022', 'Jalan Tengah', 110410),
 ('1104102023', 'Jerata', 110410),
 ('1104102024', 'Simpang Juli', 110410),
 ('1104102025', 'Selon', 110410),
@@ -2730,9 +2731,9 @@ INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUE
 ('1107142024', 'Trieng', 110714),
 ('1107142025', 'Leuhob', 110714),
 ('1107142026', 'Gurong Cot', 110714),
-('1107142027', 'Suyo', 110714),
-('1107142028', 'Kret', 110714);
+('1107142027', 'Suyo', 110714);
 INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUES
+('1107142028', 'Kret', 110714),
 ('1107142029', 'Capa', 110714),
 ('1107142030', 'Jurong Anoe', 110714),
 ('1107142031', 'Balee', 110714),
@@ -4087,9 +4088,9 @@ INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUE
 ('1109062009', 'Amabaan', 110906),
 ('1109062010', 'Miteum', 110906),
 ('1109062011', 'Lhok Bihao', 110906),
-('1109062012', 'Ujung Harapan', 110906),
-('1109062013', 'Sanggiran', 110906);
+('1109062012', 'Ujung Harapan', 110906);
 INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUES
+('1109062013', 'Sanggiran', 110906),
 ('1109062014', 'Lhok Makmur', 110906),
 ('1109072001', 'Seunebuk', 110907),
 ('1109072002', 'Suak Lamatan', 110907),
@@ -5446,9 +5447,9 @@ INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUE
 ('1115052042', 'Sp. Deli Kilang', 111505),
 ('1115052043', 'Panton Bayu', 111505),
 ('1115052044', 'Ujong Tanjong', 111505),
-('1115052045', 'Suka Ramai', 111505),
-('1115052046', 'Ladang Baro', 111505);
+('1115052045', 'Suka Ramai', 111505);
 INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUES
+('1115052046', 'Ladang Baro', 111505),
 ('1115052047', 'Alue Bateung Brok', 111505),
 ('1115052048', 'Sp. Deli Kampong', 111505),
 ('1115052049', 'Blang Luah', 111505),
@@ -6779,9 +6780,9 @@ INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUE
 ('1202032002', 'Pansurbatu', 120203),
 ('1202032003', 'Pardomuan Nauli', 120203),
 ('1202032004', 'Siantar Naipospos', 120203),
-('1202032005', 'Sibalanga', 120203),
-('1202032006', 'Pagaran Lambung III', 120203);
+('1202032005', 'Sibalanga', 120203);
 INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUES
+('1202032006', 'Pagaran Lambung III', 120203),
 ('1202032007', 'Pagaran Lambung IV', 120203),
 ('1202032008', 'Adian Koting', 120203),
 ('1202032009', 'Pangaran Pisang', 120203),
@@ -8115,9 +8116,9 @@ INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUE
 ('1207082004', 'Tandukan Raga', 120708),
 ('1207082005', 'Limau Mungkur', 120708),
 ('1207082006', 'Negara Beringin', 120708),
-('1207082007', 'Lau Barus Baru', 120708),
-('1207082008', 'Juma Tombak', 120708);
+('1207082007', 'Lau Barus Baru', 120708);
 INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUES
+('1207082008', 'Juma Tombak', 120708),
 ('1207082009', 'Siguji', 120708),
 ('1207082010', 'Kuta Jurung', 120708),
 ('1207082011', 'Tala Peta', 120708),
@@ -9433,9 +9434,9 @@ INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUE
 ('1212232013', 'Silombu', 121223),
 ('1212232014', 'Lumban Sangkalan', 121223),
 ('1212232015', 'Nagatimbul Timur', 121223),
-('1212242001', 'Siantar Utara', 121224),
-('1212242002', 'Lumban Sitorus', 121224);
+('1212242001', 'Siantar Utara', 121224);
 INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUES
+('1212242002', 'Lumban Sitorus', 121224),
 ('1212242003', 'Banjar Ganjang', 121224),
 ('1212242004', 'Tangga Batu I', 121224),
 ('1212242005', 'Tangga Batu II', 121224),
@@ -10765,9 +10766,9 @@ INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUE
 ('1218082014', 'Silau Padang', 121808),
 ('1218082015', 'Buluh Duri', 121808),
 ('1218082016', 'Gunung Monako', 121808),
-('1218082017', 'Damak Urat', 121808),
-('1218082018', 'Simalas', 121808);
+('1218082017', 'Damak Urat', 121808);
 INSERT INTO `desa_kelurahan` (`id_desa_kelurahan`, `nama`, `id_kecamatan`) VALUES
+('1218082018', 'Simalas', 121808),
 ('1218082019', 'Gunung Pane', 121808),
 ('1218082020', 'Sibarau', 121808),
 ('1218091029', 'Pkn.Dolok Masihul', 121809),
@@ -82651,10 +82652,14 @@ CREATE TABLE `ekraf` (
 
 INSERT INTO `ekraf` (`id_ekraf`, `nama`, `alamat`, `id_desa_kelurahan`, `id_sentra`, `id_status_pemilik`, `jumlah_karyawan`, `upah_tenaga_kerja`, `id_sumber_dana`, `distribusi`, `permasalahan`, `ekspor`, `peluang_tantangan`, `perijinan`, `merk`, `no_merk`, `tgl_merk`, `latitude`, `longitude`, `tahun`, `omzet`, `pencatatan_keuangan`, `laporan_terpisah`, `neraca`, `laba_rugi`, `buku_kas`, `laporan_keuangan`, `pameran_kab`, `pameran_prov`, `pameran_nasional`, `pameran_internasional`, `wilayah_pemasaran`, `legalitas_usaha`) VALUES
 (1, 'PT keramik', 'jl. soekarno hatta no 100', '3516012016', 1, 2, 19, 90000, 1, 'Surabaya', 'kurangnya bahan baku', 'Tidak ada', 'pembentukan keramik kreatif', 'legal', 'avian', '112', '2019-10-16', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', ''),
-(2, 'PT. Coklat klasik', 'jl. gayungan', '3578221003', 1, 2, 20, 90000, 1, 'indonesia', 'banyak', 'Ada', 'Tidak ada', 'legal', 'coklat klasik', '112', '2019-10-01', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', ''),
-(3, 'Celengan macan (Robet) -', 'Desa Remdemg Kecamatan Malo RT 6 RW 3 (081853356213)\r\n', '3306142006', 1, 2, 10, 100000, 1, 'jawa timur', 'Tidak ada', 'Tidak ada', 'Tidak ada', 'legal', 'Robet', '123', '2019-10-01', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Lokal', 'pirt'),
-(4, 'PT. Indonesia Merdeka', 'jl. kembang turi', '3305042020', 1, 3, 1, 90000, 1, 'malang', 'Tidak ada', 'Tidak ada', 'banyak', 'legal', 'im', '12132', '2019-10-23', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', ''),
-(5, 'arema', 'jl. soekarno hatta no 100', '3573051011', 1, 2, 90, 90000, 1, 'pes', 'Tidak ada', 'Tidak ada', 'Tidak ada', 'l', 'l', 'l', '2019-10-08', NULL, NULL, 2019, 0, '1', '0', '1', '0', '0', '1', '1', '0', '0', '0', 'Lokal;Nasional', 'siup;tdp;npwp');
+(2, 'PT. Coklat klasik', 'jl. gayungan', '3578271001', 1, 2, 20, 90000, 2, 'indonesia', 'banyak', 'Ada', 'Tidak ada', 'legal', 'coklat klasik', '112', '2019-10-01', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Lokal;Nasional', ''),
+(3, 'Celengan macan (Robet) -', 'Desa Remdemg Kecamatan Malo RT 6 RW 3 (081853356213)\r\n', '3578081001', 1, 2, 10, 100000, 1, 'jawa timur', 'Tidak ada', 'Tidak ada', 'Tidak ada', 'legal', 'Robet', '123', '2019-10-01', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Lokal;Nasional', 'pirt'),
+(13, 'Ririsaci Studio', 'Jl. Siwalankerto Utara 57 c', '3578221001', 4, 1, 3, 3000000, 1, 'Tidak Ada', 'Tidak ada', 'Tidak ada', 'Tidak ada', 'legal', 'Ririsaci', '1234', '2019-10-21', NULL, NULL, 2016, 0, '1', '0', '0', '1', '1', '1', '0', '1', '1', '0', 'Lokal', 'npwp'),
+(15, 'Video Profil Perusahaan dan Destinasi Wisata', 'Kalitidfu (08123468896)', '3573051004', 3, 1, 4, 2000000, 1, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'Luthfi Basori', '1234', '2019-10-23', NULL, NULL, 2019, 30000000, '0', '0', '0', '1', '0', '', '0', '0', '0', '0', 'Lokal', 'tdp;npwp'),
+(16, 'Rengginang singkong kristin gading - ', 'P4S Gading Dsn, Ngraseh Kec. Dander (08125969054)', '3522062007', 17, 1, 4, 1000000, 1, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'kristin', '1234', '2019-10-08', NULL, NULL, 2019, 2000000, '1', '1', '1', '1', '1', '', '1', '1', '1', '1', 'Lokal', 'tdp'),
+(17, 'Fotografer model dan destinasi wisata (Wahyu Budianto) ', 'Jl. Mliwis Putih, Ngrowo (082234499538)', '3522151012', 4, 2, 6, 1500000, 2, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'Wahyu Budianto', '1234', '2019-11-12', NULL, NULL, 2019, 25000000, '', '', '', '', '', '', '', '', '', '', ' ', ' '),
+(18, 'penerbitan bukunindie (M. Tohir) - ', '082335822891, ds klampok, kapas', '3522142021', 0, 2, 7, 3000000, 2, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'M.Tohir', '1234', '2019-11-12', NULL, NULL, 2019, 50000000, '', '', '', '', '', '', '', '', '', '', ' ', ' '),
+(19, 'Seni Lukis (Handoko) - ', 'Jl. AKBPM (081235479200)', '3573051004', 16, 3, 3, 4000000, 2, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'Handoko', '1234', '2019-11-20', NULL, NULL, 209, 70000000, '', '', '', '', '', '', '', '', '', '', ' ', ' ');
 
 -- --------------------------------------------------------
 
@@ -90412,7 +90417,36 @@ CREATE TABLE `sentra` (
 --
 
 INSERT INTO `sentra` (`id_sentra`, `id_subsektor`, `nama`) VALUES
-(1, 1, 'Keramik');
+(0, 0, 'Tidak Ada'),
+(1, 1, 'Keramik'),
+(2, 2, 'tes'),
+(3, 5, 'Film'),
+(4, 5, 'Videografi'),
+(5, 5, 'Komik'),
+(6, 5, 'Animasi & Boardgame'),
+(7, 5, 'Animasi'),
+(8, 1, 'Batik'),
+(9, 1, 'Pecut'),
+(10, 1, 'Ronce Melati'),
+(11, 1, 'Sangkar Burung'),
+(12, 1, 'Handycraft'),
+(13, 1, 'Lampion'),
+(14, 1, 'Souvenir'),
+(15, 1, 'Flanel'),
+(16, 1, 'Gerabah'),
+(17, 7, 'Kripik'),
+(18, 7, 'Sentra Olahan Apel'),
+(19, 7, 'Sari Kentang'),
+(20, 7, 'Jamu'),
+(21, 7, 'Kerupuk Rambak'),
+(22, 7, 'Kue Basah'),
+(23, 7, 'Petis'),
+(24, 9, 'Konveksi'),
+(25, 9, 'Bordir'),
+(26, 9, 'Kerudung'),
+(27, 9, 'Songkok Hitam'),
+(28, 10, 'Game Development'),
+(29, 10, 'Aplikasi Interaktif');
 
 -- --------------------------------------------------------
 
@@ -90430,6 +90464,7 @@ CREATE TABLE `status_pemilik` (
 --
 
 INSERT INTO `status_pemilik` (`id_status_pemilik`, `nama`) VALUES
+(0, 'Tidak Ada'),
 (1, 'Individu'),
 (2, 'PT'),
 (3, 'CV');
@@ -90450,7 +90485,22 @@ CREATE TABLE `subsektor` (
 --
 
 INSERT INTO `subsektor` (`id_subsektor`, `nama`) VALUES
-(1, 'Kriya');
+(0, 'Tidak Ada'),
+(1, 'Kriya'),
+(2, 'Arsitektur'),
+(3, 'Desain Produk'),
+(4, 'Desain Komunikasi Visual'),
+(5, 'Film Animasi dan Video'),
+(6, 'Fotografi'),
+(7, 'Kuliner'),
+(8, 'Musik'),
+(9, 'Fashion'),
+(10, 'Aplikasi Dan Pengembangan Permainan'),
+(11, 'Penerbitan'),
+(12, 'Periklanan'),
+(13, 'Televisi dan Radio'),
+(14, 'Seni Pertunjukkan'),
+(15, 'Seni Rupa');
 
 -- --------------------------------------------------------
 
@@ -90468,7 +90518,9 @@ CREATE TABLE `sumber_dana` (
 --
 
 INSERT INTO `sumber_dana` (`id_sumber_dana`, `nama`) VALUES
-(1, 'Pribadi');
+(0, 'Tidak Ada'),
+(1, 'Pribadi'),
+(2, 'Bank');
 
 -- --------------------------------------------------------
 
@@ -90489,7 +90541,8 @@ INSERT INTO `teknologi_ecommerce` (`id_teknologi`, `nama`) VALUES
 (1, 'BukaLapak'),
 (2, 'Shopee'),
 (3, 'TokoPedia'),
-(4, 'OLX');
+(4, 'OLX'),
+(6, 'Lazada');
 
 -- --------------------------------------------------------
 
@@ -90516,8 +90569,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `username`, `password`, `role`, `email`, `nama`, `no_hp`, `id_kab_kota`, `id_ekraf`) VALUES
 (1, 'admin', 'admin', 'admin', 'yudhapradana102@gmail.com', 'Yudha P', '081803876644', NULL, NULL),
 (3, 'yudhaprdn10', '1234', 'operator', 'yudhapradana102@gmail.com', 'Yudha Pradana', '081803876644', 3578, NULL),
-(4, 'yudha', 'yudha', 'ekraf', 'yudha@gmail.com', 'yudha', '08172938933', NULL, 2),
-(5, 'malak', 'malak', 'ekraf', 'malakdiana@gmail.com', 'malak', '08180090902', NULL, 4);
+(4, 'yudha', 'yudha', 'ekraf', 'yudha@gmail.com', 'yudha', '08172938933', NULL, 3),
+(5, 'malak', 'malak', 'ekraf', 'malakdiana@gmail.com', 'malak', '08180090902', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -90622,7 +90675,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `ekraf`
 --
 ALTER TABLE `ekraf`
-  MODIFY `id_ekraf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_ekraf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `ekraf_teknologi`
@@ -90658,7 +90711,7 @@ ALTER TABLE `provinsi`
 -- AUTO_INCREMENT for table `sentra`
 --
 ALTER TABLE `sentra`
-  MODIFY `id_sentra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_sentra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `status_pemilik`
@@ -90670,19 +90723,19 @@ ALTER TABLE `status_pemilik`
 -- AUTO_INCREMENT for table `subsektor`
 --
 ALTER TABLE `subsektor`
-  MODIFY `id_subsektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_subsektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `sumber_dana`
 --
 ALTER TABLE `sumber_dana`
-  MODIFY `id_sumber_dana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_sumber_dana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `teknologi_ecommerce`
 --
 ALTER TABLE `teknologi_ecommerce`
-  MODIFY `id_teknologi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_teknologi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`

@@ -245,6 +245,8 @@
                         $("#te").DataTable().destroy();
                         $("#te").find('tbody').empty();
                         document.getElementById('formbaru').reset();
+                        window.location.reload();  
+                        
                         showTeknologi();
                     }
                 });

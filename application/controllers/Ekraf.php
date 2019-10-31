@@ -393,7 +393,6 @@ class Ekraf extends CI_Controller {
     				$omzet = $worksheet->getCellByColumnAndRow(18, $row)->getValue();
 					//desa,sentra,status,sumberdana
     				$desa2 = $this->Ekraf_Model->findIdDesa($desa,$kecamatan);
-    				
     				 if (empty($desa2)) {
     				 	$desa3=0;
     				 }else{
