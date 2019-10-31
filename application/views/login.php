@@ -74,12 +74,18 @@
 						</div>
 					</div>
 
-					<div class="container-login100-form-btn">
+					<div class="container-login100-form-btn" style="align-items: center;">
 						<button class="login100-form-btn" type="submit">
 							Login
 						</button>
+						<?php echo form_close(); ?>
+							<a href="<?php echo site_url('User') ?>" class="btn btn-outline-primary" style="margin-left: 180px">
+							Home
+						</a>
+					
 					</div>
-<?php echo form_close(); ?>
+					
+
 				</div>
 			</div>
 		</div>
