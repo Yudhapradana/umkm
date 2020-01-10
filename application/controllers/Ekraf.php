@@ -22,6 +22,49 @@ class Ekraf extends CI_Controller {
 
 	public function index()
 	{
+		
+		$data['subsektor_grafik'] = $this->db->query('SELECT subsektor.nama as nama, COUNT(*) as jumlah FROM ekraf join sentra on ekraf.id_sentra= sentra.id_sentra join subsektor on subsektor.id_subsektor = sentra.id_subsektor where subsektor.id_subsektor!=0 GROUP by sentra.id_subsektor')->result();
+		$data['sentra_grafik'] = $this->db->query('SELECT sentra.nama as nama, COUNT(*) as jumlah FROM ekraf join sentra on ekraf.id_sentra= sentra.id_sentra where sentra.id_sentra!=0 GROUP by sentra.id_sentra')->result();
+		$data['kab_grafik']= $this->db->query('SELECT kab_kota.nama as nama, COUNT(*) as jumlah FROM ekraf join desa_kelurahan on ekraf.id_desa_kelurahan=desa_kelurahan.id_desa_kelurahan join kecamatan on kecamatan.id_kecamatan = desa_kelurahan.id_kecamatan join kab_kota on kab_kota.id_kab_kota= kecamatan.id_kab_kota GROUP BY kab_kota.id_kab_kota')->result();
+		$data['tekno_grafik']= $this->db->query('SELECT teknologi_ecommerce.nama as nama , COUNT(*) as jumlah FROM ekraf_teknologi join ekraf on ekraf.id_ekraf= ekraf_teknologi.id_ekraf join teknologi_ecommerce on ekraf_teknologi.id_teknologi= teknologi_ecommerce.id_teknologi GROUP by ekraf_teknologi.id_teknologi')->result();
+		$query =  $this->db->query('SELECT * FROM `ekraf` WHERE ekraf.wilayah_pemasaran != ""')->result();
+		$wilayah['Lokal']=0;
+		$wilayah['Nasional']=0;
+		$wilayah['Internasional']=0;
+		foreach ($query as $key ) {
+			$x= explode(';',$key->wilayah_pemasaran);
+			for ($i=0; $i < count($x); $i++) { 
+				if($x[$i]=="Lokal"){
+					$wilayah['Lokal']++;
+				}else if($x[$i]=="Nasional"){
+					$wilayah['Nasional']++;
+				}else{
+					$wilayah['Internasional']++;
+				}
+			}
+		}
+		$data['wilayah']=$wilayah;
+
+		$query2 = $this->db->query('SELECT omzet from ekraf')->result();
+		$omzet['satu']=0;$omzet['dua']=0;$omzet['tiga']=0;
+		foreach ($query2 as $key ) {
+			
+			if($key->omzet>=0 && $key->omzet <= 10000000){
+				$omzet['satu']++;
+			}else if($key->omzet>10000000 && $key->omzet <= 50000000 ){
+				$omzet['dua']++;
+			}else{
+				$omzet['tiga']++;
+			}
+			
+		}
+		$data['omzet']=$omzet;
+		$this->load->view('admin/header');
+		$this->load->view('admin/dashboard',$data);
+	}
+
+	public function listEkraf()
+	{
 		$data['sentra'] = $this->Sentra_Model->getList();
 		$data['status'] = $this->StatusPemilik_Model->getData();
 		$data['sumberdana'] = $this->Sumberdana_model->getData();
@@ -91,8 +134,14 @@ class Ekraf extends CI_Controller {
 		$wilayah2 = implode(";", $wilayah);
 		$legalitas = $this->input->post('legalitas');
 		$legalitas2 = implode(";", $legalitas);
+		$latitude = $this->input->post('latitude');
+		$longitude = $this->input->post('longitude');
+		// $lat = $this->input->post('lat');
+		// $lng = $this->input->post('lng');
+		// print_r($lat);
+		// die();
 
-		$this->Ekraf_Model->newEkraf($nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2);
+		$this->Ekraf_Model->newEkraf($nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2,$latitude,$longitude);
 	}
 
 	public function updateEkraf()
@@ -142,9 +191,12 @@ class Ekraf extends CI_Controller {
 		$wilayah2 = implode(";", $wilayah);
 		$legalitas = $this->input->post('legalitas');
 		$legalitas2 = implode(";", $legalitas);
+		$latitude = $this->input->post('latitude');
+		$longitude = $this->input->post('longitude');
 
 
-		$this->Ekraf_Model->updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2);
+
+		$this->Ekraf_Model->updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2,$latitude,$longitude);
 	}
 
 	public function deleteEkraf()
@@ -393,34 +445,34 @@ class Ekraf extends CI_Controller {
     				$omzet = $worksheet->getCellByColumnAndRow(18, $row)->getValue();
 					//desa,sentra,status,sumberdana
     				$desa2 = $this->Ekraf_Model->findIdDesa($desa,$kecamatan);
-    				 if (empty($desa2)) {
-    				 	$desa3=0;
-    				 }else{
-    				 	$desa3=$desa2[0]['id'];
-    				 }
+    				if (empty($desa2)) {
+    					$desa3=0;
+    				}else{
+    					$desa3=$desa2[0]['id'];
+    				}
 
     				$sentra2 = $this->Ekraf_Model->findIdSentra($sentra);
-    				 if (empty($sentra2)) {
-    				 	$sentra3=0;
-    				 }else{
-    				 	$sentra3=$sentra2[0]['id_sentra'];
-    				 }
+    				if (empty($sentra2)) {
+    					$sentra3=0;
+    				}else{
+    					$sentra3=$sentra2[0]['id_sentra'];
+    				}
     				
 
     				$status2 = $this->Ekraf_Model->findIdStatus($status);
     				if (empty($status2)) {
-    				 	$status3=0;
-    				 }else{
-    				 	$status3=$status2[0]['id_status_pemilik'];
-    				 }
+    					$status3=0;
+    				}else{
+    					$status3=$status2[0]['id_status_pemilik'];
+    				}
     				
     				$sumberdana2 = $this->Ekraf_Model->findIdSumberdana($sumberdana);
     				if (empty($sumberdana2)) {
-    				 	$sumberdana3=0;
-    				 }else{
-    				 	$sumberdana3=$sumberdana2[0]['id_sumber_dana'];
-    				 }
-    			
+    					$sumberdana3=0;
+    				}else{
+    					$sumberdana3=$sumberdana2[0]['id_sumber_dana'];
+    				}
+
 
     				$data[] = array(
     					'nama' => $nama,
@@ -441,16 +493,16 @@ class Ekraf extends CI_Controller {
     					'tgl_merk' => $tgl,
     					'omzet' => $omzet,
     					'tahun' => $tahun,
-    					'pencatatan_keuangan' => 0,
-    					'laporan_terpisah' => 0,
-    					'neraca' => 0,
-    					'laba_rugi' => 0,
-    					'buku_kas' => 0,
-    					'laporan_keuangan' => 0,
-    					'pameran_kab' => 0,
-    					'pameran_prov' => 0,
-    					'pameran_nasional' => 0,
-    					'pameran_internasional' => 0,
+    					'pencatatan_keuangan' => '0',
+    					'laporan_terpisah' => '0',
+    					'neraca' => '0',
+    					'laba_rugi' => '0',
+    					'buku_kas' => '0',
+    					'laporan_keuangan' => '0',
+    					'pameran_kab' => '0',
+    					'pameran_prov' => '0',
+    					'pameran_nasional' => '0',
+    					'pameran_internasional' => '0',
     					'wilayah_pemasaran' => ' ',
     					'legalitas_usaha' => ' ',
 
@@ -467,9 +519,21 @@ class Ekraf extends CI_Controller {
     		die();
     	}
     }
-     public function downloadFormat(){
-        force_download('assets/format/formatimport.xlsx',null);
+    public function downloadFormat(){
+    	force_download('assets/format/formatimport.xlsx',null);
     }
+
+    public function countEkraf()
+    {
+    	$a=$this->Ekraf_Model->countEkraf();
+    	$b=$a[0]['count(*)'];
+    	echo $b;
+    }
+
+    public function getlocation()
+	{
+		echo json_encode( $this->Ekraf_Model->getlocation());
+	}
 }
 
 /* End of file Ekraf.php */

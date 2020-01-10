@@ -50,6 +50,13 @@ class TeknologiEcommerce extends CI_Controller {
 		echo json_encode($result);
 	}
 
+	public function countTeknologi()
+    {
+    	$a=$this->TeknologiEcommerce_Model->countTeknologi();
+    	$b=$a[0]['count(*)'];
+    	echo $b;
+    }
+
 }
 
 /* End of file TeknologiEcommerce.php */

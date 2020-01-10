@@ -23,15 +23,18 @@ class Login  extends CI_Controller {
 		}else{
 			$session_data=$this->session->userdata('logged_in');
 			if($session_data['role']=='admin'){
-			redirect('Ekraf','refresh');
-		}else if($session_data['role']=='operator'){
+				redirect('Ekraf','refresh');
+			}else if($session_data['role']=='operator'){
 				redirect('Operator/getPage','refresh');
 			}else if ($session_data['role']=='ekraf') {
 				redirect('PemilikEkraf/getPage','refresh');
+			}else if($session_data['role']==NULL){
+				$this->session->set_flashdata('waiting', 'waiting');
+				$this->load->view('login');
 			}else{
 				redirect('Login','refresh');
 			}
-	}
+		}
 }
 
 	public function cekDb($password)
@@ -64,9 +67,7 @@ class Login  extends CI_Controller {
 
 			return true;
 		}else{
-			$this->session->set_flashdata('gglLogin','<div class="alert alert-danger" role="alert">LOGIN GAGAL <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-
-			return false;
+			$this->session->set_flashdata('gagallogin', 'gagallogin');
 		}
 	}
 

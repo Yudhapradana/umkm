@@ -36,6 +36,12 @@ class Subsektor_model extends CI_Model {
         return $result;
 	}
 
+	public function countSubsektor()
+    {
+        $query=$this->db->query("SELECT count(*) from subsektor where id_subsektor!=0");
+        return $query->result_array();
+    }
+
 }
 
 /* End of file Subsektor_model.php */

@@ -266,7 +266,7 @@
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
                             <li class="nav-devider"></li>
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Data Ekraf <span class="label label-rouded label-themecolor pull-right">2</span></span></a>
+                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Data Ekraf </span></a>
                                 <ul aria-expanded="false" class="collapse">
                                     <li><a href="<?php echo base_url().'Operator/getPage'?>">List Ekraf </a></li>
                                     <li><a href="<?php echo base_url().'Operator/formInput'?>">Input Data Ekraf</a></li>
@@ -274,7 +274,7 @@
                                     <li><a href="<?php echo base_url().'Operator/galeri'?>">Galeri Ekraf</a></li>
                                 </ul>
                             </li>
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data User</span></a>
+                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="di mdi-account-box"></i><span class="hide-menu">Data User</span></a>
                                 <ul aria-expanded="false" class="collapse">
                                     <li><a href="<?php echo base_url().'Operator/pemilikEkraf'?>">Pemilik Ekraf</a></li>
                                 </ul>
