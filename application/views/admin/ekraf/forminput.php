@@ -47,6 +47,16 @@
 
                         </div>
                         <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                   <label>Latitude</label>
+                                   <input type="text" step="0.01" name="latitude" id="latitude" class="form-control" placeholder="0.1xxxxx" required>
+                               </div>
+                               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                 <label>Longitude</label>
+                                 <input type="text" step="0.01" name="longitude" id="longitude" class="form-control" placeholder="0.1xxxxx" required>
+                                </div>
+                            </div>
+                        <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="col-4"> 
                                 <label>Pilih Sentra</label>
                                 <select name="sentra" id="sentra" class="form-control" required="">
@@ -91,11 +101,11 @@
                         </div>
                         <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="col-4">
-                               <label>Tahun Memulai Usaha</label>
-                               <input type="text" name="tahun" id="tahun" class="form-control" placeholder="Masukkan Tahun Usaha" required>
+                             <label>Tahun Memulai Usaha</label>
+                             <input type="text" name="tahun" id="tahun" class="form-control" placeholder="Masukkan Tahun Usaha" required>
 
-                           </div>
-                           <div class="col-4">
+                         </div>
+                         <div class="col-4">
                             <label>Ekspor</label>
                             <input type="text" name="ekspor" id="ekspor" class="form-control" placeholder="Masukkan eskpor">
                         </div>
@@ -107,69 +117,69 @@
                     </div>
                     <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="col-6">
-                         <label>Permasalahan</label>
-                         <input type="text" name="permasalahan" id="permasalahan" class="form-control" placeholder="Masukkan permasalahan" required>
+                           <label>Permasalahan</label>
+                           <input type="text" name="permasalahan" id="permasalahan" class="form-control" placeholder="Masukkan permasalahan" required>
+                       </div>
+                       <div class="col-6">
+                         <label>Peluang dan Tantangan</label>
+                         <input type="text" name="peluang" id="peluang" class="form-control" placeholder="Masukkan peluang/tantangan" required>
                      </div>
-                     <div class="col-6">
-                       <label>Peluang dan Tantangan</label>
-                       <input type="text" name="peluang" id="peluang" class="form-control" placeholder="Masukkan peluang/tantangan" required>
-                   </div>
-               </div>
-               <h3><center>Perijinan Ekraf</center></h3>
+                 </div>
+                 <h3><center>Perijinan Ekraf</center></h3>
 
-               <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="col-3">
-                    <label>Perijinan</label>
-                    <input type="text" name="perijinan" id="perijinan" class="form-control" placeholder="Masukkan perijinan" required>
+                 <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-3">
+                        <label>Perijinan</label>
+                        <input type="text" name="perijinan" id="perijinan" class="form-control" placeholder="Masukkan perijinan" required>
+                    </div>
+                    <div class="col-3">
+                        <label>Merk</label>
+                        <input type="text" name="merk" id="merk" class="form-control" placeholder="Masukkan Merk" required>
+                    </div>
+                    <div class="col-3">
+                        <label>No Merk</label>
+                        <input type="text" name="no_merk" id="no_merk" class="form-control" placeholder="Masukkan Nomor" required>
+                    </div>
+                    <div class="col-3">
+                        <label>Tanggal Merk</label>
+                        <input type="date" name="tgl" id="tgl" class="form-control" placeholder="Masukkan Tanggal " required>
+                    </div>
                 </div>
-                <div class="col-3">
-                    <label>Merk</label>
-                    <input type="text" name="merk" id="merk" class="form-control" placeholder="Masukkan Merk" required>
-                </div>
-                <div class="col-3">
-                    <label>No Merk</label>
-                    <input type="text" name="no_merk" id="no_merk" class="form-control" placeholder="Masukkan Nomor" required>
-                </div>
-                <div class="col-3">
-                    <label>Tanggal Merk</label>
-                    <input type="date" name="tgl" id="tgl" class="form-control" placeholder="Masukkan Tanggal " required>
-                </div>
-            </div>
-            <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <label>Legalitas Usaha</label>
-                </div>
-                <div class="form-check col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <label>Legalitas Usaha</label>
+                    </div>
+                    <div class="form-check col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="siup" id="siup" name="legalitas[]">
+                          <label class="form-check-label" for="siup">
+                            SIUP
+                        </label>
+                    </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="siup" id="siup" name="legalitas[]">
-                      <label class="form-check-label" for="siup">
-                        SIUP
+                      <input class="form-check-input" type="checkbox" value="tdp" id="tdp" name="legalitas[]">
+                      <label class="form-check-label" for="tdp">
+                        TDP
                     </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="tdp" id="tdp" name="legalitas[]">
-                  <label class="form-check-label" for="tdp">
-                    TDP
+                  <input class="form-check-input" type="checkbox" value="npwp" id="npwp" name="legalitas[]">
+                  <label class="form-check-label" for="npwp">
+                    NPWP
                 </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="npwp" id="npwp" name="legalitas[]">
-              <label class="form-check-label" for="npwp">
-                NPWP
+              <input class="form-check-input" type="checkbox" value="bpom" id="bpom" name="legalitas[]">
+              <label class="form-check-label" for="bpom">
+                BPOM
             </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="bpom" id="bpom" name="legalitas[]">
-          <label class="form-check-label" for="bpom">
-            BPOM
+          <input class="form-check-input" type="checkbox" value="pirt" id="pirt" name="legalitas[]">
+          <label class="form-check-label" for="pirt">
+            PIRT
         </label>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="pirt" id="pirt" name="legalitas[]">
-      <label class="form-check-label" for="pirt">
-        PIRT
-    </label>
-</div>
 </div>
 </div>
 <h3><center>Pelatihan Laporan Keuangan Ekraf</center></h3>
@@ -324,6 +334,8 @@
 
 </div>
 <div class="modal-footer">
+    <input type="text" id="lat" name="lat" hidden="">
+    <input type="text" id="lng" name="lng" hidden="">
     <button type="submit" id="btn_push" class="btn btn-primary ">Add</button>
     <button type="reset" class="btn btn-secondary " data-dismiss="modal">Clear</button>
 </div>
@@ -382,6 +394,9 @@
 <script src="<?php echo base_url() ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>assets/datatables/datatables.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/sweetalert2@8.js"></script>
+<!-- <script src="http://maps.google.com/maps/api/js"></script> -->
+<script async defer src="https://maps.google.com/maps/api/js?key=AIzaSyBa2TS6o-LT8OJZhR4tAXAQKX4zWL0nNcU"
+  type="text/javascript"></script>
 
 
 <script type="text/javascript">
@@ -390,6 +405,24 @@
                 //Save new Foto
                 $('#forminput').submit(function(e){
                     e.preventDefault();
+                  //   var geocoder= new google.maps.Geocoder();
+                  //   var address = document.getElementById('alamat').value;
+                  //   geocoder.geocode( { 'address': address}, function(results, status) {
+                  //       if (status == google.maps.GeocoderStatus.OK) {
+                  //         map.setCenter(results[0].geometry.location);
+                  //         var marker = new google.maps.Marker({
+                  //             map: map,
+                  //             position: results[0].geometry.location          
+                  //         });
+                  //         var lat = results[0].geometry.location.lat();
+                  //         var lng = results[0].geometry.location.lng();
+                  //     } else {
+                  //         alert('Geocode was not successful for the following reason: ' + status);
+                  //     }
+                  //     alert(lat);
+                  //     document.getElementById("lat").value = lat;      
+                  //     document.getElementById('lng').value= lng;    
+                  // });
                     // if ($('#nama_umkm').get(0).files.length != 0) {
                         $.ajax({
                         url:'<?php echo base_url();?>index.php/Ekraf/newEkraf', //URL submit

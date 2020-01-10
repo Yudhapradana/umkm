@@ -53,6 +53,13 @@ class Sentra extends CI_Controller {
 		echo json_encode($result);
 	}
 
+	public function countSentra()
+    {
+    	$a=$this->Sentra_Model->countSentra();
+    	$b=$a[0]['count(*)'];
+    	echo $b;
+    }
+
 }
 
 /* End of file Sentra.php */

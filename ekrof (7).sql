@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2019 at 04:53 PM
+-- Generation Time: Jan 10, 2020 at 12:59 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -82652,13 +82652,13 @@ CREATE TABLE `ekraf` (
 
 INSERT INTO `ekraf` (`id_ekraf`, `nama`, `alamat`, `id_desa_kelurahan`, `id_sentra`, `id_status_pemilik`, `jumlah_karyawan`, `upah_tenaga_kerja`, `id_sumber_dana`, `distribusi`, `permasalahan`, `ekspor`, `peluang_tantangan`, `perijinan`, `merk`, `no_merk`, `tgl_merk`, `latitude`, `longitude`, `tahun`, `omzet`, `pencatatan_keuangan`, `laporan_terpisah`, `neraca`, `laba_rugi`, `buku_kas`, `laporan_keuangan`, `pameran_kab`, `pameran_prov`, `pameran_nasional`, `pameran_internasional`, `wilayah_pemasaran`, `legalitas_usaha`) VALUES
 (1, 'PT keramik', 'jl. soekarno hatta no 100', '3516012016', 1, 2, 19, 90000, 1, 'Surabaya', 'kurangnya bahan baku', 'Tidak ada', 'pembentukan keramik kreatif', 'legal', 'avian', '112', '2019-10-16', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', ''),
-(2, 'PT. Coklat klasik', 'jl. gayungan', '3578271001', 1, 2, 20, 90000, 2, 'indonesia', 'banyak', 'Ada', 'Tidak ada', 'legal', 'coklat klasik', '112', '2019-10-01', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Lokal;Nasional', ''),
-(3, 'Celengan macan (Robet) -', 'Desa Remdemg Kecamatan Malo RT 6 RW 3 (081853356213)\r\n', '3578081001', 1, 2, 10, 100000, 1, 'jawa timur', 'Tidak ada', 'Tidak ada', 'Tidak ada', 'legal', 'Robet', '123', '2019-10-01', NULL, NULL, 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Lokal;Nasional', 'pirt'),
+(2, 'PT. Coklat klasik', 'jl. gayungan', '3578271001', 1, 2, 20, 90000, 2, 'indonesia', 'banyak', 'Ada', 'Tidak ada', 'legal', 'coklat klasik', '112', '2019-10-01', '-7.45309910', '112.22676840', 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Lokal;Nasional', ''),
+(3, 'Celengan macan (Robet) -', 'Desa Remdemg Kecamatan Malo RT 6 RW 3 (081853356213)\r\n', '3578081001', 1, 2, 10, 100000, 1, 'jawa timur', 'Tidak ada', 'Tidak ada', 'Tidak ada', 'legal', 'Robet', '123', '2019-10-01', '-7.11230940', '111.72043260', 0, 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Lokal;Nasional', 'pirt'),
 (13, 'Ririsaci Studio', 'Jl. Siwalankerto Utara 57 c', '3578221001', 4, 1, 3, 3000000, 1, 'Tidak Ada', 'Tidak ada', 'Tidak ada', 'Tidak ada', 'legal', 'Ririsaci', '1234', '2019-10-21', NULL, NULL, 2016, 0, '1', '0', '0', '1', '1', '1', '0', '1', '1', '0', 'Lokal', 'npwp'),
 (15, 'Video Profil Perusahaan dan Destinasi Wisata', 'Kalitidfu (08123468896)', '3573051004', 3, 1, 4, 2000000, 1, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'Luthfi Basori', '1234', '2019-10-23', NULL, NULL, 2019, 30000000, '0', '0', '0', '1', '0', '', '0', '0', '0', '0', 'Lokal', 'tdp;npwp'),
 (16, 'Rengginang singkong kristin gading - ', 'P4S Gading Dsn, Ngraseh Kec. Dander (08125969054)', '3522062007', 17, 1, 4, 1000000, 1, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'kristin', '1234', '2019-10-08', NULL, NULL, 2019, 2000000, '1', '1', '1', '1', '1', '', '1', '1', '1', '1', 'Lokal', 'tdp'),
-(17, 'Fotografer model dan destinasi wisata (Wahyu Budianto) ', 'Jl. Mliwis Putih, Ngrowo (082234499538)', '3522151012', 4, 2, 6, 1500000, 2, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'Wahyu Budianto', '1234', '2019-11-12', NULL, NULL, 2019, 25000000, '', '', '', '', '', '', '', '', '', '', ' ', ' '),
-(18, 'penerbitan bukunindie (M. Tohir) - ', '082335822891, ds klampok, kapas', '3522142021', 0, 2, 7, 3000000, 2, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'M.Tohir', '1234', '2019-11-12', NULL, NULL, 2019, 50000000, '', '', '', '', '', '', '', '', '', '', ' ', ' '),
+(17, 'Fotografer model dan destinasi wisata (Wahyu Budianto) ', 'Jl. Mliwis Putih, Ngrowo (082234499538)', '3522151012', 4, 2, 6, 1500000, 2, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'Wahyu Budianto', '1234', '2019-11-12', '-7.14980020', '111.89353100', 2019, 25000000, '0', '1', '1', '1', '1', '', '1', '1', '1', '1', 'Lokal', 'npwp'),
+(18, 'penerbitan bukunindie (M. Tohir) - ', '082335822891, ds klampok, kapas', '3522142021', 3, 2, 7, 3000000, 2, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'M.Tohir', '1234', '2019-11-12', NULL, NULL, 2019, 50000000, '1', '1', '1', '1', '1', '', '1', '1', '1', '1', 'Nasional', 'siup'),
 (19, 'Seni Lukis (Handoko) - ', 'Jl. AKBPM (081235479200)', '3573051004', 16, 3, 3, 4000000, 2, 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'Tidak Ada', 'legal', 'Handoko', '1234', '2019-11-20', NULL, NULL, 209, 70000000, '', '', '', '', '', '', '', '', '', '', ' ', ' ');
 
 -- --------------------------------------------------------
@@ -82679,7 +82679,8 @@ CREATE TABLE `ekraf_teknologi` (
 
 INSERT INTO `ekraf_teknologi` (`id_ekraf_teknologi`, `id_ekraf`, `id_teknologi`) VALUES
 (6, 1, 2),
-(7, 2, 3);
+(7, 2, 3),
+(8, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -82699,8 +82700,9 @@ CREATE TABLE `galeri_produk` (
 --
 
 INSERT INTO `galeri_produk` (`id`, `judul`, `url`, `id_ekraf`) VALUES
-(1, 'gambar uwong', 'uploads/2019-10-12-13-57-51.jpg', 1),
-(2, 'coklat', 'uploads/2019-10-17-16-04-19.jpg', 2);
+(1, 'Tas', 'uploads/2019-10-12-13-57-51.jpg', 1),
+(2, 'coklat', 'uploads/2019-10-17-16-04-19.jpg', 2),
+(3, 'Tas Coklat', 'uploads/2019-11-08-06-01-17.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -90570,7 +90572,7 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `role`, `email`, `nama`, 
 (1, 'admin', 'admin', 'admin', 'yudhapradana102@gmail.com', 'Yudha P', '081803876644', NULL, NULL),
 (3, 'yudhaprdn10', '1234', 'operator', 'yudhapradana102@gmail.com', 'Yudha Pradana', '081803876644', 3578, NULL),
 (4, 'yudha', 'yudha', 'ekraf', 'yudha@gmail.com', 'yudha', '08172938933', NULL, 3),
-(5, 'malak', 'malak', 'ekraf', 'malakdiana@gmail.com', 'malak', '08180090902', NULL, NULL);
+(5, 'malak', '123456', NULL, 'malakdiana@gmail.com', 'Malak Diana', '081787674364', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -90681,13 +90683,13 @@ ALTER TABLE `ekraf`
 -- AUTO_INCREMENT for table `ekraf_teknologi`
 --
 ALTER TABLE `ekraf_teknologi`
-  MODIFY `id_ekraf_teknologi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_ekraf_teknologi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `galeri_produk`
 --
 ALTER TABLE `galeri_produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `kab_kota`

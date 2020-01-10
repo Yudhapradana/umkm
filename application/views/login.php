@@ -25,6 +25,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php  echo base_url()?>assets/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="<?php  echo base_url()?>assets/login/css/main.css">
+	<script src="<?php echo base_url() ?>assets/js/sweetalert2@8.js"></script>
+	
 <!--===============================================================================================-->
 </head>
 <body>
@@ -35,7 +37,8 @@
 				<div class="login100-form validate-form flex-sb flex-w" >
 					        <?php echo form_open('Login/cekLogin');?>
        
-         <?=$this->session->flashdata('gglLogin')?>
+         <!-- <?=$this->session->flashdata('gglLogin')?>
+         <?=$this->session->flashdata('waiting')?> -->
 					<span class="login100-form-title p-b-32">
 						Account Login
 					</span>
@@ -110,6 +113,25 @@
 	<script src="<?php  echo base_url()?>assets/login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="<?php  echo base_url()?>assets/login/js/main.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			<?php if($this->session->flashdata('gagallogin')): ?>
+				Swal.fire({
+					type: 'error',
+					title: 'Ada Kesalahan',
+					text: 'Username & Password Tidak Cocok',
+        				})
+			<?php endif; ?>
 
+			<?php if($this->session->flashdata('waiting')): ?>
+				Swal.fire({
+					type: 'warning',
+					title: 'Akun anda belum diaktifkan',
+        				})
+			<?php endif; ?>
+
+			
+		})
+	</script>
 </body>
 </html>

@@ -67,6 +67,7 @@
 
     <script type="text/javascript">
         $(document).ready(function(data){
+            $('.sidebarnav').find('#dash2').find('.dash').removeClass('active');
 
             $('#formchangepass').submit(function(e){
                 e.preventDefault();
@@ -151,6 +152,11 @@
 
                 return false;
             });
+
+            $("#dash2").click(function(){
+                var myUrl = "<?php echo site_url(); ?>Ekraf/";
+                window.location = myUrl;
+            });
         });
 
         var isShow = false;
@@ -164,6 +170,8 @@
                 isShow = true;
             }
         }
+
+        
 
     </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -301,10 +309,10 @@
                         <!-- Sidebar navigation-->
                         <nav class="sidebar-nav">
                             <ul id="sidebarnav">
-                                <li class="nav-devider"></li>
-                                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Data Ekraf <span class="label label-rouded label-themecolor pull-right">2</span></span></a>
+                                <li id="dash2"> <a class="waves-effect waves-dark dash" aria-expanded="false"><i class="mdi mdi-gauge"></i> <span class="hide-menu">Dashboard</span></a></li>
+                                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Data Ekraf </span></a>
                                     <ul aria-expanded="false" class="collapse">
-                                        <li><a href="<?php echo base_url().'Ekraf'?>">List Ekraf </a></li>
+                                        <li><a href="<?php echo base_url().'Ekraf/listEkraf'?>">List Ekraf </a></li>
                                         <li><a href="<?php echo base_url().'Ekraf/formInput'?>">Input Data Ekraf</a></li>
                                         <li><a href="<?php echo base_url().'Ekraf/teknologi'?>">Teknologi Ekraf</a></li>
                                         <li><a href="<?php echo base_url().'Ekraf/galeri'?>">Galeri Ekraf</a></li>
@@ -319,7 +327,7 @@
                                         <li><a href="<?php echo base_url().'TeknologiEcommerce'?>">Teknologi Ecommerce</a></li>
                                     </ul>
                                 </li>
-                                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Data User</span></a>
+                                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Data User</span></a>
                                     <ul aria-expanded="false" class="collapse">
                                         <li><a href="<?php echo base_url().'Operator'?>">Operator</a></li>
                                         <li><a href="<?php echo base_url().'PemilikEkraf'?>">Pemilik Ekraf</a></li>

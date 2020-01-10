@@ -35,6 +35,12 @@ class TeknologiEcommerce_Model extends CI_Model {
         return $result;
 	}
 
+	public function countTeknologi()
+    {
+        $query=$this->db->query("SELECT count(*) from teknologi_ecommerce");
+        return $query->result_array();
+    }
+
 }
 
 /* End of file TeknologiEcommerce_Model.php */

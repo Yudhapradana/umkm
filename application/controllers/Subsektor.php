@@ -50,6 +50,12 @@ class Subsektor extends CI_Controller {
 		echo json_encode($result);
 	}
 
+	public function countSubsektor()
+    {
+    	$a=$this->Subsektor_model->countSubsektor();
+    	$b=$a[0]['count(*)'];
+    	echo $b;
+    }
 }
 
 /* End of file Subsektor.php */

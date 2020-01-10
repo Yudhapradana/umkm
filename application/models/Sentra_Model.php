@@ -43,6 +43,12 @@ class Sentra_Model extends CI_Model {
         return $result;
 	}
 
+	public function countSentra()
+    {
+        $query=$this->db->query("SELECT count(*) from sentra where id_sentra!=0");
+        return $query->result_array();
+    }
+
 }
 
 /* End of file Sentra_Model.php */
