@@ -462,13 +462,18 @@
                   }).done(function(data){
                       var html = '';
                       var i;
+<<<<<<< HEAD
                        if(data != ''){
                         if (data[1].latitude == null) {
+=======
+                      if(data != ''){
+                        if (data[0].latitude == null) {
+>>>>>>> c4ac6d61d9bda1a80f59534893a3e64c5480a323
                           var text = "Tidak ada ekraf di wilayah ini";
                           alert(text);
                         }else{
-                          latt = Number(data[1].latitude);
-                          longg = Number(data[1].longitude);
+                          latt = Number(data[0].latitude);
+                          longg = Number(data[0].longitude);
                           initMap();
                         }
                       }
