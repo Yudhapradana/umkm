@@ -462,8 +462,14 @@
                   }).done(function(data){
                       var html = '';
                       var i;
-                        latt = data[1].latitude;
-                        longg = data[1].longitude;
+                        if (data[1].latitude == null) {
+                          var text = "Tidak ada ekraf di wilayah ini";
+                          alert(text);
+                        }else{
+                          latt = Number(data[1].latitude);
+                          longg = Number(data[1].longitude);
+                          initMap();
+                        }
                         // alert(latt);
                       for(i=0; i<data.length; i++){
                         var ii = i+1;
@@ -759,7 +765,7 @@
                         dataType : 'json',
                         success : function(data){
                           var i;
-                            alert(latt);
+                            // alert(latt);
                             for(i=0; i<data.length; i++){
                                 locations[i] = {lat: Number(data[i].latitude), lng: Number(data[i].longitude)};
                             }
