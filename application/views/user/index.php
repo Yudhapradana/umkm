@@ -462,14 +462,16 @@
                   }).done(function(data){
                       var html = '';
                       var i;
-                        if (data[1].latitude == null) {
+                      if(data != ''){
+                        if (data[0].latitude == null) {
                           var text = "Tidak ada ekraf di wilayah ini";
                           alert(text);
                         }else{
-                          latt = Number(data[1].latitude);
-                          longg = Number(data[1].longitude);
+                          latt = Number(data[0].latitude);
+                          longg = Number(data[0].longitude);
                           initMap();
                         }
+                      }
                         // alert(latt);
                       for(i=0; i<data.length; i++){
                         var ii = i+1;
