@@ -146,8 +146,10 @@ class Operator extends CI_Controller {
 		$wilayah2 = implode(";", $wilayah);
 		$legalitas = $this->input->post('legalitas');
 		$legalitas2 = implode(";", $legalitas);
+		$latitude = $this->input->post('latitude');
+		$longitude = $this->input->post('longitude');
 
-		$this->Ekraf_Model->newEkraf($nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2);
+		$this->Ekraf_Model->newEkraf($nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2,$latitude,$longitude);
 	}
 
 	public function updateEkraf()
@@ -197,8 +199,10 @@ class Operator extends CI_Controller {
 		$wilayah2 = implode(";", $wilayah);
 		$legalitas = $this->input->post('legalitas');
 		$legalitas2 = implode(";", $legalitas);
+		$latitude = $this->input->post('latitude');
+		$longitude = $this->input->post('longitude');
 
-		$this->Ekraf_Model->updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl);
+		$this->Ekraf_Model->updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$latitude,$longitude);
 	}
 
 	public function deleteEkraf()
@@ -481,6 +485,12 @@ class Operator extends CI_Controller {
 
     	echo json_encode($data);
     }
+
+    public function getlocation()
+	{
+		$session=$this->session->userdata('logged_in');
+		echo json_encode( $this->Operator_Model->getlocation($session['id_kab_kota']));
+	}
 }
 
 /* End of file Operator.php */
