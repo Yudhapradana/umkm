@@ -462,6 +462,7 @@
                   }).done(function(data){
                       var html = '';
                       var i;
+                       if(data != ''){
                         if (data[1].latitude == null) {
                           var text = "Tidak ada ekraf di wilayah ini";
                           alert(text);
@@ -470,6 +471,7 @@
                           longg = Number(data[1].longitude);
                           initMap();
                         }
+                      }
                         // alert(latt);
                       for(i=0; i<data.length; i++){
                         var ii = i+1;

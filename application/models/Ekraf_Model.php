@@ -12,7 +12,7 @@ class Ekraf_Model extends CI_Model {
     public function getDataByLoc()
     {
         $kota = $this->input->post('id_kab_kota');
-        $query=$this->db->query("SELECT *, e.nama as ne, d.nama as nd, s.nama as ns, t.nama as nt, u.nama as nu, k.nama as kec, ka.nama as kota, p.nama as pro from ekraf as e inner join desa_kelurahan as d on e.id_desa_kelurahan=d.id_desa_kelurahan inner join kecamatan as k on d.id_kecamatan=k.id_kecamatan inner join kab_kota as ka on k.id_kab_kota=ka.id_kab_kota inner join provinsi as p on ka.id_provinsi=p.id_provinsi inner join  sentra as s on e.id_sentra=s.id_sentra inner join sumber_dana as u on e.id_sumber_dana=u.id_sumber_dana inner join status_pemilik as t on e.id_status_pemilik=t.id_status_pemilik where k.id_kab_kota= $kota order by e.nama ASC");
+        $query=$this->db->query("SELECT *, e.nama as ne, d.nama as nd, s.nama as ns, t.nama as nt, u.nama as nu, k.nama as kec, ka.nama as kota, p.nama as pro from ekraf as e inner join desa_kelurahan as d on e.id_desa_kelurahan=d.id_desa_kelurahan inner join kecamatan as k on d.id_kecamatan=k.id_kecamatan inner join kab_kota as ka on k.id_kab_kota=ka.id_kab_kota inner join provinsi as p on ka.id_provinsi=p.id_provinsi inner join  sentra as s on e.id_sentra=s.id_sentra inner join sumber_dana as u on e.id_sumber_dana=u.id_sumber_dana inner join status_pemilik as t on e.id_status_pemilik=t.id_status_pemilik where k.id_kab_kota= $kota order by e.longitude desc");
         return $query->result();
     }
 
