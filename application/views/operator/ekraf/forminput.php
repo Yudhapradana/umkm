@@ -47,6 +47,16 @@
 
                         </div>
                         <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                   <label>Latitude</label>
+                                   <input type="text" step="0.01" name="latitude" id="latitude" class="form-control" placeholder="0.1xxxxx" required>
+                               </div>
+                               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                 <label>Longitude</label>
+                                 <input type="text" step="0.01" name="longitude" id="longitude" class="form-control" placeholder="0.1xxxxx" required>
+                                </div>
+                            </div>
+                        <div class="form-group row col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="col-4"> 
                                 <label>Pilih Sentra</label>
                                 <select name="sentra" id="sentra" class="form-control" required="">

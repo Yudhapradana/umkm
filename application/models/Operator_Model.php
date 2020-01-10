@@ -72,7 +72,7 @@ class Operator_Model extends CI_Model {
         return $query->result_array();
     }
 
-    public function newEkraf($nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2)
+    public function newEkraf($nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2,$latitude,$longitude)
 	{
 			$data = array(
              'nama'                  =>$nama,
@@ -104,13 +104,15 @@ class Operator_Model extends CI_Model {
                 'pameran_internasional' =>$pameran_internasional,
                 'wilayah_pemasaran'     =>$wilayah2,
                 'legalitas_usaha'       =>$legalitas2,
+                'latitude'              =>$latitude,
+                'longitude'             =>$longitude,
             );
 
         return $this->db->insert('ekraf', $data);
 
 	}
 
-	public function updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2)
+	public function updateEkraf($id,$nama,$alamat,$desa3,$sentra,$status,$jk,$upah,$sumberdana,$distribusi,$permasalahan,$ekspor,$peluang,$perijinan,$merk,$no_merk,$tgl,$tahun,$omzet,$pencatatan_keuangan,$laporan_terpisah,$neraca,$laba_rugi,$buku_kas,$laporan_keuangan,$pameran_kab,$pameran_prov,$pameran_nasional,$pameran_internasional,$wilayah2,$legalitas2,$latitude,$longitude)
 	{
 		
 		$data = array(
@@ -143,6 +145,8 @@ class Operator_Model extends CI_Model {
                 'pameran_internasional' =>$pameran_internasional,
                 'wilayah_pemasaran'     =>$wilayah2,
                 'legalitas_usaha'       =>$legalitas2,
+                'latitude'              =>$latitude,
+                'longitude'             =>$longitude,
             );
         $this->db->where('id_ekraf', $id);
         return $this->db->update('ekraf', $data);
@@ -323,6 +327,12 @@ class Operator_Model extends CI_Model {
         $this->db->where('password', $passold);
         $result = $this->db->update('user', $data);
         return $result;
+    }
+
+    public function getlocation($id)
+    {
+        $query=$this->db->query("SELECT * from ekraf as e inner join desa_kelurahan as d on e.id_desa_kelurahan=d.id_desa_kelurahan inner join kecamatan as k on d.id_kecamatan=k.id_kecamatan inner join kab_kota as ka on k.id_kab_kota=ka.id_kab_kota where latitude is not null and longitude is not null and k.id_kab_kota='$id'");
+        return $query->result();
     }
 }
 /* End of file Operator_Model.php */

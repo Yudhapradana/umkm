@@ -768,7 +768,7 @@
                             var i;
                             for(i=0; i<data.length; i++){
                                 var ii = i+1;
-                                // alert(data[i].pro);
+                                // alert(data[i].latitude);
                                 html += '<tr>'+
                                 '<td>'+ii+'</td>'+
                                 '<td style="position: sticky;left:0px;background-color:white;">'+data[i].ne+'</td>'+
@@ -790,7 +790,7 @@
                                 '<td>'+
                                 '<a href="javascript:void(0);" class="btn btn-primary btn-sm item_detail" data-id="'+data[i].id_ekraf+'" data-nama_ekraf="'+data[i].ne+'" data-alamat="'+data[i].alamat+'" data-nama_desa="'+data[i].nd+'" data-kecamatan="'+data[i].kec+'" data-kota="'+data[i].kota+'" data-provinsi="'+data[i].pro+'" data-sentra="'+data[i].ns+'" data-status="'+data[i].nt+'" data-jk="'+data[i].jumlah_karyawan+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].nu+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-perijinan="'+data[i].perijinan+'" data-merk="'+data[i].merk+'" data-no_merk="'+data[i].no_merk+'" data-tgl="'+data[i].tgl_merk+'" data-tahun="'+data[i].tahun+'" data-omzet="'+data[i].omzet+'" data-pencatatan_keuangan="'+data[i].pencatatan_keuangan+'" data-laporan_terpisah="'+data[i].laporan_terpisah+'" data-neraca="'+data[i].neraca+'" data-laba_rugi="'+data[i].laba_rugi+'" data-buku_kas="'+data[i].buku_kas+'" data-laporan_keuangan="'+data[i].laporan_keuangan+'" data-pameran_kab="'+data[i].pameran_kab+'" data-pameran_prov="'+data[i].pameran_prov+'" data-pameran_nasional="'+data[i].pameran_nasional+'" data-pameran_internasional="'+data[i].pameran_internasional+'" data-wilayah_pemasaran="'+data[i].wilayah_pemasaran+'" data-legalitas_usaha="'+data[i].legalitas_usaha+'"> <span class="fa fa-info-circle"></span> </a>'+
                                 '     '+
-                                '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_ekraf+'" data-nama_ekraf="'+data[i].ne+'" data-alamat="'+data[i].alamat+'" data-nama_desa="'+data[i].nd+'" data-kecamatan="'+data[i].kec+'" data-sentra="'+data[i].id_sentra+'" data-status="'+data[i].id_status_pemilik+'" data-jk="'+data[i].jumlah_karyawan+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].id_sumber_dana+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-perijinan="'+data[i].perijinan+'" data-merk="'+data[i].merk+'" data-no_merk="'+data[i].no_merk+'" data-tgl="'+data[i].tgl_merk+'" data-tahun="'+data[i].tahun+'" data-omzet="'+data[i].omzet+'" data-pencatatan_keuangan="'+data[i].pencatatan_keuangan+'" data-laporan_terpisah="'+data[i].laporan_terpisah+'" data-neraca="'+data[i].neraca+'" data-laba_rugi="'+data[i].laba_rugi+'" data-buku_kas="'+data[i].buku_kas+'" data-laporan_keuangan="'+data[i].laporan_keuangan+'" data-pameran_kab="'+data[i].pameran_kab+'" data-pameran_prov="'+data[i].pameran_prov+'" data-pameran_nasional="'+data[i].pameran_nasional+'" data-pameran_internasional="'+data[i].pameran_internasional+'" data-wilayah_pemasaran="'+data[i].wilayah_pemasaran+'" data-legalitas_usaha="'+data[i].legalitas_usaha+'"> <span class="fa fa-edit"></span> </a>'+
+                                '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id_ekraf+'" data-nama_ekraf="'+data[i].ne+'" data-alamat="'+data[i].alamat+'" data-nama_desa="'+data[i].nd+'" data-kecamatan="'+data[i].kec+'" data-sentra="'+data[i].id_sentra+'" data-status="'+data[i].id_status_pemilik+'" data-jk="'+data[i].jumlah_karyawan+'" data-upah="'+data[i].upah_tenaga_kerja+'" data-sumberdana="'+data[i].id_sumber_dana+'" data-distribusi="'+data[i].distribusi+'" data-permasalahan="'+data[i].permasalahan+'" data-ekspor="'+data[i].ekspor+'" data-peluang="'+data[i].peluang_tantangan+'" data-perijinan="'+data[i].perijinan+'" data-merk="'+data[i].merk+'" data-no_merk="'+data[i].no_merk+'" data-tgl="'+data[i].tgl_merk+'" data-tahun="'+data[i].tahun+'" data-omzet="'+data[i].omzet+'" data-pencatatan_keuangan="'+data[i].pencatatan_keuangan+'" data-laporan_terpisah="'+data[i].laporan_terpisah+'" data-neraca="'+data[i].neraca+'" data-laba_rugi="'+data[i].laba_rugi+'" data-buku_kas="'+data[i].buku_kas+'" data-laporan_keuangan="'+data[i].laporan_keuangan+'" data-pameran_kab="'+data[i].pameran_kab+'" data-pameran_prov="'+data[i].pameran_prov+'" data-pameran_nasional="'+data[i].pameran_nasional+'" data-pameran_internasional="'+data[i].pameran_internasional+'" data-wilayah_pemasaran="'+data[i].wilayah_pemasaran+'" data-legalitas_usaha="'+data[i].legalitas_usaha+'" data-latitude="'+data[i].latitude+'" data-longitude="'+data[i].longitude+'"> <span class="fa fa-edit"></span> </a>'+
 
                                 '     '+
                                 '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id_ekraf+'" data-nama="'+data[i].ne+'"> <span class="fa fa-trash"></span> </a>'+
@@ -854,6 +854,9 @@
                     // alert(pameran_internasional);
                     var legalitas_usaha          = $(this).data('legalitas_usaha');
                     var legalitas_usaha2 = legalitas_usaha.split(";");
+                    var latitude          = $(this).data('latitude');
+                    var longitude          = $(this).data('longitude');
+
                     // memasukkan data ke form updatean
                     $('[name="id"]').val(id);
                     $('[name="nama"]').val(ne);
@@ -884,6 +887,8 @@
                     $('[name="pameran_prov"]').val(pameran_prov);
                     $('[name="pameran_nasional"]').val(pameran_nasional);
                     $('[name="pameran_internasional"]').val(pameran_internasional);
+                    $('[name="latitude"]').val(latitude);
+                    $('[name="longitude"]').val(longitude);
                     
                     // for (var i = wilayah_pemasaran2.length - 1; i >= 0; i--) {
                     //     if (wilayah_pemasaran2[i] == $('[name="wilayah[i]"]').val(wilayah_pemasaran2[i])) {
